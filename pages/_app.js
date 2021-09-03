@@ -1,5 +1,6 @@
-import '../styles/global.sass'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../styles/global.sass'
+
 
 import {useEffect} from 'react'
 
