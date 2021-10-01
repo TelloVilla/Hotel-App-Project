@@ -1,13 +1,24 @@
 [
-    {
-        "id": 0,
-        "username": "john doe",
-        "password": "password"
-    },
-    {
-        "id": 1,
-        "username": "jane doe",
-        "password": "password"
-    }
-    
+  {
+    "id": 0,
+    "username": "john doe",
+    "password": "password"
+  },
+  {
+    "id": 1,
+    "username": "jane doe",
+    "password": "password"
+  },
+  {
+    "id": 270356,
+    "username": "jim",
+    "hash": "$2a$10$Dpvfoosxq6t5yf1Vvp29veONWqi7oU8sbQkLqrtSNe7lgu2tRBheS",
+    "admin": true
+  },
+  {
+    "id": 343074,
+    "username": "bob",
+    "hash": "$2a$10$ejLaJqd.eUsMZWTLNGEayeVMNoyMfao.UDaWPJ01ow4ZM53A2rR/q",
+    "admin": false
+  }
 ]

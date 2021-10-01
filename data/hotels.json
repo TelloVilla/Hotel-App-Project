@@ -1,0 +1,137 @@
+[
+    {
+        "name": "The Magnolia All Suites",
+        "rooms-avaiable": 20,
+        "amenities": {
+            "pool": true,
+            "spa": true,
+            "gym": true,
+            "business_office": true
+        },
+        "price": {
+            "standard": 100,
+            "queen": 150,
+            "king": 250
+        },
+        "surcharge": 1.25
+    },
+    {
+        "name": "The Lofts at Town Centre",
+        "rooms-avaiable": 60,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": true,
+            "business_office": true
+        },
+        "price": {
+            "standard": 105,
+            "queen": 120,
+            "king": 190
+        },
+        "surcharge": 1.35
+
+    },
+    {
+        "name": "Park North Hotel",
+        "rooms-avaiable": 100,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": true,
+            "business_office": false
+        },
+        "price": {
+            "standard": 50,
+            "queen": 75,
+            "king": 90
+        },
+        "surcharge": 1.15
+
+    },
+    {
+        "name": "Town Inn Budget Rooms",
+        "rooms-avaiable": 150,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": false,
+            "business_office": false
+        },
+        "price": {
+            "standard": 25,
+            "queen": 50,
+            "king": 60
+        },
+        "surcharge": 1.15
+
+    },
+    {
+        "name": "The Comfy Motel Place",
+        "rooms-avaiable": 60,
+        "amenities": {
+            "pool": false,
+            "spa": false,
+            "gym": false,
+            "business_office": false
+        },
+        "price": {
+            "standard": 30,
+            "queen": 50,
+            "king": false
+        },
+        "surcharge": 1.10
+
+    },
+    {
+        "name": "Sun Palace Inn",
+        "rooms-avaiable": 50,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": true,
+            "business_office": false
+        },
+        "price": {
+            "standard": 40,
+            "queen": 60,
+            "king": 80
+        },
+        "surcharge": 1.25
+
+    },
+    {
+        "name": "HomeAway Inn",
+        "rooms-avaiable": 30,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": false,
+            "business_office": true
+        },
+        "price": {
+            "standard": 50,
+            "queen": false,
+            "king": false
+        },
+        "surcharge": 1.25
+
+    },
+    {
+        "name": "Rio Inn",
+        "rooms-avaiable": 50,
+        "amenities": {
+            "pool": true,
+            "spa": false,
+            "gym": false,
+            "business_office": false
+        },
+        "price": {
+            "standard": 25,
+            "queen": 55,
+            "king": 89
+        },
+        "surcharge": 1.20
+
+    }
+]
