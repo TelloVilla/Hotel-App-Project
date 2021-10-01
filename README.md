@@ -9,6 +9,11 @@ yarn install
 npm install
 ``` 
 
+Setup a .env file and add a APPLICATION_SECRET variable with a 32 length string
+```bash
+APPLICATION_SECRET=your32lengthrandomstring
+```
+
 First, run the development server:
 
 ```bash
