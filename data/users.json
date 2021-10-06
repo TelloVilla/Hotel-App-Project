@@ -1,10 +1,5 @@
 [
   {
-    "id": 0,
-    "username": "john doe",
-    "password": "password"
-  },
-  {
     "id": 1,
     "username": "jane doe",
     "password": "password"
@@ -13,7 +8,13 @@
     "id": 270356,
     "username": "jim",
     "hash": "$2a$10$Dpvfoosxq6t5yf1Vvp29veONWqi7oU8sbQkLqrtSNe7lgu2tRBheS",
-    "admin": true
+    "admin": true,
+    "hotels": [],
+    "reservations": [
+      "3643m",
+      "1272m",
+      "616m"
+    ]
   },
   {
     "id": 343074,
