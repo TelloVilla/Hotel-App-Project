@@ -1,6 +1,6 @@
-import {userDB} from '../../util/user_db'
+import {UserDB} from '../../util/user_db'
 
 
 export default function handler(req, res){
-    res.status(200).json(userDB.getAll())
+    res.status(200).json(UserDB.getAll())
 }
