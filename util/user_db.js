@@ -17,7 +17,11 @@ function printAll(){
 }
 
 function createUser(username, hash, admin){
-    let id = Math.floor(Math.random() * 500000) 
+    let duplicate = users.find(u => u.username === username);
+    if(duplicate){
+        return false
+    }
+    let id = Math.floor(Math.random() * 500000) + username.substring(0,2)
     let newUser = {
         id: id,
         username: username,
@@ -27,6 +31,7 @@ function createUser(username, hash, admin){
     }
     users.push(newUser);
     saveData();
+    return true
 }
 
 function deleteUser(username){
@@ -43,6 +48,9 @@ function deleteUser(username){
 
 function getUserReservations(username){
     let found = users.find(u => u.username === username);
+    if(!found){
+        return false
+    }
     return found.reservations
 }
 
