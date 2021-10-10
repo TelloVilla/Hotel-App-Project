@@ -1,7 +1,7 @@
 [
     {
         "name": "The Magnolia All Suites",
-        "rooms-avaiable": 20,
+        "rooms": 20,
         "amenities": {
             "pool": true,
             "spa": true,
@@ -17,7 +17,7 @@
     },
     {
         "name": "The Lofts at Town Centre",
-        "rooms-avaiable": 60,
+        "rooms": 60,
         "amenities": {
             "pool": true,
             "spa": false,
@@ -34,7 +34,7 @@
     },
     {
         "name": "Park North Hotel",
-        "rooms-avaiable": 100,
+        "rooms": 100,
         "amenities": {
             "pool": true,
             "spa": false,
@@ -51,7 +51,7 @@
     },
     {
         "name": "Town Inn Budget Rooms",
-        "rooms-avaiable": 150,
+        "rooms": 150,
         "amenities": {
             "pool": true,
             "spa": false,
@@ -68,7 +68,7 @@
     },
     {
         "name": "The Comfy Motel Place",
-        "rooms-avaiable": 60,
+        "rooms": 60,
         "amenities": {
             "pool": false,
             "spa": false,
@@ -85,7 +85,7 @@
     },
     {
         "name": "Sun Palace Inn",
-        "rooms-avaiable": 50,
+        "rooms": 50,
         "amenities": {
             "pool": true,
             "spa": false,
@@ -102,7 +102,7 @@
     },
     {
         "name": "HomeAway Inn",
-        "rooms-avaiable": 30,
+        "rooms": 30,
         "amenities": {
             "pool": true,
             "spa": false,
@@ -119,7 +119,7 @@
     },
     {
         "name": "Rio Inn",
-        "rooms-avaiable": 50,
+        "rooms": 50,
         "amenities": {
             "pool": true,
             "spa": false,

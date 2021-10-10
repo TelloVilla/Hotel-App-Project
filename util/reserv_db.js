@@ -6,6 +6,7 @@ export const ReservDB = {
     createReservation,
     deleteReservation,
     getReservationInfo,
+    updateReservation,
     saveData
 }
 
@@ -40,6 +41,22 @@ function deleteReservation(reservID){
     }
     let index = reservs.indexOf(found);
     reservs.splice(index, 1);
+    saveData();
+    return true
+
+}
+
+function updateReservation(reservID, guest, hotel, roomType, start, end, surcharge){
+    let found = reservs.find(r => r.reservID === reservID)
+    if(!found){
+        return false
+    }
+    found.guest = guest;
+    found.hotel = hotel;
+    found.roomType = roomType;
+    found.start = start;
+    found.end = end;
+    found.surcharge = surcharge;
     saveData();
     return true
 
