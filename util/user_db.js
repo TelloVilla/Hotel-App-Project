@@ -9,6 +9,7 @@ export const UserDB = {
     deleteUser,
     addReservationToUser,
     updateUser,
+    deleteUserReservation,
     getUserReservations
 }
 
@@ -52,6 +53,19 @@ function getUserReservations(username){
         return false
     }
     return found.reservations
+}
+
+function deleteUserReservation(reservID){
+    let found = users.find(u => u.reservations.includes(reservID))
+    if(!found){
+        return false
+    }
+    let index = found.reservations.indexOf(reservID)
+    found.reservations.splice(index,1)
+    saveData();
+    return true
+
+    
 }
 
 function updateUser(username, hash, admin){

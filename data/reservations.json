@@ -9,15 +9,6 @@
     "surcharge": true
   },
   {
-    "id": "1272m",
-    "guest": "jim",
-    "hotel": "Hotel Inn",
-    "roomType": "standard",
-    "start": "12-5-23",
-    "end": "12-7-23",
-    "surcharge": true
-  },
-  {
     "id": "616m",
     "guest": "jim",
     "hotel": "Hotel Inn",
