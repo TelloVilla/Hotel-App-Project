@@ -6,7 +6,7 @@
       "pool": true,
       "spa": true,
       "gym": true,
-      "business_office": false
+      "business_office": true
     },
     "price": {
       "standard": 100,
