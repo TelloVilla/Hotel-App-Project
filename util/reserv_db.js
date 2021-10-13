@@ -3,6 +3,7 @@ let reservs = require("../data/reservations.json")
 
 export const ReservDB = {
     getAll: () => reservs,
+    find: x => reservs.find(x),
     createReservation,
     deleteReservation,
     getReservationInfo,

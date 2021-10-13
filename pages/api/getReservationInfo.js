@@ -9,7 +9,7 @@ export default function handler(req, res){
     let success = ReservDB.getReservationInfo(reservID);
 
     if(!success){
-        res.status(400)
+        res.status(400).json({error: "Reservation not found"})
     }
 
     res.status(200).json(success)

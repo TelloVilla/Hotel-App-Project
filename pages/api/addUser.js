@@ -6,7 +6,7 @@ export default function handler(req, res){
 
     let success = UserDB.createUser(username, bcrypt.hashSync(hash), admin)
     if(!success){
-        res.status(400)
+        res.status(400).json({error: "Invalid User"})
     }
     res.status(200)
 

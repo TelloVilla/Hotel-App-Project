@@ -3,6 +3,7 @@ let hotels = require("../data/hotels.json")
 
 export const HotelDB = {
     getAll: () => hotels,
+    find: x => hotels.find(x),
     getHotelInfo,
     updateHotelAmenities,
     updateHotelPrices,

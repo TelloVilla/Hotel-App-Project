@@ -11,7 +11,7 @@ export default function handler(req, res){
     let success = UserDB.getUserReservations(username);
 
     if(!success){
-        res.status(400)
+        res.status(400).json({error: "User not found"})
     }
 
     let reservations = success.map(ReservDB.getReservationInfo)
