@@ -1,10 +1,10 @@
 import { ReservDB } from "../../util/reserv_db"
 export default function handler(req, res){
 
-    let {reservID} = req.body;
+    //let {reservID} = req.body;
 
     //test data
-    //let reservID = "1272m";
+    let reservID = "616m";
 
     let success = ReservDB.getReservationInfo(reservID);
 
