@@ -16,5 +16,14 @@
     "start": "12-5-23",
     "end": "12-7-23",
     "surcharge": true
+  },
+  {
+    "id": "4514jim",
+    "guest": "jim",
+    "hotel": "The Magnolia All Suites",
+    "roomType": "standard",
+    "start": "12-5-23",
+    "end": "12-7-23",
+    "surcharge": true
   }
 ]

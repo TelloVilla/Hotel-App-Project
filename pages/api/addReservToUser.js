@@ -17,14 +17,14 @@ export default function handler(req, res) {
     let foundUser = UserDB.find(u => u.username === guest);
 
     if (foundUser) {
-        let foundHotel = HotelDB.find(h => h.name === hotel)
-        if(foundHotel){
-            foundHotel.vacancy--;
+        let updateHotel = HotelDB.updateVacancy(hotel, "-")
+        if(updateHotel){
             
             let id = ReservDB.createReservation(hotel, guest, roomType, start, end, surcharge);
             let success = UserDB.addReservationToUser(guest, id);
             res.status(200).json({success: success})
         }
+        res.status(400).json({error: "Hotel not found"})
         
     }
     res.status(400).json({error: "User not found"})

@@ -5,16 +5,14 @@ export default function handler(req, res){
 
     //let {reservID} = req.body;
 
-    let reservID = "2628jim";
+    let reservID = "2296jim";
 
     let found = ReservDB.find(x => x.id === reservID)
 
     if(!found){
         res.status(400).json({error: "Reservation not found"})
     }
-    let foundHotel = HotelDB.find(h => h.name === found.hotel)
-
-    //foundHotel.vacancy++;
+    let updateHotel = HotelDB.updateVacancy(found.hotel, "+");
 
     let success = ReservDB.deleteReservation(reservID)
 

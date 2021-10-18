@@ -7,9 +7,24 @@ export const HotelDB = {
     getHotelInfo,
     updateHotelAmenities,
     updateHotelPrices,
+    updateVacancy,
     addHotel,
     deleteHotel,
     saveData
+}
+
+function updateVacancy(name, action){
+    let found = hotels.find(h => h.name === name);
+    if(!found){
+        return false
+    }
+    if(action === "+"){
+        found.vacancy++;
+    }else if(action === "-"){
+        found.vacancy--;
+    }
+    saveData();
+    return true
 }
 
 function getHotelInfo(name){
