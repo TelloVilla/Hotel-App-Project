@@ -4,20 +4,7 @@ const bcrypt = require("bcryptjs");
 
 export default function Home() {
   const onLogin = async (e) => {
-    e.preventDefault();
-
-    const username = "jim";
-    const password = "password";
-
-    const response = await fetch("api/login", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({username, password})
-    });
-
-    if (response.ok){
-      return router.push("/testPage")
-    }
+    router.push("/loginForm")
 
   }
 

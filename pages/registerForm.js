@@ -23,7 +23,7 @@ export default function regForm() {
     })
 
     if(res.ok) {
-      return router.push('/dashboard')
+      return router.push('/home')
     }
     else {
       return router.push('/something')

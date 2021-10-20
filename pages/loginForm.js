@@ -14,7 +14,6 @@ export default function loginForm() {
     }
     const submitForm = async event => {
       event.preventDefault()
-
       const res = await fetch("/api/login", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -22,7 +21,7 @@ export default function loginForm() {
     })
 
     if(res.ok) {
-      return router.push('/dashboard')
+      return router.push('/home')
     }
     else {
       return router.push('/something')
