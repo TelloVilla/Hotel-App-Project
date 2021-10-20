@@ -11,7 +11,15 @@ export default function regForm() {
     const router = useRouter()
     const data = {
       username,
-      password
+      password,
+      admin: {
+        "status": false,
+        "hotels": []
+      }
+    }
+    
+    if(password === "admin") {
+      
     }
     const submitForm = async event => {
       event.preventDefault()
@@ -20,7 +28,10 @@ export default function regForm() {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
+        
     })
+
+    
 
     if(res.ok) {
       return router.push('/home')
