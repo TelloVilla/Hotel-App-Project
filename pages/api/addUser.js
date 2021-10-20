@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs')
 
 export default function handler(req, res){
     let {username, hash, admin} = req.body;
-
+    console.log(req.body)
     let success = UserDB.createUser(username, bcrypt.hashSync(hash), admin)
     if(!success){
         res.status(400)
