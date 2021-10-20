@@ -4,7 +4,9 @@ let hotels = require("../data/hotels.json")
 export const HotelDB = {
     getAll: () => hotels,
     find: x => hotels.find(x),
-    getHotelInfo,
+    findHotelByName,
+    findHotelByAmenitites,
+    findHotelByPrice,
     updateHotelAmenities,
     updateHotelPrices,
     updateVacancy,
@@ -27,12 +29,31 @@ function updateVacancy(name, action){
     return true
 }
 
-function getHotelInfo(name){
-    let found = hotels.find(h => h.name == name);
+
+function findHotelByName(name){
+    let found = hotels.find(h => h.name === name)
     if(!found){
-        return false;
+        return false
     }
     return found
+}
+
+function findHotelByAmenitites(amenities){
+    let found = hotels.find(h => h.amenities === amenities)
+    if(!found){
+        return false
+    }
+    return found
+}
+
+function findHotelByPrice(price){
+    const priceRange = (r) => r <= price;
+    let found = hotels.find(h => h.price.some(priceRange));
+    if(!found){
+        return false
+    }
+    return found
+
 }
 
 function addHotel(name, rooms, amenities, price, surcharge){

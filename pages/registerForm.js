@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
-import styles from "../styles/registerpage.module.css"
+//import styles from "../styles/registerpage.module.css"
 
 export default function regForm() {
 

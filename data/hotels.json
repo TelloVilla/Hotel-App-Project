@@ -7,7 +7,7 @@
       "pool": true,
       "spa": true,
       "gym": true,
-      "business_office": true
+      "office": true
     },
     "price": {
       "standard": 100,
@@ -24,7 +24,7 @@
       "pool": true,
       "spa": false,
       "gym": true,
-      "business_office": true
+      "office": true
     },
     "price": {
       "standard": 105,
@@ -41,7 +41,7 @@
       "pool": true,
       "spa": false,
       "gym": true,
-      "business_office": false
+      "office": false
     },
     "price": {
       "standard": 50,
@@ -58,7 +58,7 @@
       "pool": true,
       "spa": false,
       "gym": false,
-      "business_office": false
+      "office": false
     },
     "price": {
       "standard": 25,
@@ -75,7 +75,7 @@
       "pool": false,
       "spa": false,
       "gym": false,
-      "business_office": false
+      "office": false
     },
     "price": {
       "standard": 30,
@@ -92,7 +92,7 @@
       "pool": true,
       "spa": false,
       "gym": true,
-      "business_office": false
+      "office": false
     },
     "price": {
       "standard": 40,
@@ -109,7 +109,7 @@
       "pool": true,
       "spa": false,
       "gym": false,
-      "business_office": true
+      "office": true
     },
     "price": {
       "standard": 50,
@@ -126,7 +126,7 @@
       "pool": true,
       "spa": false,
       "gym": false,
-      "business_office": false
+      "office": false
     },
     "price": {
       "standard": 25,
