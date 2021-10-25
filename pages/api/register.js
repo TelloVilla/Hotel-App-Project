@@ -9,6 +9,4 @@ export default function handler(req, res){
         res.status(400).json({error: "Invalid User"})
     }
     res.status(200).send("Logged out")
-
-
 }

@@ -1,6 +1,7 @@
 import Reservation from "../components/reservation";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
+import { Alert } from "react-bootstrap";
 
 const reservations = ({user}) =>{
     const [reservs, setReservs] = useState(null);
@@ -12,7 +13,11 @@ const reservations = ({user}) =>{
             body: JSON.stringify({username})
         });
         const data = await res.json()
-        setReservs(data.map((r) => <Reservation reserv={r}></Reservation>))
+        if(res.ok){
+          setReservs(data.map((r) => <Reservation reserv={r}></Reservation>))
+        }else{
+          setReservs("none")
+        }
     }
     useEffect(() => {        
         fetchData();
@@ -25,6 +30,16 @@ const reservations = ({user}) =>{
                 Loading...
             </div>
         )
+    }
+
+    if(reservs === "none"){
+      return(
+        <div>
+          <Alert variant="warning">
+            No current Reservations
+          </Alert>
+        </div>
+      )
     }
     
     return(
