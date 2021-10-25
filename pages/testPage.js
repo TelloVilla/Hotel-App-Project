@@ -23,7 +23,7 @@ export const getServerSideProps = withIronSession(
     if(!user){
       return {
         redirect:{
-          destination: '/',
+          destination: '/loginForm',
           permanent: false
         },
       }

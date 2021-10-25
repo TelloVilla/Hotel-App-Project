@@ -1,8 +1,9 @@
 import router, { Router } from 'next/router'
 import Header from '../components/header'
+import { withIronSession } from 'next-iron-session';
 const bcrypt = require("bcryptjs");
 
-export default function Home() {
+const Home = ({user}) => {
   const onLogin = async (e) => {
     e.preventDefault();
 
@@ -37,3 +38,29 @@ export default function Home() {
     </div>
   )
 }
+export const getServerSideProps = withIronSession(
+  async ({req, res}) => {
+    const user = req.session.get("user");
+    
+    if(!user){
+      return {
+        redirect:{
+          destination: '/loginForm',
+          permanent: false
+        },
+      }
+
+    }
+    return {
+      props: {user}
+    };
+  },
+  {
+    cookieName: "hotel-cookie",
+    cookieOptions: {
+      secure: process.env.NODE_ENV === "production" ? true : false
+    },
+    password: process.env.APPLICATION_SECRET
+  }
+)
+export default Home;

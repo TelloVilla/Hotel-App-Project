@@ -22,7 +22,7 @@ export default function loginForm() {
     })
 
     if(res.ok) {
-      return router.push('/dashboard')
+      return router.push('/')
     }
     else {
       return router.push('/something')

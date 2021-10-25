@@ -4,16 +4,14 @@ import { useEffect, useState } from "react";
 
 const hotelsPage = ({user}) =>{
     const [hotels, setHotels] = useState(null);
-    const hotelList = null;
-    useEffect(() => {
-        let data = null;
-        const fetchData = async () =>{
-            const res = await fetch("/api/getAllHotels");
-            data = await res.json()
-            setHotels(data.map((h) => <Hotel hotel={h}></Hotel>))
-        }
+    const fetchData = async () =>{
+      const res = await fetch("/api/getAllHotels");
+      const data = await res.json()
+      setHotels(data.map((h) => <Hotel hotel={h}></Hotel>))
+  }
+    useEffect(() => {        
         fetchData();
-    })
+    },[])
     
     
     
@@ -41,7 +39,7 @@ export const getServerSideProps = withIronSession(
       if(!user){
         return {
           redirect:{
-            destination: '/',
+            destination: '/LoginForm',
             permanent: false
           },
         }
