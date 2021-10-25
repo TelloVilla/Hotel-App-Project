@@ -1,8 +1,8 @@
 import { Card, ListGroup, ListGroupItem, Dropdown, Accordion, Button } from "react-bootstrap"
 export default function Reservation(props){
     return(
-        <Card border="dark">
-            <Card.Img variant="top" alt="Hotel Here" />
+        <Card bg="dark" text="white">
+            <Card.Img variant="top" alt="Reserv Here" />
             <Card.Body>
                 <Card.Header>Reservation ID: {props.reserv.id}</Card.Header>
                 <Card.Header>Hotel: {props.reserv.hotel}</Card.Header>
