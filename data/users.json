@@ -12,5 +12,25 @@
       "616m",
       "4514jim"
     ]
+  },
+  {
+    "id": "238396bo",
+    "username": "bob",
+    "hash": "$2a$10$pQsXNw5UW89dDyEG4HW6nuE29bpraXz.LDvuZGNvqwpq9Wx56vZCe",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "436720fr",
+    "username": "frank",
+    "hash": "$2a$10$ZKbju/a5ah6TCB2mvT6K5e09RENw2KzK62t9NDh111YNbesek52qG",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
   }
 ]

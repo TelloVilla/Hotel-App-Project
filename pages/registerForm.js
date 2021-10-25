@@ -11,7 +11,11 @@ export default function regForm() {
     const router = useRouter()
     const data = {
       username,
-      password
+      password,
+      admin: {
+        status: false,
+        hotels: []
+      }
     }
     const submitForm = async event => {
       event.preventDefault()
