@@ -18,7 +18,6 @@ const user = ({user}) => {
                         It had taken years to perfect and he could now do it without even putting any thought behind it.
                         Nobody seemed to fully understand the beauty of this accomplishment except for the new worker who watched in amazement.
                     </p>
-
                 </div>
             </div>
             <hr></hr>
