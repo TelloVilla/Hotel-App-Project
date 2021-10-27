@@ -32,5 +32,15 @@
       "hotels": []
     },
     "reservations": []
+  },
+  {
+    "id": "287444jo",
+    "username": "jose",
+    "hash": "$2a$10$gp3ls8vLfKISHybVaDWt2.PQ57tgsWILbASqaEX6Y5WB3kbdNeEp.",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
   }
 ]

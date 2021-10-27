@@ -21,8 +21,8 @@ export default function loginForm() {
         body: JSON.stringify(data)
     })
 
-    if(res.ok) {
-      return router.push('/')
+    if(res.ok) { //should have a check to see if login is customer or admin
+      return router.push('/user')
     }
     else {
       return router.push('/something')
