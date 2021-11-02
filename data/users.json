@@ -5,7 +5,7 @@
     "hash": "$2a$10$Dpvfoosxq6t5yf1Vvp29veONWqi7oU8sbQkLqrtSNe7lgu2tRBheS",
     "admin": {
       "status": true,
-      "hotels": []
+      "hotels": ["The Magnolia All Suites", "The Lofts at Town Centre"]
     },
     "reservations": [
       "3643m",
