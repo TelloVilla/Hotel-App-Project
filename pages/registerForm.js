@@ -8,7 +8,7 @@ export default function regForm() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const router = useRouter()
+    const router = useRouter();
     const data = {
       username,
       password,
@@ -26,8 +26,13 @@ export default function regForm() {
         body: JSON.stringify(data)
     })
 
-    
+    if(res.ok) {
+      return router.push('/dashboard')
     }
+    else {
+      return router.push('/something')
+    }
+  }
 
   return (
     // <form onSubmit={submitForm}>
