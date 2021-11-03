@@ -14,6 +14,7 @@ export default function loginForm() {
     }
     const submitForm = async event => {
       event.preventDefault()
+
       const res = await fetch("/api/login", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -21,7 +22,7 @@ export default function loginForm() {
     })
 
     if(res.ok) {
-      return router.push('/home')
+      return router.push('/')
     }
     else {
       return router.push('/something')
@@ -56,7 +57,7 @@ export default function loginForm() {
   <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
   </Form.Group>
-  <Button variant="primary" type="submit" id="submitButton" >
+  <Button variant="primary" type="submit" id="submitButton" onClick={submitForm}>
     Log in
   </Button>
   <Form.Group>

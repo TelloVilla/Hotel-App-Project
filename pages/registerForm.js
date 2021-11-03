@@ -2,25 +2,28 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
-import styles from "../styles/registerpage.module.css"
+//import styles from "../styles/registerpage.module.css"
 
 export default function regForm() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [isAdmin, setIsAdmin] = useState(false)
     const router = useRouter()
+
     const data = {
       username,
       password,
       admin: {
-        "status": false,
-        "hotels": []
+        status: isAdmin,
+        hotels: []
       }
     }
-    
-    if(password === "admin") {
-      
+
+    const handleChange = () => {
+      setIsAdmin(!isAdmin)
     }
+
     const submitForm = async event => {
       event.preventDefault()
 
@@ -28,13 +31,13 @@ export default function regForm() {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
-        
     })
 
-    
-
-    if(res.ok) {
-      return router.push('/home')
+    if(res.ok && isAdmin) {
+      return router.push('/manageHotel')
+    }
+    else if(res.ok && !isAdmin) {
+      return router.push('/hotelsPage')
     }
     else {
       return router.push('/something')
@@ -79,6 +82,11 @@ export default function regForm() {
       Log in
     </Nav.Link>
   </Link>
+  </Form.Group>
+  <Form.Group>
+    <div>
+      <input type="checkbox" value="Admin" adm={isAdmin} onChange={handleChange}></input>  Admin
+    </div>
   </Form.Group>
 </Form>
 </div>

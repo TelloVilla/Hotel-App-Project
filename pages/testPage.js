@@ -7,7 +7,7 @@ const testPage = ({user}) => {
     <div className="container">
       <Header/>
       <h4>Hello {user.username}</h4>
-      {user.admin &&
+      {user.admin.status &&
         <h3>You are an admin</h3>
       }
       This is a test page
@@ -23,7 +23,7 @@ export const getServerSideProps = withIronSession(
     if(!user){
       return {
         redirect:{
-          destination: '/',
+          destination: '/loginForm',
           permanent: false
         },
       }
