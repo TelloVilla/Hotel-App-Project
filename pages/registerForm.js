@@ -13,7 +13,7 @@ export default function regForm() {
       username,
       password,
       admin: {
-        status: false,
+        status: true,
         hotels: []
       }
     }
@@ -26,12 +26,7 @@ export default function regForm() {
         body: JSON.stringify(data)
     })
 
-    if(res.ok) {
-      return router.push('/dashboard')
-    }
-    else {
-      return router.push('/something')
-    }
+    
     }
 
   return (
