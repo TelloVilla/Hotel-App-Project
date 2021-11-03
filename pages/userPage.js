@@ -11,6 +11,7 @@ const user = ({ user }) => {
         <title>User Account</title>
       </head>
       <Header></Header>
+      <br></br>
       <User></User>
     </>
   );

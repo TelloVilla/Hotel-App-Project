@@ -1,4 +1,4 @@
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Image } from 'react-bootstrap'
 import Link from 'next/link'
 
 export default function User(props) {
@@ -7,12 +7,13 @@ export default function User(props) {
       <Container className="heading-container">
         <Row>
           <Col>
-            <img href="" className="user-image" alt="User Image Here"></img>
+            <Image src="https://via.placeholder.com/225" className="user-image" alt="User Image Here" roundedCircle></Image>
           </Col>
           <Col>
-            <h1 className="user-welcome">Welcome, Placeholder!</h1>
+            <h1 className="user-welcome">Welcome, Blah!</h1>
           </Col>
         </Row>
+        <br></br>
         <Row>
           <Col>
             <h3>About Me</h3>
