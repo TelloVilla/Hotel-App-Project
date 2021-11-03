@@ -2,7 +2,7 @@ import { Card, ListGroup, ListGroupItem, Dropdown, Accordion, Button } from "rea
 export default function Hotel(props){
     return(
         <Card border="dark">
-            <Card.Img variant="top" alt="Hotel Here" />
+            <Card.Img variant="top" src="/hotel.svg" alt="Hotel Here" />
             <Card.Body>
                 <Card.Header>{props.hotel.name}</Card.Header>
             </Card.Body>
@@ -27,10 +27,10 @@ export default function Hotel(props){
                     <Accordion.Header>Prices</Accordion.Header>
                     <Accordion.Body>
                         <ListGroup className="list-group-flush">
-                            {props.hotel.price.standard && <ListGroupItem>Standard: {props.hotel.price.standard}
+                            {props.hotel.price.standard && <ListGroupItem>Standard: ${props.hotel.price.standard}
                             </ListGroupItem>}
-                            {props.hotel.price.queen && <ListGroupItem>Queen: {props.hotel.price.queen}</ListGroupItem>}
-                            {props.hotel.price.king && <ListGroupItem>King: {props.hotel.price.king}</ListGroupItem>}
+                            {props.hotel.price.queen && <ListGroupItem>Queen: ${props.hotel.price.queen}</ListGroupItem>}
+                            {props.hotel.price.king && <ListGroupItem>King: ${props.hotel.price.king}</ListGroupItem>}
                         </ListGroup>
                     </Accordion.Body>
                 </Accordion.Item>

@@ -10,7 +10,8 @@ export const UserDB = {
     addReservationToUser,
     updateUser,
     deleteUserReservation,
-    getUserReservations
+    getUserReservations,
+    getAdminHotels,
 }
 
 function printAll(){
@@ -74,6 +75,18 @@ function updateUser(username, hash, admin){
     found.hash = hash;
     found.admin = admin;
     saveData();
+}
+
+function getAdminHotels(username){
+    let found = users.find(u => u.username === username);
+    if(!found){
+        return false;
+    }
+    if(found.admin.hotels.length == 0){
+        return false;
+    }
+    return found.admin.hotels;
+
 }
 
 function addReservationToUser(username, reservID){
