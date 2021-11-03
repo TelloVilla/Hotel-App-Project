@@ -1,17 +1,24 @@
 import Hotel from "../components/hotel"
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
+import {Button, Container, Spinner} from "react-bootstrap"
 
 const hotelsPage = ({user}) =>{
     const [hotels, setHotels] = useState(null);
     const fetchData = async () =>{
       const res = await fetch("/api/getAllHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Hotel hotel={h}></Hotel>))
+      setHotels(data.map((h) => <Container><Hotel hotel={h}></Hotel><Button name={h.name} onClick={handleReservation}>Reserve</Button></Container>))
   }
     useEffect(() => {        
         fetchData();
     },[])
+
+    function handleReservation(e){
+      e.preventDefault;
+      console.log(e.target.name);
+
+    }
     
     
     
@@ -19,7 +26,7 @@ const hotelsPage = ({user}) =>{
     if(!hotels){
         return(
             <div>
-                Loading...
+                <Spinner animation="border"></Spinner> Loading...
             </div>
         )
     }
@@ -39,16 +46,13 @@ export const getServerSideProps = withIronSession(
       if(!user){
         return {
           redirect:{
-            destination: '/LoginForm',
+            destination: '/loginForm',
             permanent: false
           },
         }
   
       }
       return{props: user}
-
-
-      
     },
     {
       cookieName: "hotel-cookie",
