@@ -15,7 +15,7 @@ export default function Header(){
                             <Link href="/"><a className="nav-link active" aria-current="page" >Home</a></Link>
                         </li>
                         <li className="nav-item">
-                            <Link href="/user"><a className="nav-link active" aria-current="page" >User Account</a></Link>
+                            <Link href="/userPage"><a className="nav-link active" aria-current="page" >User Account</a></Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/testPage"><a className="nav-link active" aria-current="page" >testPage</a></Link>
