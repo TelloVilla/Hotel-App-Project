@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71.966mm" height="58.964mm" version="1.1" viewBox="0 0 71.966 58.964" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-44.223 -34.018)">
+  <g transform="translate(5.6696 3.0238)">
+   <rect x="38.554" y="30.994" width="35.53" height="58.964" opacity=".998" stroke-width=".265"/>
+   <rect x="43.089" y="37.231" width="9.0714" height="6.4256" fill="#666" opacity=".998" stroke-width=".11664"/>
+   <rect x="60.854" y="37.231" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+   <g fill="#666" stroke-width=".11664">
+    <rect x="43.089" y="47.436" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="43.089" y="67.847" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="47.436" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="57.641" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="67.847" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="43.089" y="78.052" width="9.0714" height="6.4256" opacity=".998"/>
+   </g>
+   <rect x="60.854" y="78.052" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+   <rect x="43.089" y="57.641" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+  </g>
+  <g transform="matrix(-1.0255 0 0 -.66667 155.73 113.64)">
+   <rect x="38.554" y="30.994" width="35.53" height="58.964" opacity=".998" stroke-width=".265"/>
+   <rect x="43.089" y="37.231" width="9.0714" height="6.4256" fill="#666" opacity=".998" stroke-width=".11664"/>
+   <rect x="60.854" y="37.231" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+   <g fill="#666" stroke-width=".11664">
+    <rect x="43.089" y="47.436" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="43.089" y="67.847" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="47.436" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="57.641" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="60.854" y="67.847" width="9.0714" height="6.4256" opacity=".998"/>
+    <rect x="43.089" y="78.052" width="9.0714" height="6.4256" opacity=".998"/>
+   </g>
+   <rect x="60.854" y="78.052" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+   <rect x="43.089" y="57.641" width="9.0714" height="6.4256" fill="#ff0" opacity=".998" stroke-width=".11664"/>
+  </g>
+ </g>
+</svg>

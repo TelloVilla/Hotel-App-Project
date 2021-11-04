@@ -29,6 +29,14 @@ export const getServerSideProps = withIronSession(
       }
 
     }
+    if(user.admin.status == false){
+      return {
+        redirect:{
+          destination: '/loginForm',
+          permanent: false
+        },
+      }
+    }
     return {
       props: {user}
     };

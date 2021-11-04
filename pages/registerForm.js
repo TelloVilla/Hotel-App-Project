@@ -42,7 +42,7 @@ export default function regForm() {
     else {
       return router.push('/something')
     }
-    }
+  }
 
   return (
     // <form onSubmit={submitForm}>

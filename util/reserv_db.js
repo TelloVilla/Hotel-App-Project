@@ -3,9 +3,11 @@ let reservs = require("../data/reservations.json")
 
 export const ReservDB = {
     getAll: () => reservs,
+    find: x => reservs.find(x),
     createReservation,
     deleteReservation,
     getReservationInfo,
+    getReservationByHotel,
     updateReservation,
     saveData
 }
@@ -31,7 +33,15 @@ function getReservationInfo(reservID){
     if(!found){
         return false
     }
-    return found
+    return found;
+}
+
+function getReservationByHotel(hotel){
+    let found = reservs.find(r => r.hotel === hotel);
+    if(!found){
+        return false
+    }
+    return found;
 }
 
 function deleteReservation(reservID){

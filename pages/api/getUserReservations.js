@@ -4,14 +4,15 @@ import { ReservDB } from '../../util/reserv_db';
 
 export default function handler(req, res){
 
-    //let {username} = req.body;
-
-    let username = "jim"
+    let {username} = req.body;
 
     let success = UserDB.getUserReservations(username);
 
     if(!success){
-        res.status(400)
+        res.status(400).json({error: "User not found"})
+    }
+    if(success.length == 0){
+        res.status(400).json({error: "No valid reservations"})
     }
 
     let reservations = success.map(ReservDB.getReservationInfo)

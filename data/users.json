@@ -5,15 +5,19 @@
     "hash": "$2a$10$Dpvfoosxq6t5yf1Vvp29veONWqi7oU8sbQkLqrtSNe7lgu2tRBheS",
     "admin": {
       "status": true,
-      "hotels": []
+      "hotels": [
+        "The Magnolia All Suites",
+        "The Lofts at Town Centre"
+      ]
     },
-    "hotels": [],
     "reservations": [
       "3643m",
-      "616m"
+      "616m",
+      "4514jim"
     ]
   },
   {
+<<<<<<< HEAD
     "id": "63548pa",
     "username": "patrick",
     "hash": "$2b$10$qKdNsBTSO4qHtESDjIczfOU5FcnVZhmrcLYmoxnI9aLJWsi90qktq",
@@ -32,6 +36,57 @@
     "username": "admin",
     "hash": "$2b$10$R1fYxah5iwKSWZ4j1uefbe2mvCaps4uEJYnQuuPVlCX8tItGcm39K",
     "admin": false,
+=======
+    "id": "238396bo",
+    "username": "bob",
+    "firstname": "bob",
+    "lastname": "boberson",
+    "hash": "$2a$10$pQsXNw5UW89dDyEG4HW6nuE29bpraXz.LDvuZGNvqwpq9Wx56vZCe",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "436720fr",
+    "username": "frank",
+    "hash": "$2a$10$ZKbju/a5ah6TCB2mvT6K5e09RENw2KzK62t9NDh111YNbesek52qG",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "174475du",
+    "username": "dude",
+    "hash": "$2a$10$3dQMnywt3mijE9.sIVfQoe2P5pCN4WitiJa7ib5WRnnEhLHMteLKG",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "42331",
+    "username": "",
+    "hash": "$2a$10$S/leoTdlg2YnHYO02bzu5.T6W9Q2BGA0u.NNd.78AGidsdgH9jY.a",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "365897ti",
+    "username": "tim",
+    "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",
+    "admin": {
+      "status": true,
+      "hotels": []
+    },
+>>>>>>> main
     "reservations": []
   }
 ]
