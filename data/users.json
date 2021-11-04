@@ -17,6 +17,26 @@
     ]
   },
   {
+<<<<<<< HEAD
+    "id": "63548pa",
+    "username": "patrick",
+    "hash": "$2b$10$qKdNsBTSO4qHtESDjIczfOU5FcnVZhmrcLYmoxnI9aLJWsi90qktq",
+    "admin": true,
+    "reservations": []
+  },
+  {
+    "id": "213246sa",
+    "username": "sandy",
+    "hash": "$2b$10$twuLiVRkOXCVaSvkMXY2duChWY1ekeZRN7F9xGxCxtKESG/.O9tTC",
+    "admin": false,
+    "reservations": []
+  },
+  {
+    "id": "90092ad",
+    "username": "admin",
+    "hash": "$2b$10$R1fYxah5iwKSWZ4j1uefbe2mvCaps4uEJYnQuuPVlCX8tItGcm39K",
+    "admin": false,
+=======
     "id": "238396bo",
     "username": "bob",
     "firstname": "bob",
@@ -66,6 +86,7 @@
       "status": true,
       "hotels": []
     },
+>>>>>>> main
     "reservations": []
   }
 ]

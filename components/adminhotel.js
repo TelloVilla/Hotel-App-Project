@@ -1,6 +1,16 @@
 import { Card, ListGroup, ListGroupItem, Dropdown, Accordion, Button } from "react-bootstrap"
-export default function Hotel(props){
+import header from "/header"
+export default function Adminhotel(props){
+  //test data
+    // let hotel = "The Magnolia All Suites"
+    // let guest = "jim"
+    // let roomType = "standard"
+    // let start = "12-5-23"
+    // let end = "12-7-23"
+    // let surcharge = true;
+
     return(
+        
         <Card border="dark">
             <Card.Img variant="top" src="/hotel.svg" alt="Hotel Here" />
             <Card.Body>
@@ -35,7 +45,8 @@ export default function Hotel(props){
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>   
-            <Button variant="primary">Book Reservation</Button>
+            <Button style={{backgroundColor:"green"}}>Edit</Button>
+            <Button style={{backgroundColor:"red"}}>Delete</Button>
         </Card>
 
     )

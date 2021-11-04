@@ -4,15 +4,15 @@ import { HotelDB } from '../../util/hotel_db';
 const bcrypt = require('bcryptjs')
 
 export default function handler(req, res) {
-    //let {hotel, guest, roomType, start, end, surcharge} = req.body;
+    let {hotel, guest, roomType, start, end, surcharge} = req.body;
 
     //test data
-    let hotel = "The Magnolia All Suites"
-    let guest = "jim"
-    let roomType = "standard"
-    let start = "12-5-23"
-    let end = "12-7-23"
-    let surcharge = true;
+    // let hotel = "The Magnolia All Suites"
+    // let guest = "jim"
+    // let roomType = "standard"
+    // let start = "12-5-23"
+    // let end = "12-7-23"
+    // let surcharge = true;
 
     let foundUser = UserDB.find(u => u.username === guest);
 

@@ -5,16 +5,21 @@ const bcrypt = require('bcryptjs');
 async function handler(req, res){
 
     let {username, password} = req.body;
-
     let user = UserDB.find(u => u.username === username)
+    
     if(user.username === username && bcrypt.compare(password, user.hash)){
         req.session.set("user", {
             admin: user.admin,
-            username: username
+            username: username,
         });
         await req.session.save();
+<<<<<<< HEAD
+        console.log(req.session.get())
+        res.send("Logged in")
+=======
         const admin = req.session.get("user");
         res.status(200).send("Logged In");
+>>>>>>> main
     }else{
         res.status(401).send("")
     }
@@ -26,9 +31,9 @@ async function handler(req, res){
 }
 
 export default withIronSession(handler, {
-    password: process.env.APPLICATION_SECRET,
+    password: "2ahIaTyP9JI!8wpWAVOGfpE#tT#U!-gb",
     cookieName: "hotel-cookie",
     cookieOptions: {
-        secure: process.env.NODE_ENV === "production"
+        secure: process.env.NODE_ENV === "production" 
     },
 });
