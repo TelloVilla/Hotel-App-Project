@@ -13,13 +13,8 @@ async function handler(req, res){
             username: username,
         });
         await req.session.save();
-<<<<<<< HEAD
-        console.log(req.session.get())
-        res.send("Logged in")
-=======
         const admin = req.session.get("user");
         res.status(200).send("Logged In");
->>>>>>> main
     }else{
         res.status(401).send("")
     }
