@@ -8,22 +8,15 @@ export default function regForm() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [isAdmin, setIsAdmin] = useState(false)
-    const router = useRouter()
-
+    const router = useRouter();
     const data = {
       username,
       password,
       admin: {
-        status: isAdmin,
+        status: true,
         hotels: []
       }
     }
-
-    const handleChange = () => {
-      setIsAdmin(!isAdmin)
-    }
-
     const submitForm = async event => {
       event.preventDefault()
 
@@ -33,11 +26,8 @@ export default function regForm() {
         body: JSON.stringify(data)
     })
 
-    if(res.ok && isAdmin) {
-      return router.push('/manageHotel')
-    }
-    else if(res.ok && !isAdmin) {
-      return router.push('/hotelsPage')
+    if(res.ok) {
+      return router.push('/dashboard')
     }
     else {
       return router.push('/something')
@@ -82,11 +72,6 @@ export default function regForm() {
       Log in
     </Nav.Link>
   </Link>
-  </Form.Group>
-  <Form.Group>
-    <div>
-      <input type="checkbox" value="Admin" adm={isAdmin} onChange={handleChange}></input>  Admin
-    </div>
   </Form.Group>
 </Form>
 </div>

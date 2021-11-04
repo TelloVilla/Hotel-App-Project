@@ -6,7 +6,7 @@ function handler(req, res, session){
 }
 
 export default withIronSession(handler, {
-    password: "2ahIaTyP9JI!8wpWAVOGfpE#tT#U!-gb",
+    password: process.env.APPLICATION_SECRET,
     cookieName: "hotel-cookie",
     cookieOptions: {
         secure: process.env.NODE_ENV === "production",

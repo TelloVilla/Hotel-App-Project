@@ -29,24 +29,12 @@ const Home = ({user}) => {
       return router.push("/")
     }
   }
-
-  const manageHotel = async e => {
-    e.preventDefault()
-    console.log(user)
-    if(user.admin.status === false) {
-      return router.push("/hotelsPage")
-    }
-    else {
-      return router.push("/manageHotel")
-    }
-
-  }
   return (
     <div className="container">
       <Header/>
       <button onClick={onLogin}>Click to sign in</button>
       <button onClick={onLogout}>Click to log out</button>
-      <button onClick={manageHotel}>Click to manage hotels</button>
+      
     </div>
   )
 }
