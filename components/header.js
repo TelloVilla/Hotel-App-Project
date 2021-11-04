@@ -19,6 +19,9 @@ export default function Header(){
                             <Link href="/testPage"><a className="nav-link active" aria-current="page" >testPage</a></Link>
                         </li>
                         <li className="nav-item">
+                            <Link href="/adminHotels"><a className="nav-link active" aria-current="page" >Manage Hotels</a></Link>
+                        </li>
+                        <li className="nav-item">
                             <Link href="/reservations"><a className="nav-link active" aria-current="page" >Reservations</a></Link>
                         </li>
 
