@@ -1,5 +1,4 @@
 import { Card, ListGroup, ListGroupItem, Dropdown, Accordion, Button } from "react-bootstrap"
-import header from "/header"
 export default function Adminhotel(props){
   //test data
     // let hotel = "The Magnolia All Suites"

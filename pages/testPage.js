@@ -1,11 +1,11 @@
 import { withIronSession } from 'next-iron-session'
 import Head from 'next/head'
-import Header from '../components/header'
+import HeadBar from '../components/HeadBar'
 
 const TestPage = ({user}) => {
   return (
     <div className="container">
-      <Header/>
+      <HeadBar/>
       <h4>Hello {user.username}</h4>
       {user.admin.status &&
         <h3>You are an admin</h3>

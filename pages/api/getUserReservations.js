@@ -10,9 +10,11 @@ export default function handler(req, res){
 
     if(!success){
         res.status(400).json({error: "User not found"})
+        return;
     }
     if(success.length == 0){
         res.status(400).json({error: "No valid reservations"})
+        return;
     }
 
     let reservations = success.map(ReservDB.getReservationInfo)
