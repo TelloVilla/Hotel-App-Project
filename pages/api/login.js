@@ -15,8 +15,10 @@ async function handler(req, res){
         await req.session.save();
         const admin = req.session.get("user");
         res.status(200).send("Logged In");
+        return;
     }else{
         res.status(401).send("")
+        return;
     }
     
 
