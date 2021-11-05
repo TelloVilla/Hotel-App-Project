@@ -3,7 +3,7 @@ import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import { Alert } from "react-bootstrap";
 
-const reservations = ({user}) =>{
+const Reservations = ({user}) =>{
     const [reservs, setReservs] = useState(null);
     const fetchData = async () =>{
       const username = user.username;
@@ -75,4 +75,4 @@ export const getServerSideProps = withIronSession(
     password: process.env.APPLICATION_SECRET
   }
 )
-export default reservations;
+export default Reservations;

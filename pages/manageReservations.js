@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function manageReservations() {
+export default function ManageReservations() {
 
     const [id, setId] = useState('')
     const 

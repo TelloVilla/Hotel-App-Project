@@ -2,7 +2,7 @@ import { withIronSession } from 'next-iron-session'
 import Head from 'next/head'
 import Header from '../components/header'
 
-const testPage = ({user}) => {
+const TestPage = ({user}) => {
   return (
     <div className="container">
       <Header/>
@@ -49,4 +49,4 @@ export const getServerSideProps = withIronSession(
     password: process.env.APPLICATION_SECRET
   }
 )
-export default testPage;
+export default TestPage;
