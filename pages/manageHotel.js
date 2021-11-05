@@ -11,7 +11,7 @@ const ManageHotel = ({user}) =>{
     const fetchData = async () =>{
       const res = await fetch("/api/getAllHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Adminhotel hotel={h}></Adminhotel>))
+      setHotels(data.map((h, i) => <Adminhotel key={i} hotel={h}></Adminhotel>))
   }
     useEffect(() => {        
         fetchData();
