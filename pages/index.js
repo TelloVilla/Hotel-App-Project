@@ -1,5 +1,5 @@
 import router, { Router } from 'next/router'
-import Header from '../components/header'
+import HeadBar from '../components/HeadBar'
 import { withIronSession } from 'next-iron-session';
 const bcrypt = require("bcryptjs");
 
@@ -31,7 +31,7 @@ const Home = ({user}) => {
   }
   return (
     <div className="container">
-      <Header/>
+      <HeadBar/>
       <button onClick={onLogin}>Click to sign in</button>
       <button onClick={onLogout}>Click to log out</button>
       
