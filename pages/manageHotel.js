@@ -1,8 +1,8 @@
-import Adminhotel from "../Components/adminhotel"
+import Adminhotel from "../components/adminhotel"
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
-import {Button, Nav} from "react-bootstrap"
-import Link from "next/link"
+import {Button, Nav} from "react-bootstrap";
+import Link from "next/link";
 
 const ManageHotel = ({user}) =>{
 

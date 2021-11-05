@@ -1,7 +1,7 @@
-import Reservation from "../Components/Reservation";
+import Reservation from "../components/reservation";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
-import { Alert } from "react-bootstrap";
+import { Alert } from "react-bootstrap"
 
 const Reservations = ({user}) =>{
     const [reservs, setReservs] = useState(null);

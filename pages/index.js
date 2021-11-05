@@ -1,5 +1,5 @@
-import router, { Router } from 'next/router'
-import HeadBar from '../Components/HeadBar'
+import router, { Router } from 'next/router';
+import HeadBar from '../components/headbar';
 import { withIronSession } from 'next-iron-session';
 const bcrypt = require("bcryptjs");
 
