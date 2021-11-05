@@ -1,7 +1,7 @@
-import Hotel from "../Components/Hotel"
+import Hotel from "../components/hotel"
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
-import {Button, Container, Spinner} from "react-bootstrap"
+import {Button, Container, Spinner} from "react-bootstrap";
 
 const HotelsPage = ({user}) =>{
     const [hotels, setHotels] = useState(null);
