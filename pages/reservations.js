@@ -1,4 +1,4 @@
-import Reservation from "../components/Reservation.js";
+import Reservation from "../Components/Reservation";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import { Alert } from "react-bootstrap";

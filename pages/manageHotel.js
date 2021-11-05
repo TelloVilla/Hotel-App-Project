@@ -1,4 +1,4 @@
-import Adminhotel from "../components/adminhotel.js"
+import Adminhotel from "../Components/adminhotel"
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import {Button, Nav} from "react-bootstrap"
