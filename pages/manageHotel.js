@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import {Button, Nav} from "react-bootstrap"
 import Link from "next/link"
 
-const manageHotel = ({user}) =>{
+const ManageHotel = ({user}) =>{
 
 
     const [hotels, setHotels] = useState(null);
@@ -63,7 +63,7 @@ export const getServerSideProps = withIronSession(
       cookieOptions: {
         secure: process.env.NODE_ENV === "production" ? true : false
       },
-      password: "9KDjQvxpVRz1D3DWvLL5t9k3hOfZPw3i"
+      password: process.env.APPLICATION_SECRET
     }
   )
-  export default manageHotel;
+  export default ManageHotel;

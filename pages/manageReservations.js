@@ -4,13 +4,13 @@ export default function ManageReservations() {
 
     const [id, setId] = useState('')
     const 
-const addReservation = async(e) => {
+// const addReservation = async(e) => {
     
-    // const res = await fetch("/api/addReservToUser")
+//     const res = await fetch("/api/addReservToUser")
 
 
 
-}
+// }
 
 // "id": "3643m",
 // "guest": "jim",
