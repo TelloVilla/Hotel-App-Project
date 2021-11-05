@@ -14,7 +14,7 @@ const Reservations = ({user}) =>{
         });
         const data = await res.json()
         if(res.ok){
-          setReservs(data.map((r) => <Reservation reserv={r}></Reservation>))
+          setReservs(data.map((r, i) => <Reservation key={i} reserv={r}></Reservation>))
         }else{
           setReservs("none")
         }

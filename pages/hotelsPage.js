@@ -8,7 +8,7 @@ const HotelsPage = ({user}) =>{
     const fetchData = async () =>{
       const res = await fetch("/api/getAllHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Container><Hotel hotel={h}></Hotel><Button name={h.name} onClick={handleReservation}>Reserve</Button></Container>))
+      setHotels(data.map((h, i) => <Container><Hotel key={i} hotel={h}></Hotel><Button name={h.name} onClick={handleReservation}>Reserve</Button></Container>))
   }
     useEffect(() => {        
         fetchData();
