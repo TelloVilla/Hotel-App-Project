@@ -1,4 +1,4 @@
-import Hotel from "../components/hotel"
+import Hotel from "../components/Hotel.js"
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import {Button, Container, Spinner} from "react-bootstrap"

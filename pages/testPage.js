@@ -1,6 +1,5 @@
 import { withIronSession } from 'next-iron-session'
-import Head from 'next/head'
-import HeadBar from '../components/HeadBar'
+import HeadBar from '../components/HeadBar.js'
 
 const TestPage = ({user}) => {
   return (
