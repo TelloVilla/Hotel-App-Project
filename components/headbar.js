@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Header(){
+export default function HeadBar(){
 
     return(
         <nav className="navbar-custom navbar navbar-expand-lg navbar-dark bg-dark">
