@@ -3,7 +3,7 @@ import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import {Button, Container, Spinner} from "react-bootstrap"
 
-const hotelsPage = ({user}) =>{
+const HotelsPage = ({user}) =>{
     const [hotels, setHotels] = useState(null);
     const fetchData = async () =>{
       const res = await fetch("/api/getAllHotels");
@@ -62,4 +62,4 @@ export const getServerSideProps = withIronSession(
       password: process.env.APPLICATION_SECRET
     }
   )
-  export default hotelsPage;
+  export default HotelsPage;

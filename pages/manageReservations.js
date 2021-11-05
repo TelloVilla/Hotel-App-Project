@@ -6,7 +6,7 @@ export default function manageReservations() {
     const 
 const addReservation = async(e) => {
     
-    const res = await fetch("/api/addReservToUser")
+    // const res = await fetch("/api/addReservToUser")
 
 
 

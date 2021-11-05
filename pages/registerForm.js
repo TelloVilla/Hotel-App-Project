@@ -4,7 +4,7 @@ import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
 //import styles from "../styles/registerpage.module.css"
 
-export default function regForm() {
+export default function RegForm() {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
