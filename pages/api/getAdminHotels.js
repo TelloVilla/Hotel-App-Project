@@ -20,7 +20,7 @@ export default withIronSession(handler,
     {
         cookieName: "hotel-cookie",
         cookieOptions: {
-          secure: process.env.NODE_ENV === "production" ? true : false
+          secure: false
         },
         password: process.env.APPLICATION_SECRET
       });
