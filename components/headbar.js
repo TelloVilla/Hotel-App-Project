@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Form, FormControl, Button, Dropdown, NavDropdown, NavDropdownItem, FormCheck} from 'react-bootstrap'
 
 export default function HeadBar(){
 
@@ -23,8 +24,34 @@ export default function HeadBar(){
                         </li>
 
                     </ul>
+                    <NavDropdown variant="light" className="m-1" id="search-options" title="Search Options" menuVariant="dark">
+                    <Form>
+                        <div className="p-3">
+                            <FormCheck inline label="Name" name="search-type" type="radio"></FormCheck>
+                            <FormCheck inline label="Room Price" name="search-type" type="radio"></FormCheck>
+                            <FormCheck inline label="Amenities" name="search-type" type="radio"></FormCheck>
+                        </div>
+                        <div className="p-3">
+                            <FormCheck inline label="Pool" name="amenities-available" type="checkbox"></FormCheck>
+                            <FormCheck inline label="Office" name="amenities-available" type="checkbox"></FormCheck>
+                            <FormCheck inline label="Gym" name="amenities-available" type="checkbox"></FormCheck>
+                            <FormCheck inline label="Spa" name="amenities-available" type="checkbox"></FormCheck>
+
+                        </div>
+                    </Form>
+                </NavDropdown>
+                    <Form className="d-flex">
+                    <FormControl 
+                    type="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    />
+                    <Button variant="outline-light">Search</Button>
+                </Form>
+                
 
                 </div>
+                
             </div>
 
         </nav>
