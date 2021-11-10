@@ -10,7 +10,7 @@ export default function User(props) {
             <Image src="https://via.placeholder.com/225" className="user-image" alt="User Image Here" roundedCircle></Image>
           </Col>
           <Col>
-            <h1 className="user-welcome">Welcome, Blah!</h1>
+            <h1 className="user-welcome">Welcome, {props.user.username}!</h1>
           </Col>
         </Row>
         <br></br>

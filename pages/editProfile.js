@@ -1,26 +1,11 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import React from "react";
-import { Container, Row, Form, Button } from "react-bootstrap";
+import { Container, Row, Form, Button, Alert } from "react-bootstrap";
 import Header from "../components/header";
+import { useForm } from "react-hook-form";
 
 function editProfile() {
-
-  const router = useRouter();
-  const [description, setDescription] = useState('')
-
-  const data = { description }
-
-  const submitForm = async event => {
-      event.preventDefault()
-
-      const res = await fetch("/api/updateUser", {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(data)
-      })
-  }
-
   return (
     <>
       <Header></Header>
@@ -41,9 +26,16 @@ function editProfile() {
         </Row>
         <br></br>
         <Row>
-          <Button variant="primary" size="lg">
+          <Button id="saveButton" variant="primary" size="lg">
             Submit
           </Button>
+        </Row>
+        <br></br>
+        <Row>
+          <Alert variant="success" id="saveAlert" className="text-center">
+            <Alert.Heading></Alert.Heading>
+            <p>Changes Saved</p>
+          </Alert>
         </Row>
       </Container>
     </>

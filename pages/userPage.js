@@ -7,6 +7,9 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 const user = ({ user }) => {
+
+  
+
   return (
     <>
       <head>
@@ -14,7 +17,7 @@ const user = ({ user }) => {
       </head>
       <Header></Header>
       <br></br>
-      <User></User>
+      <User user={user}></User>
     </>
   );
 };
