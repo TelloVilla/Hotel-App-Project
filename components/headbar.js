@@ -31,7 +31,7 @@ export default function HeadBar(){
                             <FormCheck inline label="Room Price" name="search-type" type="radio"></FormCheck>
                             <FormCheck inline label="Amenities" name="search-type" type="radio"></FormCheck>
                         </div>
-                        <div className="p-3">
+                        <div className="p-3 hidden">
                             <FormCheck inline label="Pool" name="amenities-available" type="checkbox"></FormCheck>
                             <FormCheck inline label="Office" name="amenities-available" type="checkbox"></FormCheck>
                             <FormCheck inline label="Gym" name="amenities-available" type="checkbox"></FormCheck>
