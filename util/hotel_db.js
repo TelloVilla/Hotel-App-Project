@@ -1,4 +1,5 @@
 const fs = require('fs')
+let isEqual = require("lodash/isEqual");
 let hotels = require("../data/hotels.json")
 
 export const HotelDB = {
@@ -39,7 +40,8 @@ function findHotelByName(name){
 }
 
 function findHotelByAmenitites(amenities){
-    let found = hotels.find(h => h.amenities === amenities)
+    
+    let found = hotels.find(h => isEqual(h.amenities,amenities))
     if(!found){
         return false
     }

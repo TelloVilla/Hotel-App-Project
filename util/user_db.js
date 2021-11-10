@@ -18,7 +18,7 @@ function printAll(){
     console.log(userDB.getAll)
 }
 
-function createUser(username, hash, admin){
+function createUser(username, firstname, lastname, hash, admin){
     let duplicate = users.find(u => u.username === username);
     if(duplicate){
         return false
