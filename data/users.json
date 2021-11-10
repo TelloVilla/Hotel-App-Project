@@ -42,5 +42,15 @@
       "hotels": []
     },
     "reservations": []
+  },
+  {
+    "id": "146329te",
+    "username": "test",
+    "hash": "$2a$10$tcy6vYnrPPotX0xJE9vNbOeO4FxvyDa4MXBFd.Fz8HPiMxECIim/K",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
   }
 ]

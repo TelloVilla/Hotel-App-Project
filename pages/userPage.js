@@ -3,6 +3,8 @@ import React from "react";
 import Header from "../components/header";
 import User from "../components/user";
 import styles from "../styles/user.module.css";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 const user = ({ user }) => {
   return (

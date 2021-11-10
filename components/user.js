@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Col, Image, Button } from 'react-bootstrap'
 import Link from 'next/link'
 
 export default function User(props) {
@@ -57,6 +57,10 @@ export default function User(props) {
             </ul>
           </Col>
         </Row>
+      </Container>
+      <hr></hr>
+      <Container className="footer">
+        <Link href="/editProfile">Edit Profile</Link>
       </Container>
     </>
   );

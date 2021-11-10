@@ -10,7 +10,8 @@ export const UserDB = {
     addReservationToUser,
     updateUser,
     deleteUserReservation,
-    getUserReservations
+    getUserReservations,
+    getUser
 }
 
 function printAll(){
@@ -45,6 +46,14 @@ function deleteUser(username){
     saveData();
     return true
 
+}
+
+function getUser(username) {
+    let found = users.find(u => u.username === username);
+    if(!found){
+        return false
+    }
+    return found.username
 }
 
 function getUserReservations(username){

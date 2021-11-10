@@ -22,7 +22,7 @@ export default function loginForm() {
     })
 
     if(res.ok) { //should have a check to see if login is customer or admin
-      return router.push('/user')
+      return router.push('/userPage')
     }
     else {
       return router.push('/something')
