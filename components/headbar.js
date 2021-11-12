@@ -1,12 +1,65 @@
 import Link from 'next/link'
-import { Form, FormControl, Button, Dropdown, NavDropdown, NavDropdownItem, FormCheck, InputGroup} from 'react-bootstrap'
+import { useState } from 'react';
+import { Form, FormControl, Button, NavDropdown, FormCheck, InputGroup, Offcanvas} from 'react-bootstrap'
+import Hotel from './hotel';
 
 export default function HeadBar(){
+    const [search, setSearch] = useState("");
+    const [results, setResults] = useState(false);
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const fetchByAmen = async (amenities) =>{
+        const res = await fetch("/api/getHotelbyAmenities", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(amenities)
+        });
+        if(res.ok){
+            const data = await res.json()
+            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+        }else{
+            setResults(<h3>No Results</h3>)
+        }
+        
+        setShow(true);
+    }
+    const fetchByPrice = async (search) =>{
+        const res = await fetch("/api/getHotelByPrice", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(search)
+        });
+        if(res.ok){
+            const data = await res.json()
+            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+        }else{
+            setResults(<h3>No Results</h3>)
+        }
+        
+        setShow(true);
+    }
+    const fetchByName = async (search) =>{
+        const res = await fetch("/api/getHotelByName", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(search)
+        });
+        if(res.ok){
+            const data = await res.json()
+            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+        }else{
+            setResults(<h3>No Results</h3>)
+        }
+        
+        setShow(true);
+    }
     function handleToggle(e){
         let panel = document.getElementById("amen-panel");
+        let searchBar = document.getElementById("search-bar")
         
         if(e.target.id == "amen-toggle"){
             panel.style.display = "block";
+            searchBar.value = "Searching by Amenities"
         }else{
             panel.style.display = "none";
         }
@@ -46,20 +99,14 @@ export default function HeadBar(){
             }
 
         }
-        const fetchData = async () =>{
-            const res = await fetch("/api/getHotelbyAmenities", {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(amenities)
-            });
-            const data = await res.json()
-            console.log(data);
-        }
-        fetchData();
+        
+        fetchByAmen(amenities);
 
         }else if(searchBy == "name"){
+            fetchByName(search);
 
         }else if(searchBy == "price"){
+            fetchByPrice(search);
 
         }
         
@@ -103,17 +150,27 @@ export default function HeadBar(){
                         </InputGroup>
                     </Form>
                 </NavDropdown>
-                    <Form className="d-flex">
+                    <Form className="d-flex" onSubmit={handleSearch}>
                     <FormControl 
                     type="Search"
                     className="me-2"
+                    id="search-bar"
                     aria-label="Search"
+                    onChange={e => setSearch(e.target.value)}
                     />
-                    <Button onClick={handleSearch} variant="outline-light">Search</Button>
+                    <Button type="submit" variant="outline-light">Search</Button>
                 </Form>
                 
 
                 </div>
+                <Offcanvas show={show} placement="end" onHide={handleClose} className="m-2">
+                    <Offcanvas.Header closeButton>
+                        <Offcanvas.Title>Search Results</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                        {results}
+                    </Offcanvas.Body>
+                </Offcanvas>
                 
             </div>
 

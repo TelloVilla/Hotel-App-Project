@@ -41,7 +41,7 @@ function findHotelByName(name){
 
 function findHotelByAmenitites(amenities){
     
-    let found = hotels.find(h => isEqual(h.amenities,amenities))
+    let found = hotels.filter(h => isEqual(h.amenities,amenities))
     if(!found){
         return false
     }
@@ -50,7 +50,7 @@ function findHotelByAmenitites(amenities){
 
 function findHotelByPrice(price){
     const priceRange = (r) => r <= price;
-    let found = hotels.find(h => h.price.some(priceRange));
+    let found = hotels.filter(h => Object.values(h.price).some(priceRange));
     if(!found){
         return false
     }
