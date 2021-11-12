@@ -27,6 +27,8 @@ function createUser(username, firstname, lastname, hash, admin){
     let newUser = {
         id: id,
         username: username,
+        firstname: firstname,
+        lastname: lastname,
         hash: hash,
         admin: admin,
         reservations: []
