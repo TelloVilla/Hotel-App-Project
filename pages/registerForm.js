@@ -6,38 +6,36 @@ import Link from 'next/link'
 
 export default function regForm() {
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    const [isAdmin, setIsAdmin] = useState(false)
-    const router = useRouter()
-
-    const data = {
-      username,
-      password,
-      admin: {
-        status: isAdmin,
-        hotels: []
-      }
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
+  const router = useRouter()
+  const data = {
+    username,
+    password,
+    firstName,
+    lastName,
+    admin: {
+      status: isAdmin,
+      hotels: []
     }
+  }
+  const handleChange = () => {
+    setIsAdmin(!isAdmin)
+  }
+  const submitForm = async event => {
+    event.preventDefault()
 
-    const handleChange = () => {
-      setIsAdmin(!isAdmin)
-    }
-
-    const submitForm = async event => {
-      event.preventDefault()
-
-      const res = await fetch("/api/register", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+    const res = await fetch("/api/register", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
     })
 
-    if(res.ok && isAdmin) {
-      return router.push('/manageHotel')
-    }
-    else if(res.ok && !isAdmin) {
-      return router.push('/hotelsPage')
+    if (res.ok) {
+      return router.push('/dashboard')
     }
     else {
       return router.push('/something')
@@ -72,6 +70,14 @@ export default function regForm() {
   <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
   </Form.Group>
+  <Form.Group className="mb-3" id="input">
+  <Form.Label>First Name</Form.Label>
+    <Form.Control type="text" placeholder="Enter Your First Name"  onChange={e => setFirstName(e.target.value)} id="inputField"/>
+  </Form.Group>
+  <Form.Group className="mb-3" id="input">
+  <Form.Label>Last Name</Form.Label>
+    <Form.Control type="text" placeholder="Enter Your Last Name"  onChange={e => setLastName(e.target.value)} id="inputField"/>
+  </Form.Group>
   <Button variant="primary" type="submit" id="submitButton" >
     Register
   </Button>
@@ -82,15 +88,16 @@ export default function regForm() {
       Log in
     </Nav.Link>
   </Link>
-  </Form.Group>
   <Form.Group>
     <div>
       <input type="checkbox" value="Admin" adm={isAdmin} onChange={handleChange}></input>  Admin
     </div>
   </Form.Group>
+  </Form.Group>
 </Form>
 </div>
 </div>
+    
   )
 }
 
