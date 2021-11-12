@@ -10,7 +10,10 @@ async function handler(req, res){
     if(user.username === username && bcrypt.compare(password, user.hash)){
         req.session.set("user", {
             admin: user.admin,
-            username: username
+            username: username,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            reservations: user.reservations
         });
         await req.session.save();
         const admin = req.session.get("user");

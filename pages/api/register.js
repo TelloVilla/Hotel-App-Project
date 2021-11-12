@@ -1,7 +1,7 @@
 import {UserDB} from '../../util/user_db'
 const bcrypt = require('bcryptjs')
 
-function handler(req, res){
+export default function handler(req, res){
     let {username, firstname, lastname, password, admin} = req.body;
 
     let success = UserDB.createUser(username, firstname, lastname, bcrypt.hashSync(password), admin)
