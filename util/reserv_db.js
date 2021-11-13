@@ -12,8 +12,8 @@ export const ReservDB = {
     saveData
 }
 
-function createReservation(hotel, guest, roomType, start, end, surcharge){
-    let id = Math.floor(Math.random() * 5000) + guest.substring(0,3)
+function createReservation(hotel, guest, roomType, start, end, surcharge, price){
+    let id = Math.floor(Math.random() * 50000) + guest.substring(0,3)
     let newReserv = {
         id: id,
         guest: guest,
@@ -21,7 +21,8 @@ function createReservation(hotel, guest, roomType, start, end, surcharge){
         roomType: roomType,
         start: start,
         end: end,
-        surcharge: surcharge
+        surcharge: surcharge,
+        price: price
     }
     reservs.push(newReserv);
     saveData();
@@ -56,8 +57,8 @@ function deleteReservation(reservID){
 
 }
 
-function updateReservation(reservID, guest, hotel, roomType, start, end, surcharge){
-    let found = reservs.find(r => r.reservID === reservID)
+function updateReservation(reservID, guest, hotel, roomType, start, end, surcharge, price){
+    let found = reservs.find(r => r.id === reservID)
     if(!found){
         return false
     }
@@ -67,6 +68,7 @@ function updateReservation(reservID, guest, hotel, roomType, start, end, surchar
     found.start = start;
     found.end = end;
     found.surcharge = surcharge;
+    found.price = price;
     saveData();
     return true
 

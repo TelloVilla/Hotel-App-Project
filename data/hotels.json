@@ -2,7 +2,7 @@
   {
     "name": "The Magnolia All Suites",
     "rooms": 20,
-    "vacancy": 20,
+    "vacancy": 16,
     "amenities": {
       "pool": true,
       "spa": true,
