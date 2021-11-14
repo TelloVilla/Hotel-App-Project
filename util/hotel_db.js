@@ -9,6 +9,7 @@ export const HotelDB = {
     findHotelByAmenitites,
     findHotelByPrice,
     updateHotelAmenities,
+    updateHotelPolicies,
     updateHotelPrices,
     updateVacancy,
     addHotel,
@@ -97,6 +98,18 @@ function updateHotelAmenities(name, amenities){
     return true
 
 }
+function updateHotelPolicies(name, smoking, pets, wifi, bfast){
+    let found = hotels.find(h => h.name === name);
+    if(!found){
+        return false
+    }
+    found.smoking = smoking;
+    found.pets_allowed = pets;
+    found.free_wifi = wifi;
+    found.breakfast = bfast;
+    saveData();
+    return true
+}
 
 function updateHotelPrices(name, price){
     let found = hotels.find(h => h.name === name);
@@ -106,7 +119,6 @@ function updateHotelPrices(name, price){
     found.price = price;
     saveData();
     return true
-
 }
 
 function saveData(){

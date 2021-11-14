@@ -10,9 +10,10 @@ export default function Hotel(props){
                 <ListGroupItem>Total Rooms: {props.hotel.rooms}</ListGroupItem>
                 <ListGroupItem>Vacancy {props.hotel.vacancy}</ListGroupItem>
                 <ListGroupItem>Surcharge Rate: {Math.ceil(((props.hotel.surcharge - 1) * 100)) + "%"}</ListGroupItem>
+                <ListGroupItem>Policies: {props.hotel.smoking ? "Smoking Avaiable": "Non-Smoking Only"}</ListGroupItem>
             </ListGroup>
             <Accordion>
-                <Accordion.Item eventKey="0">
+            <Accordion.Item eventKey="0">
                     <Accordion.Header>Amenities</Accordion.Header>
                     <Accordion.Body>
                         <ListGroup className="list-group-flush">
@@ -20,10 +21,21 @@ export default function Hotel(props){
                             {props.hotel.amenities.gym && <ListGroupItem>Gym</ListGroupItem>}
                             {props.hotel.amenities.spa && <ListGroupItem>Spa</ListGroupItem>}
                             {props.hotel.amenities.office && <ListGroupItem>Office</ListGroupItem>}
+                            {props.hotel.breakfast && <ListGroupItem>Free Continental Breakfast</ListGroupItem>}
+                            {props.hotel.free_wifi && <ListGroupItem>Free Wifi Available</ListGroupItem>}
                         </ListGroup>
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
+                    <Accordion.Header>Policies</Accordion.Header>
+                    <Accordion.Body>
+                        <ListGroup className="list-group-flush">
+                            <ListGroupItem>{props.hotel.smoking ? "Smoking Avaiable":"Non-Smoking Only"}</ListGroupItem>
+                            <ListGroupItem>{props.hotel.pets_allowed ? "Pet-Friendly":"No Pets Allowed"}</ListGroupItem>
+                        </ListGroup>
+                    </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
                     <Accordion.Header>Prices</Accordion.Header>
                     <Accordion.Body>
                         <ListGroup className="list-group-flush">

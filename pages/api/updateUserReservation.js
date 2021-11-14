@@ -10,7 +10,7 @@ export default function handler(req, res){
     let hotel = "The Magnolia All Suites"
     let guest = "jim"
     let roomType = "standard"
-    let start = "11-13-21"
+    let start = "11-12-21"
     let end = "11-15-21"
     
 

@@ -4,9 +4,9 @@
     "guest": "jim",
     "hotel": "The Magnolia All Suites",
     "roomType": "standard",
-    "start": "11-13-21",
+    "start": "11-12-21",
     "end": "11-15-21",
     "surcharge": true,
-    "price": 250
+    "price": 350
   }
 ]
