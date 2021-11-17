@@ -16,6 +16,7 @@ export default function handler(req, res){
     let success = HotelDB.updateHotelAmenities(name, amenities);
     if(!success){
         res.status(400)
+        return
     }
     res.status(200).json({success: success})
 }
