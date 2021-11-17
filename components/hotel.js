@@ -46,8 +46,9 @@ export default function Hotel(props){
                         </ListGroup>
                     </Accordion.Body>
                 </Accordion.Item>
-            </Accordion>   
-            <Button variant="primary">Book Reservation</Button>
+            </Accordion>
+            {props.mode == "manage" && <Button>Manage</Button>}
+            {props.mode == "book" && <Button>Book</Button>}
         </Card>
 
     )
