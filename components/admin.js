@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import { Container, Row, Col, Image, Button, Card } from "react-bootstrap";
 import Link from "next/link";
 
 export default function Admin(props) {
@@ -15,58 +15,54 @@ export default function Admin(props) {
             ></Image>
           </Col>
           <Col>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <h1 className="user-welcome">Welcome, {props.user.username}!</h1>
           </Col>
         </Row>
-        <br></br>
-        <Row>
-          <Col>
-            <h3>Employee Info</h3>
-            <p>
-              Employee info placeholder text, not quite sure what to do here or
-              just remove this section, well see. Also, finalize what to put in
-              each menu/column for both admin and customer. Should be an easy
-              fix since its just a matter of linking things to whatever I need
-              them to be linked to.
-            </p>
-          </Col>
-        </Row>
       </Container>
-      <hr></hr>
+      <br></br>
       <Container className="body-container">
         <Row>
-          <Col>
-            <h3 className="header-text">Reservations</h3>
-            <hr></hr>
-            <ul>
-              <li>Create Reservation</li>
-              <li>View Reservation</li>
-              <li>Update Reservation</li>
-              <li>Delete Reservation</li>
-            </ul>
+          <Col sm>
+            <Card className="text-center" style={{ width: "350px" }}>
+              <Card.Body>
+                <Card.Title>Manage Users</Card.Title>
+                <Card.Text>Create, View, Update, and Delete users.</Card.Text>
+                <Button variant="dark" href="/manageUsers">
+                  Manage Users
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
-          <Col>
-            <h3 className="header-text">Manage</h3>
-            <hr></hr>
-            <ul>
-              <li>
-                <Link href="/manageUsers">Users</Link>
-              </li>
-              <li>
-                <Link href="/manageHotel">Hotels</Link>
-              </li>
-              <li>
-                <Link href="/manageReservations">Reservations</Link>
-              </li>
-            </ul>
+          <Col sm>
+            <Card className="text-center" style={{ width: "350px" }}>
+              <Card.Body>
+                <Card.Title>Manage Hotels</Card.Title>
+                <Card.Text>View list of assigned hotels.</Card.Text>
+                <Button variant="dark" href="/manageHotel">
+                  Manage Hotels
+                </Button>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col sm>
+            <Card className="text-center" style={{ width: "350px" }}>
+              <Card.Body>
+                <Card.Title>Manage Reservations</Card.Title>
+                <Card.Text>
+                  Create, View, Update, and Delete reservations for your
+                  hotels.
+                </Card.Text>
+                <Button variant="dark" href="/manageReservations">
+                  Manage Reservations
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
-      </Container>
-      <hr></hr>
-      <Container className="footer">
-        <Button variant="dark" href="/editProfile">
-          Edit Profile
-        </Button>
       </Container>
     </>
   );
