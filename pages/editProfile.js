@@ -1,14 +1,11 @@
-import { useRouter } from "next/router";
-import { useState } from "react";
 import React from "react";
 import { Container, Row, Form, Button, Alert } from "react-bootstrap";
-import Header from "../components/header";
-import { useForm } from "react-hook-form";
+import HeadBar from "../components/headbar";
 
 function editProfile() {
   return (
     <>
-      <Header></Header>
+      <HeadBar></HeadBar>
       <br></br>
       <Container>
         <Row>
