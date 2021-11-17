@@ -11,8 +11,7 @@ export default function handler(req, res){
         return
 
     }
-    let available = success.filter(h => h.vacancy >= 1)
-    if(available < 1){
+    if(success.vacancy < 1){
         res.status(400).json({error: "no vacancy"});
         return
     }

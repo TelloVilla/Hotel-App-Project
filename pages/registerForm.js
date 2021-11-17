@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { Form, Button, Nav } from 'react-bootstrap'
-import Link from 'next/link'
-import { Alert } from 'react-alert'
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { Form, Button, Nav } from 'react-bootstrap';
+import Link from 'next/link';
+import { Alert } from 'react-alert';
 //import styles from "../styles/registerpage.module.css"
 
 export default function regForm() {
