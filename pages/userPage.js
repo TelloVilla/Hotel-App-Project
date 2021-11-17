@@ -13,7 +13,7 @@ const user = ({ user }) => {
   return (
     <>
       <head>
-        <title>User Account</title>
+        <title>{user.username}'s Account</title>
       </head>
       <Header></Header>
       <br></br>
