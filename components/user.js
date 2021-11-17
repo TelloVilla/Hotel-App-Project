@@ -1,5 +1,5 @@
-import { Container, Row, Col, Image } from 'react-bootstrap'
-import Link from 'next/link'
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import Link from "next/link";
 
 export default function User(props) {
   return (
@@ -7,7 +7,12 @@ export default function User(props) {
       <Container className="heading-container">
         <Row>
           <Col>
-            <Image src="https://via.placeholder.com/225" className="user-image" alt="User Image Here" roundedCircle></Image>
+            <Image
+              src="https://via.placeholder.com/225"
+              className="user-image"
+              alt="User Image Here"
+              roundedCircle
+            ></Image>
           </Col>
           <Col>
             <h1 className="user-welcome">Welcome, {props.user.username}!</h1>
@@ -60,10 +65,10 @@ export default function User(props) {
       </Container>
       <hr></hr>
       <Container className="footer">
-        <Link href="/editProfile">Edit Profile</Link>
+        <Button variant="dark" href="/editProfile">
+          Edit Profile
+        </Button>
       </Container>
     </>
   );
 }
-
-

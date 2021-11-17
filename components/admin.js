@@ -1,4 +1,4 @@
-import { Container, Row, Col, Image } from "react-bootstrap";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 import Link from "next/link";
 
 export default function Admin(props) {
@@ -24,7 +24,10 @@ export default function Admin(props) {
             <h3>Employee Info</h3>
             <p>
               Employee Info placeholder text, not quite sure what to do here or
-              just remove this seciton, well see.
+              just remove this seciton, well see. Also, finalize what to put in
+              each menu/column for both admin and customer. Should be an easy
+              fix since its just a matter of linking things to whatever I need
+              them to be linked to.
             </p>
           </Col>
         </Row>
@@ -36,26 +39,34 @@ export default function Admin(props) {
             <h3 className="header-text">Reservations</h3>
             <hr></hr>
             <ul>
-                <li>Create Reservation</li>
-                <li>View Reservation</li>
-                <li>Update Reservation</li>
-                <li>Delete Reservation</li>
+              <li>Create Reservation</li>
+              <li>View Reservation</li>
+              <li>Update Reservation</li>
+              <li>Delete Reservation</li>
             </ul>
           </Col>
           <Col>
             <h3 className="header-text">Manage</h3>
             <hr></hr>
             <ul>
-                <li>View Users</li>
-                <li>View Hotels</li>
-                <li>View Promotions</li>
+              <li>
+                <Link href="/manageUsers">Users</Link>
+              </li>
+              <li>
+                <Link href="/manageHotel">Hotels</Link>
+              </li>
+              <li>
+                <Link href="/manageReservations">Reservations</Link>
+              </li>
             </ul>
           </Col>
         </Row>
       </Container>
       <hr></hr>
       <Container className="footer">
-        <Link href="/editProfile">Edit Profile</Link>
+        <Button variant="dark" href="/editProfile">
+          Edit Profile
+        </Button>
       </Container>
     </>
   );

@@ -23,16 +23,16 @@ function editProfile() {
         </Row>
         <br></br>
         <Row>
-          <Button id="saveButton" variant="primary" size="lg">
+          <Button id="saveButton" variant="primary" size="lg" href="/userPage">
             Submit
           </Button>
         </Row>
         <br></br>
         <Row>
-          <Alert variant="success" id="saveAlert" className="text-center">
+          {/* <Alert variant="success" id="saveAlert" className="text-center">
             <Alert.Heading></Alert.Heading>
             <p>Changes Saved</p>
-          </Alert>
+          </Alert> */}
         </Row>
       </Container>
     </>
