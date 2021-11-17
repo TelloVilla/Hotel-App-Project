@@ -1,11 +1,10 @@
 import { withIronSession } from 'next-iron-session'
-import Head from 'next/head'
-import Header from '../components/header'
+import HeadBar from '../components/headbar'
 
-const testPage = ({user}) => {
+const TestPage = ({user}) => {
   return (
     <div className="container">
-      <Header/>
+      <HeadBar/>
       <h4>Hello {user.username}</h4>
       {user.admin.status &&
         <h3>You are an admin</h3>
@@ -44,9 +43,9 @@ export const getServerSideProps = withIronSession(
   {
     cookieName: "hotel-cookie",
     cookieOptions: {
-      secure: process.env.NODE_ENV === "production" ? true : false
+      secure: false
     },
     password: process.env.APPLICATION_SECRET
   }
 )
-export default testPage;
+export default TestPage;

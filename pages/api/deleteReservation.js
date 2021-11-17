@@ -11,6 +11,7 @@ export default function handler(req, res){
 
     if(!found){
         res.status(400).json({error: "Reservation not found"})
+        return;
     }
     let updateHotel = HotelDB.updateVacancy(found.hotel, "+");
 
@@ -18,14 +19,14 @@ export default function handler(req, res){
 
     if(!success){
         res.status(400).json({error: "Reservation not found"})
-        return
+        return;
     }
 
     success = UserDB.deleteUserReservation(reservID)
 
     if(!success){
         res.status(400).json({error: "User not found"})
-        return
+        return;
     }
 
     res.status(200).json({success: success})

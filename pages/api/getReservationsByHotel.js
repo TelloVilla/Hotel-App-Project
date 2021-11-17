@@ -9,6 +9,7 @@ export default function handler(req, res){
 
     if(success.length == 0){
         res.status(400).json({error: "No valid Hotels"})
+        return;
     }
 
     res.status(200).json(success)

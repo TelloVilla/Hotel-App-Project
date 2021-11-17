@@ -1,5 +1,5 @@
-import router, { Router } from 'next/router'
-import Header from '../components/header'
+import router, { Router } from 'next/router';
+import HeadBar from '../components/headbar';
 import { withIronSession } from 'next-iron-session';
 const bcrypt = require("bcryptjs");
 
@@ -31,7 +31,7 @@ const Home = ({user}) => {
   }
   return (
     <div className="container">
-      <Header/>
+      <HeadBar/>
       <button onClick={onLogin}>Click to sign in</button>
       <button onClick={onLogout}>Click to log out</button>
       
@@ -58,7 +58,7 @@ export const getServerSideProps = withIronSession(
   {
     cookieName: "hotel-cookie",
     cookieOptions: {
-      secure: process.env.NODE_ENV === "production" ? true : false
+      secure: false
     },
     password: process.env.APPLICATION_SECRET
   }

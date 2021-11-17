@@ -10,6 +10,7 @@ export default function handler(req, res){
 
     if(!success){
         res.status(400).json({error: "Reservation not found"})
+        return;
     }
 
     res.status(200).json(success)

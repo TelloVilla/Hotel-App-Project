@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
 
-export default function loginForm() {
+export default function LoginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
