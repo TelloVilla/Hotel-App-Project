@@ -23,8 +23,8 @@ export default function Admin(props) {
           <Col>
             <h3>Employee Info</h3>
             <p>
-              Employee Info placeholder text, not quite sure what to do here or
-              just remove this seciton, well see. Also, finalize what to put in
+              Employee info placeholder text, not quite sure what to do here or
+              just remove this section, well see. Also, finalize what to put in
               each menu/column for both admin and customer. Should be an easy
               fix since its just a matter of linking things to whatever I need
               them to be linked to.

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Form, Button, Alert } from "react-bootstrap";
+import { Container, Row, Form, Button, Alert, Col } from "react-bootstrap";
 import HeadBar from "../components/headbar";
 
 function editProfile() {
@@ -9,16 +9,26 @@ function editProfile() {
       <br></br>
       <Container>
         <Row>
-          <Form.Group controlId="formFileLg" className="mb-3">
-            <Form.Label>Upload Profile Picture</Form.Label>
-            <Form.Control type="file" size="lg" />
+          <Form.Group as={Col} controlId="formGridFirstName">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control />
+          </Form.Group>
+          <Form.Group as={Col} controlId="formGridLastName">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control />
           </Form.Group>
         </Row>
         <br></br>
         <Row>
-          <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>About Me</Form.Label>
-            <Form.Control as="textarea" rows={5} />
+          <Form.Group className="mb-3" controlId="formGridUserName">
+            <Form.Label>Username</Form.Label>
+            <Form.Control/>
+          </Form.Group>
+        </Row>
+        <Row>
+          <Form.Group className="mb-3" controlId="formGridAddress">
+            <Form.Label>Address</Form.Label>
+            <Form.Control/>
           </Form.Group>
         </Row>
         <br></br>
@@ -26,13 +36,6 @@ function editProfile() {
           <Button id="saveButton" variant="primary" size="lg" href="/userPage">
             Submit
           </Button>
-        </Row>
-        <br></br>
-        <Row>
-          {/* <Alert variant="success" id="saveAlert" className="text-center">
-            <Alert.Heading></Alert.Heading>
-            <p>Changes Saved</p>
-          </Alert> */}
         </Row>
       </Container>
     </>
