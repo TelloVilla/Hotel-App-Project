@@ -1,20 +1,39 @@
 import Hotel from "../components/hotel";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
+import { Button, Container, Spinner } from "react-bootstrap";
 
-const hotelsPage = ({ user }) => {
+const HotelsPage = ({ user }) => {
   const [hotels, setHotels] = useState(null);
   const fetchData = async () => {
     const res = await fetch("/api/getAllHotels");
     const data = await res.json();
-    setHotels(data.map((h) => <Hotel hotel={h}></Hotel>));
+    setHotels(
+      data.map((h, i) => (
+        <Container key={i}>
+          <Hotel key={i} hotel={h}></Hotel>
+          <Button key={i} name={h.name} onClick={handleReservation}>
+            Reserve
+          </Button>
+        </Container>
+      ))
+    );
   };
   useEffect(() => {
     fetchData();
   }, []);
 
+  function handleReservation(e) {
+    e.preventDefault;
+    console.log(e.target.name);
+  }
+
   if (!hotels) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Spinner animation="border"></Spinner> Loading...
+      </div>
+    );
   }
 
   return <div>{hotels}</div>;
@@ -27,7 +46,7 @@ export const getServerSideProps = withIronSession(
     if (!user) {
       return {
         redirect: {
-          destination: "/LoginForm",
+          destination: "/loginForm",
           permanent: false,
         },
       };
@@ -37,9 +56,9 @@ export const getServerSideProps = withIronSession(
   {
     cookieName: "hotel-cookie",
     cookieOptions: {
-      secure: process.env.NODE_ENV === "production" ? true : false,
+      secure: false,
     },
     password: process.env.APPLICATION_SECRET,
   }
 );
-export default hotelsPage;
+export default HotelsPage;

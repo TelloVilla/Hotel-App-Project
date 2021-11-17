@@ -12,6 +12,7 @@
     "@popperjs/core": "^2.10.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.1.0",
+    "lodash": "^4.17.21",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.0",

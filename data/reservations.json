@@ -1,29 +1,12 @@
 [
   {
-    "id": "3643m",
-    "guest": "jim",
-    "hotel": "Hotel Inn",
-    "roomType": "standard",
-    "start": "12-5-23",
-    "end": "12-7-23",
-    "surcharge": true
-  },
-  {
-    "id": "616m",
-    "guest": "jim",
-    "hotel": "Hotel Inn",
-    "roomType": "standard",
-    "start": "12-5-23",
-    "end": "12-7-23",
-    "surcharge": true
-  },
-  {
-    "id": "4514jim",
+    "id": "4133jim",
     "guest": "jim",
     "hotel": "The Magnolia All Suites",
     "roomType": "standard",
-    "start": "12-5-23",
-    "end": "12-7-23",
-    "surcharge": true
+    "start": "11-12-21",
+    "end": "11-15-21",
+    "surcharge": true,
+    "price": 350
   }
 ]

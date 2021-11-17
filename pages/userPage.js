@@ -1,21 +1,17 @@
 import { withIronSession } from "next-iron-session";
 import React from "react";
-import Header from "../components/header";
+import HeadBar from "../components/headbar";
 import User from "../components/user";
 import styles from "../styles/user.module.css";
-import { useState } from "react";
-import { useRouter } from "next/router";
 
 const user = ({ user }) => {
-
-  
 
   return (
     <>
       <head>
         <title>{user.username}'s Account</title>
       </head>
-      <Header></Header>
+      <HeadBar></HeadBar>
       <br></br>
       <User user={user}></User>
     </>

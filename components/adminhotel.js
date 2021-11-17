@@ -6,7 +6,15 @@ import {
   Accordion,
   Button,
 } from "react-bootstrap";
-export default function Hotel(props) {
+export default function Adminhotel(props) {
+  //test data
+  // let hotel = "The Magnolia All Suites"
+  // let guest = "jim"
+  // let roomType = "standard"
+  // let start = "12-5-23"
+  // let end = "12-7-23"
+  // let surcharge = true;
+
   return (
     <Card border="dark">
       <Card.Img variant="top" src="/hotel.svg" alt="Hotel Here" />
@@ -18,10 +26,6 @@ export default function Hotel(props) {
         <ListGroupItem>Vacancy {props.hotel.vacancy}</ListGroupItem>
         <ListGroupItem>
           Surcharge Rate: {Math.ceil((props.hotel.surcharge - 1) * 100) + "%"}
-        </ListGroupItem>
-        <ListGroupItem>
-          Policies:{" "}
-          {props.hotel.smoking ? "Smoking Avaiable" : "Non-Smoking Only"}
         </ListGroupItem>
       </ListGroup>
       <Accordion>
@@ -37,29 +41,10 @@ export default function Hotel(props) {
               {props.hotel.amenities.office && (
                 <ListGroupItem>Office</ListGroupItem>
               )}
-              {props.hotel.breakfast && (
-                <ListGroupItem>Free Continental Breakfast</ListGroupItem>
-              )}
-              {props.hotel.free_wifi && (
-                <ListGroupItem>Free Wifi Available</ListGroupItem>
-              )}
             </ListGroup>
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>Policies</Accordion.Header>
-          <Accordion.Body>
-            <ListGroup className="list-group-flush">
-              <ListGroupItem>
-                {props.hotel.smoking ? "Smoking Avaiable" : "Non-Smoking Only"}
-              </ListGroupItem>
-              <ListGroupItem>
-                {props.hotel.pets_allowed ? "Pet-Friendly" : "No Pets Allowed"}
-              </ListGroupItem>
-            </ListGroup>
-          </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="2">
           <Accordion.Header>Prices</Accordion.Header>
           <Accordion.Body>
             <ListGroup className="list-group-flush">
@@ -78,7 +63,8 @@ export default function Hotel(props) {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <Button variant="primary">Book Reservation</Button>
+      <Button style={{ backgroundColor: "green" }}>Edit</Button>
+      <Button style={{ backgroundColor: "red" }}>Delete</Button>
     </Card>
   );
 }

@@ -1,18 +1,23 @@
-import { UserDB } from "../../util/user_db";
 import { ReservDB } from "../../util/reserv_db";
 import { HotelDB } from "../../util/hotel_db";
-const bcrypt = require("bcryptjs");
-
+import { UserDB } from "../../util/user_db";
 export default function handler(req, res) {
-  //let {hotel, guest, roomType, start, end} = req.body;
+  //let {reservID, hotel, guest, roomType, start, end} = req.body;
 
   //test data
+  let reservID = "4133jim";
   let hotel = "The Magnolia All Suites";
   let guest = "jim";
   let roomType = "standard";
-  let start = "11-13-21";
-  let end = "11-23-21";
+  let start = "11-12-21";
+  let end = "11-15-21";
 
+  let success = ReservDB.getReservationInfo(reservID);
+
+  if (!success) {
+    res.status(400).json({ error: "Reservation not found" });
+    return;
+  }
   let startCheck = new Date(start);
   let endCheck = new Date(end);
   let surchargeDays = 0;
@@ -35,23 +40,37 @@ export default function handler(req, res) {
   let foundUser = UserDB.find((u) => u.username === guest);
 
   if (foundUser) {
-    let updateHotel = HotelDB.updateVacancy(hotel, "-");
+    let updateHotel;
+    let oldHotel;
+    console.log(success.hotel + " " + hotel);
+    if (success.hotel != hotel) {
+      oldHotel = HotelDB.updateVacancy(success.hotel, "+");
+      updateHotel = HotelDB.updateVacancy(hotel, "-");
+    } else {
+      oldHotel = true;
+      updateHotel = true;
+    }
+
     let hotelCharge = HotelDB.findHotelByName(hotel);
-    if (updateHotel) {
+    console.log(updateHotel + " " + oldHotel);
+    if (updateHotel && oldHotel) {
       let roomPrice = hotelCharge.price[roomType];
       let surchargeRate = hotelCharge.surcharge;
       let price =
         roomPrice * chargeDays + roomPrice * surchargeDays * surchargeRate;
-      let id = ReservDB.createReservation(
-        hotel,
+      success = ReservDB.updateReservation(
+        reservID,
         guest,
+        hotel,
         roomType,
         start,
         end,
         surcharge,
         price
       );
-      let success = UserDB.addReservationToUser(guest, id);
+      if (!success) {
+        res.status(400).json({ error: "Error updating reservation" });
+      }
       res.status(200).json({ success: success });
       return;
     }

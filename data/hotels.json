@@ -2,7 +2,7 @@
   {
     "name": "The Magnolia All Suites",
     "rooms": 20,
-    "vacancy": 20,
+    "vacancy": 19,
     "amenities": {
       "pool": true,
       "spa": true,
@@ -14,7 +14,11 @@
       "queen": 150,
       "king": 250
     },
-    "surcharge": 1.25
+    "surcharge": 1.25,
+    "smoking": false,
+    "pets_allowed": true,
+    "free_wifi": true,
+    "breakfast": true
   },
   {
     "name": "The Lofts at Town Centre",
@@ -31,7 +35,11 @@
       "queen": 120,
       "king": 190
     },
-    "surcharge": 1.35
+    "surcharge": 1.35,
+    "smoking": false,
+    "pets_allowed": true,
+    "free_wifi": true,
+    "breakfast": true
   },
   {
     "name": "Park North Hotel",
@@ -48,7 +56,11 @@
       "queen": 75,
       "king": 90
     },
-    "surcharge": 1.15
+    "surcharge": 1.15,
+    "smoking": true,
+    "pets_allowed": false,
+    "free_wifi": true,
+    "breakfast": false
   },
   {
     "name": "Town Inn Budget Rooms",
@@ -65,7 +77,11 @@
       "queen": 50,
       "king": 60
     },
-    "surcharge": 1.15
+    "surcharge": 1.15,
+    "smoking": true,
+    "pets_allowed": true,
+    "free_wifi": true,
+    "breakfast": false
   },
   {
     "name": "The Comfy Motel Place",
@@ -82,7 +98,11 @@
       "queen": 50,
       "king": false
     },
-    "surcharge": 1.1
+    "surcharge": 1.1,
+    "smoking": false,
+    "pets_allowed": false,
+    "free_wifi": false,
+    "breakfast": false
   },
   {
     "name": "Sun Palace Inn",
@@ -99,7 +119,11 @@
       "queen": 60,
       "king": 80
     },
-    "surcharge": 1.25
+    "surcharge": 1.25,
+    "smoking": true,
+    "pets_allowed": true,
+    "free_wifi": true,
+    "breakfast": true
   },
   {
     "name": "HomeAway Inn",
@@ -116,7 +140,11 @@
       "queen": false,
       "king": false
     },
-    "surcharge": 1.25
+    "surcharge": 1.25,
+    "smoking": true,
+    "pets_allowed": false,
+    "free_wifi": true,
+    "breakfast": true
   },
   {
     "name": "Rio Inn",
@@ -133,6 +161,10 @@
       "queen": 55,
       "king": 89
     },
-    "surcharge": 1.2
+    "surcharge": 1.2,
+    "smoking": false,
+    "pets_allowed": false,
+    "free_wifi": true,
+    "breakfast": true
   }
 ]

@@ -2,9 +2,8 @@ import Reservation from "../components/reservation";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import { Alert } from "react-bootstrap";
-import Header from "../components/header";
 
-const reservations = ({ user }) => {
+const Reservations = ({ user }) => {
   const [reservs, setReservs] = useState(null);
   const fetchData = async () => {
     const username = user.username;
@@ -15,7 +14,9 @@ const reservations = ({ user }) => {
     });
     const data = await res.json();
     if (res.ok) {
-      setReservs(data.map((r) => <Reservation reserv={r}></Reservation>));
+      setReservs(
+        data.map((r, i) => <Reservation key={i} reserv={r}></Reservation>)
+      );
     } else {
       setReservs("none");
     }
@@ -31,21 +32,13 @@ const reservations = ({ user }) => {
 
   if (reservs === "none") {
     return (
-      <>
-        <Header></Header>
-        <div>
-          <Alert variant="warning">No current Reservations</Alert>
-        </div>
-      </>
+      <div>
+        <Alert variant="warning">No current Reservations</Alert>
+      </div>
     );
   }
 
-  return (
-    <>
-      <Header></Header>
-      <div>{reservs}</div>
-    </>
-  );
+  return <div>{reservs}</div>;
 };
 
 export const getServerSideProps = withIronSession(
@@ -67,9 +60,9 @@ export const getServerSideProps = withIronSession(
   {
     cookieName: "hotel-cookie",
     cookieOptions: {
-      secure: process.env.NODE_ENV === "production" ? true : false,
+      secure: false,
     },
     password: process.env.APPLICATION_SECRET,
   }
 );
-export default reservations;
+export default Reservations;

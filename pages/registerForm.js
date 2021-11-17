@@ -7,14 +7,22 @@ import Link from "next/link";
 export default function regForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const router = useRouter();
   const data = {
     username,
     password,
+    firstName,
+    lastName,
     admin: {
-      status: false,
+      status: isAdmin,
       hotels: [],
     },
+  };
+  const handleChange = () => {
+    setIsAdmin(!isAdmin);
   };
   const submitForm = async (event) => {
     event.preventDefault();
@@ -26,7 +34,7 @@ export default function regForm() {
     });
 
     if (res.ok) {
-      return router.push("/dashboard");
+      return router.push("/");
     } else {
       return router.push("/something");
     }
@@ -64,6 +72,24 @@ export default function regForm() {
               id="inputField"
             />
           </Form.Group>
+          <Form.Group className="mb-3" id="input">
+            <Form.Label>First Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Your First Name"
+              onChange={(e) => setFirstName(e.target.value)}
+              id="inputField"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" id="input">
+            <Form.Label>Last Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Your Last Name"
+              onChange={(e) => setLastName(e.target.value)}
+              id="inputField"
+            />
+          </Form.Group>
           <Button variant="primary" type="submit" id="submitButton">
             Register
           </Button>
@@ -72,6 +98,17 @@ export default function regForm() {
             <Link href="/loginForm" passHref>
               <Nav.Link>Log in</Nav.Link>
             </Link>
+            <Form.Group>
+              <div>
+                <input
+                  type="checkbox"
+                  value="Admin"
+                  adm={isAdmin}
+                  onChange={handleChange}
+                ></input>{" "}
+                Admin
+              </div>
+            </Form.Group>
           </Form.Group>
         </Form>
       </div>
