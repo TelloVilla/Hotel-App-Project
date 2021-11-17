@@ -1,10 +1,24 @@
 import { withIronSession } from "next-iron-session";
 import React from "react";
+import Admin from "../components/admin";
 import HeadBar from "../components/headbar";
 import User from "../components/user";
 import styles from "../styles/user.module.css";
 
 const user = ({ user }) => {
+  //check if admin, return admin page
+  if (user.admin.status) {
+    return (
+      <>
+        <head>
+          <title>{user.username}'s Account</title>
+        </head>
+        <HeadBar></HeadBar>
+        <br></br>
+        <Admin user={user}></Admin>
+      </>
+    );
+  }
 
   return (
     <>
