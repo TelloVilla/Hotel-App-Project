@@ -11,10 +11,6 @@ export default function handler(req, res){
         return
 
     }
-    if(success.vacancy < 1){
-        res.status(400).json({error: "no vacancy"});
-        return
-    }
     res.status(200).json(success);
 
 }
