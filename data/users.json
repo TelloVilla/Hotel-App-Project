@@ -60,16 +60,6 @@
     "reservations": []
   },
   {
-    "id": "42331",
-    "username": "",
-    "hash": "$2a$10$S/leoTdlg2YnHYO02bzu5.T6W9Q2BGA0u.NNd.78AGidsdgH9jY.a",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
     "id": "365897ti",
     "username": "tim",
     "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",

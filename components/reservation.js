@@ -11,6 +11,7 @@ export default function Reservation(props){
                 <ListGroupItem>Check In: {props.reserv.start}</ListGroupItem>
                 <ListGroupItem>Check Out: {props.reserv.end}</ListGroupItem>
                 <ListGroupItem>Room Type: {props.reserv.roomType}</ListGroupItem>
+                <ListGroupItem>Room Type: {props.reserv.price}</ListGroupItem>
             </ListGroup>
             <Button variant="primary">Edit Reservation</Button>
         </Card>

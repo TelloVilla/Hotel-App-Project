@@ -3,15 +3,15 @@ import { HotelDB } from "../../util/hotel_db";
 import { UserDB } from "../../util/user_db";
 export default function handler(req, res){
 
-    //let {reservID, hotel, guest, roomType, start, end} = req.body;
+    let {reservID, hotel, guest, roomType, start, end, price} = req.body;
 
     //test data
-    let reservID = "4133jim";
-    let hotel = "The Magnolia All Suites"
-    let guest = "jim"
-    let roomType = "standard"
-    let start = "11-12-21"
-    let end = "11-15-21"
+    // let reservID = "4133jim";
+    // let hotel = "The Magnolia All Suites"
+    // let guest = "jim"
+    // let roomType = "standard"
+    // let start = "11-12-21"
+    // let end = "11-15-21"
     
 
     let success = ReservDB.getReservationInfo(reservID);
@@ -62,6 +62,7 @@ export default function handler(req, res){
             success = ReservDB.updateReservation(reservID, guest, hotel, roomType, start, end, surcharge, price);
             if(!success){
                 res.status(400).json({error: "Error updating reservation"})
+                return
             }
             res.status(200).json({success: success})
             return

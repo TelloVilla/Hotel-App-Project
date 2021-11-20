@@ -6,6 +6,7 @@ export default function handler(req, res){
     let success = HotelDB.updateHotelPrices(name, smoking, pets, wifi, bfast);
     if(!success){
         res.status(400).json({error: "Hotel not found"})
+        return
     }
     res.status(200).json(HotelDB.getAll())
 }
