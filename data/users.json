@@ -78,5 +78,25 @@
       "hotels": []
     },
     "reservations": []
+  },
+  {
+    "id": "355549us",
+    "username": "user",
+    "hash": "$2a$10$QaYrLs2e45Msvs7oR4vygOhLh55h32ibiATkV8pta/bT7luU0jnAi",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "319830us",
+    "username": "user2",
+    "hash": "$2a$10$OnBLm.5Po7hv8yfmxWgkie95RM1G12iCYh5jTzlnFkFt67cG9gUJW",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
   }
 ]
