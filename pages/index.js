@@ -41,7 +41,6 @@ const hotelsPage = (user) =>{
             <Row>
               {hotels}
             </Row>
-            
         </Container>
     )
 
