@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
-
+import Image from 'next/image'
 export default function LoginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
@@ -45,11 +45,15 @@ export default function LoginForm() {
     //   <br />
     //   <button type="submit" >Login</button>
     // </form>
+<div>
+<Image src="/../public/form_background.jpeg" alt="hotel background" layout="fill">
 
-    <div style={{ display: 'block', 
-    width: 700, 
-    padding: 100 }}
-    id="login">
+</Image>
+    <div className="card" style={{ display: 'block', 
+    width: 600, 
+    padding: 100,
+    marginTop: 200,
+    backgroundColor: "white"}}>
     <Form onSubmit={submitForm} id="login">
       
   <Form.Group className="mb-3" id="input">
@@ -74,6 +78,6 @@ export default function LoginForm() {
   </Form.Group>
 </Form>
 </div>
+</div>
   );
 }
-
