@@ -97,7 +97,9 @@
       "status": false,
       "hotels": []
     },
-    "reservations": ["3643m"]
+    "reservations": [
+      "3643m"
+    ]
   },
   {
     "id": "308169jo",
@@ -105,6 +107,16 @@
     "hash": "$2a$10$IN6R/89sFeBOJrBC8OjtK.2BxkCT.v06Y7HrkgwaLLy/OOahQPwQ.",
     "admin": {
       "status": true,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "460455js",
+    "username": "jsmitherson69",
+    "hash": "$2a$10$F3cELY1WF.LI9aEAWiEVxu.6qRxBwz14nyTX05J0kQOfSZKKNyZEq",
+    "admin": {
+      "status": false,
       "hotels": []
     },
     "reservations": []

@@ -27,7 +27,7 @@ export default function ManageUsers() {
               <Card.Body>
                 <Card.Title>View Users</Card.Title>
                 <Card.Text>View list of all users registered.</Card.Text>
-                <Button variant="dark" href="/">
+                <Button variant="dark" href="/viewUsers">
                   View Users
                 </Button>
               </Card.Body>
