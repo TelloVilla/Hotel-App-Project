@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
+import { toast } from 'react-toastify'
 
-export default function loginForm() {
+export default function LoginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -14,7 +15,7 @@ export default function loginForm() {
     }
     const submitForm = async event => {
       event.preventDefault()
-
+     
       const res = await fetch("/api/login", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -24,8 +25,11 @@ export default function loginForm() {
     if(res.ok) {
       return router.push('/')
     }
-    else {
-      return router.push('/something')
+    if(res.status === 403 || res.status === 500) {
+      toast.error("Invalid Login", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
     }
     
 
@@ -45,8 +49,8 @@ export default function loginForm() {
     <div style={{ display: 'block', 
     width: 700, 
     padding: 100 }}
-    id="register">
-    <Form onSubmit={submitForm} id="form">
+    id="login">
+    <Form onSubmit={submitForm} id="login">
       
   <Form.Group className="mb-3" id="input">
     <Form.Label>Username</Form.Label>
@@ -57,7 +61,7 @@ export default function loginForm() {
   <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
   </Form.Group>
-  <Button variant="primary" type="submit" id="submitButton" onClick={submitForm}>
+  <Button variant="primary" type="submit" id="submitButton" >
     Log in
   </Button>
   <Form.Group>
