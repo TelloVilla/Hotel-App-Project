@@ -1,5 +1,4 @@
 import { useState, useCallback } from "react";
-import React from "react";
 import { useRouter } from "next/router";
 import { Form, Button, Nav, Row, Col, Container } from "react-bootstrap";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import Image from "next/image";
 import { withIronSession } from "next-iron-session";
 //import styles from "../styles/registerpage.module.css"
 
-const BookForm = (user)=>{
+const BookForm = ({user})=>{
   const [hotel, setHotel] = useState("");
   const [roomType, setRoomType] = useState("");
   const [start, setStart] = useState("");

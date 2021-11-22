@@ -8,9 +8,7 @@ export const HotelDB = {
     findHotelByName,
     findHotelByAmenitites,
     findHotelByPrice,
-    updateHotelAmenities,
-    updateHotelPolicies,
-    updateHotelPrices,
+    updateHotel,
     updateVacancy,
     addHotel,
     deleteHotel,
@@ -88,40 +86,33 @@ function deleteHotel(name){
 
 }
 
-function updateHotelAmenities(name, amenities){
-    let found = hotels.find(h => h.name === name);
+function updateHotel(hotel){
+    console.log(hotel)
+    let found = hotels.find(h => h.name === hotel.name);
     if(!found){
         return false
     }
-    found.amenities = amenities;
-    saveData();
-    return true
-
-}
-function updateHotelPolicies(name, smoking, pets, wifi, bfast){
-    let found = hotels.find(h => h.name === name);
-    if(!found){
-        return false
-    }
-    found.smoking = smoking;
-    found.pets_allowed = pets;
-    found.free_wifi = wifi;
-    found.breakfast = bfast;
-    saveData();
-    return true
-}
-
-function updateHotelPrices(name, price){
-    let found = hotels.find(h => h.name === name);
-    if(!found){
-        return false
-    }
-    found.price = price;
+    found.rooms = hotel.rooms
+    found.amenities.pool = hotel.amenities.pool
+    found.amenities.spa = hotel.amenities.spa
+    found.amenities.gym = hotel.amenities.gym
+    found.amenities.office = hotel.amenities.office
+    found.price.standard = hotel.price.standard
+    found.price.king = hotel.price.king
+    found.price.queen = hotel.price.queen
+    found.surcharge = hotel.surcharge
+    found.smoking = hotel.smoking
+    found.pets_allowed = hotel.pets_allowed
+    found.free_wifi = hotel.free_wifi
+    found.breakfast = hotel.breakfast
+    console.log(hotel)
+    // found = hotel;
     saveData();
     return true
 }
 
 function saveData(){
+    console.log("hi")
     fs.writeFileSync('data/hotels.json', JSON.stringify(hotels, null, 2))
 
 }
