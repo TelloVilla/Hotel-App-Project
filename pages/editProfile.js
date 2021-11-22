@@ -33,7 +33,7 @@ function editProfile() {
         </Row>
         <br></br>
         <Row>
-          <Button id="saveButton" variant="primary" size="lg" href="/userPage">
+          <Button id="saveButton" variant="dark" size="lg" href="/userPage">
             Submit
           </Button>
         </Row>
