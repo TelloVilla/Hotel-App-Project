@@ -3,7 +3,6 @@ import React from "react";
 import Admin from "../components/admin";
 import HeadBar from "../components/headbar";
 import User from "../components/user";
-import styles from "../styles/user.module.css";
 
 const user = ({ user }) => {
   //check if admin, return admin page

@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button, Form } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import HeadBar from "../components/headbar";
 import Link from "next/link";
 import { useState } from "react";
