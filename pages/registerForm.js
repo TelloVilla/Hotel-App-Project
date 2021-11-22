@@ -1,38 +1,43 @@
-import { useState } from 'react'
+import { useState, useCallback} from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
-import { Alert } from 'react-alert'
+import { toast } from 'react-toastify'
 //import styles from "../styles/registerpage.module.css"
 
 export default function regForm() {
-
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [billingAddr, setBillingAddr] = useState('')
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState( )
   const router = useRouter()
-  const data = {
-    username,
-    password,
-    firstName,
-    lastName,
-    billingAddr,
-    admin: {
-      status: isAdmin,
-      hotels: []
-    }
-  }
+  
   const handleChange = () => {
     setIsAdmin(!isAdmin)
-    document.getElementById("Billing").disabled = !isAdmin
+    document.getElementById("billingField").value = "";
+    document.getElementById("billingField").disabled = !isAdmin
   }
 
+  
 
   const submitForm = async event => {
     event.preventDefault()
+    const data = {
+      username,
+      password,
+      firstName,
+      lastName,
+      billingAddr,
+      admin: {
+        status: isAdmin,
+        hotels: []
+      }
+    }
+
+    
 
     const res = await fetch("/api/register", {
       method: 'POST',
@@ -41,10 +46,63 @@ export default function regForm() {
     })
 
     if (res.ok) {
-      return router.push('/manageHotel')
+      return router.push('/')
     }
-    else {
-      return router.push('/something')
+
+    if(res.status === 400) {
+      toast.warn("Invalid Login", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(res.status === 401) {
+      toast.error("Wrong Password", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(res.status === 402) {
+      toast.error("Wrong Username", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+    
+    if(!username) {
+      toast.warn("Username field is empty!", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(!password) {
+      toast.warn("Password field is empty!", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(!firstName) {
+      toast.warn("First Name field is empty!", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(!lastName) {
+      toast.warn("Last Name field is empty!", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+
+    if(!billingAddr && !isAdmin) {
+      toast.warn("Billing Address field is empty!", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   }
 
@@ -69,35 +127,35 @@ export default function regForm() {
       
   <Form.Group className="mb-3" id="input">
     <Form.Label>Username</Form.Label>
-    <Form.Control type="username" placeholder="Enter username"  onChange={e => setUsername(e.target.value)} id="inputField"/>
+    <Form.Control type="username" placeholder="Enter username"  onChange={e => setUsername(e.target.value)} id="usernameField"/>
     
   </Form.Group>
   <Form.Group className="mb-3" id="input">
   <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
+    <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="passwordField"/>
   </Form.Group>
 
   <Form.Group className="mb-3" id="input">
   <Form.Label>First Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Your First Name"  onChange={e => setFirstName(e.target.value)} id="inputField"/>
+    <Form.Control type="text" placeholder="Enter Your First Name"  onChange={e => setFirstName(e.target.value)} id="firstNameField"/>
   </Form.Group>
 
   <Form.Group className="mb-3" id="input">
   <Form.Label>Last Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Your Last Name"  onChange={e => setLastName(e.target.value)} id="inputField"/>
+    <Form.Control type="text" placeholder="Enter Your Last Name"  onChange={e => setLastName(e.target.value)} id="lastNameField"/>
   </Form.Group>
 
   
   <Form.Group className="mb-3" id="input">
   <Form.Label>Billing Address</Form.Label>
-    <Form.Control type="text" placeholder="Enter Billing Address"  onChange={e => setBillingAddr(e.target.value)} id="Billing" />
+    <Form.Control type="text" placeholder="Enter Billing Address"  onChange={e => setBillingAddr(e.target.value)} id="billingField" />
   </Form.Group>
 
   <Button variant="primary" type="submit" id="submitButton" >
     Register
   </Button>
   <Form.Group>
-  <Form.Label>Already registered?</Form.Label>
+  <Form.Label id="Already">Already registered?</Form.Label>
   <Link href="/loginForm" passHref>
     <Nav.Link>
       Log in
@@ -105,7 +163,7 @@ export default function regForm() {
   </Link>
   <Form.Group>
     <div>
-      <input type="checkbox" value="Admin" adm={isAdmin} onChange={handleChange}></input>  Admin
+      <input type="checkbox" value="Admin"  onChange={handleChange}></input>  Admin
     </div>
   </Form.Group>
   </Form.Group>
