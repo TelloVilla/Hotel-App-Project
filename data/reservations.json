@@ -8,5 +8,35 @@
     "end": "11-15-21",
     "surcharge": true,
     "price": 350
+  },
+  {
+    "id": "001",
+    "guest": "josegarcia24",
+    "hotel": "The Magnolia All Suites",
+    "roomType": "standard",
+    "start": "11-22-21",
+    "end": "11-27-21",
+    "surcharge": false,
+    "price": 1234.56
+  },
+  {
+    "id": "002",
+    "guest": "josegarcia24",
+    "hotel": "The Lofts at Town Centre",
+    "roomType": "Queen",
+    "start": "11-28-21",
+    "end": "12-02-21",
+    "surcharge": true,
+    "price": 1111
+  },
+  {
+    "id": "003",
+    "guest": "josegarcia24",
+    "hotel": "Park North Hotel",
+    "roomType": "King",
+    "start": "12-03-21",
+    "end": "12-06-21",
+    "surcharge": true,
+    "price": 2222
   }
 ]

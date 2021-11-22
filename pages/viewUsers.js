@@ -2,15 +2,16 @@ import { Container } from "react-bootstrap";
 import HeadBar from "../components/headbar";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
-import displayUsers from "../components/displayUsers";
+import DisplayUsers from "../components/displayUsers";
 
 const ViewUsers = ({ user }) => {
   const [users, setUsers] = useState(null);
   const fetchData = async () => {
     const res = await fetch("/api/getAllUser");
     const data = await res.json();
+    console.log(data)
     setUsers(
-      data.map((u, i) => <displayUsers key={i} user={u}></displayUsers>)
+      data.map((u, i) => <DisplayUsers key={i} user={u}></DisplayUsers>)
     );
   };
   useEffect(() => {

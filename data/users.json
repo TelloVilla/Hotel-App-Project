@@ -106,6 +106,10 @@
       "status": false,
       "hotels": []
     },
-    "reservations": []
+    "reservations": [
+      "001",
+      "002",
+      "003"
+    ]
   }
 ]
