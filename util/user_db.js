@@ -1,5 +1,6 @@
 const fs = require("fs");
 let users = require("../data/users.json");
+const bcrypt = require("bcryptjs");
 
 export const UserDB = {
   getAll: () => users,
@@ -18,7 +19,7 @@ function printAll() {
   console.log(userDB.getAll);
 }
 
-function createUser(username, firstname, lastname, hash, admin) {
+function createUser(username, firstname, lastname, billaddress, hash, admin) {
   let duplicate = users.find((u) => u.username === username);
   if (duplicate) {
     return false;
@@ -29,10 +30,12 @@ function createUser(username, firstname, lastname, hash, admin) {
     username: username,
     firstname: firstname,
     lastname: lastname,
+    billaddress: billaddress,
     hash: hash,
     admin: admin,
     reservations: [],
   };
+  console.log(newUser);
   users.push(newUser);
   saveData();
   return true;
@@ -68,12 +71,20 @@ function deleteUserReservation(reservID) {
   return true;
 }
 
-function updateUser(username, hash, admin) {
+function updateUser(username, newUsername, hash, firstname, lastname, address) {
   let found = users.find((u) => u.username === username);
-  found.username = username;
-  found.hash = hash;
-  found.admin = admin;
+
+  if (!found) {
+    return false;
+  }
+
+  found.username = newUsername;
+  found.hash = bcrypt.hashSync(hash);
+  found.firstname = firstname;
+  found.lastname = lastname;
+  found.address = address;
   saveData();
+  return true;
 }
 
 function getAdminHotels(username) {

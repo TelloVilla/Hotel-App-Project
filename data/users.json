@@ -90,18 +90,6 @@
     "reservations": []
   },
   {
-    "id": "320354jr",
-    "username": "jrg24",
-    "hash": "$2a$10$vAa7OtECvHBLStYyppomP.1160RVgg8JeP4fv0yJ85FGm3eN/3U5q",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": [
-      "3643m"
-    ]
-  },
-  {
     "id": "308169jo",
     "username": "jose-admin",
     "hash": "$2a$10$IN6R/89sFeBOJrBC8OjtK.2BxkCT.v06Y7HrkgwaLLy/OOahQPwQ.",
@@ -117,6 +105,16 @@
     "hash": "$2a$10$F3cELY1WF.LI9aEAWiEVxu.6qRxBwz14nyTX05J0kQOfSZKKNyZEq",
     "admin": {
       "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "484280jf",
+    "username": "jfnksfo",
+    "hash": "$2a$10$8/EyetLiwt0JlcDuCL.sau6hJLekbdNB8cP7YMxROl/B2qwftLnJS",
+    "admin": {
+      "status": true,
       "hotels": []
     },
     "reservations": []

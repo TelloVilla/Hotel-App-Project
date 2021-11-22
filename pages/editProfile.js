@@ -3,15 +3,20 @@ import { Container, Row, Form, Button, Col } from "react-bootstrap";
 import HeadBar from "../components/headbar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { withIronSession } from 'next-iron-session'
 
-function editProfile() {
+function editProfile( {user} ) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const username = user.username;
+  const [newUsername, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const router = useRouter();
   const data = {
     username,
+    newUsername,
+    password,
     firstName,
     lastName,
     address,
@@ -72,6 +77,14 @@ function editProfile() {
                 id="inputField"
               />
             </Form.Group>
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+              type="password"
+              placeholder="Enter your new password"
+              onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
           </Row>
           <Row>
             <Form.Group className="mb-3" controlId="formGridAddress">
@@ -95,5 +108,30 @@ function editProfile() {
     </>
   );
 }
+
+export const getServerSideProps = withIronSession(
+  async ({ req, res }) => {
+    const user = req.session.get("user");
+
+    if (!user) {
+      return {
+        redirect: {
+          destination: "/loginForm",
+          permanent: false,
+        },
+      };
+    }
+    return {
+      props: { user },
+    };
+  },
+  {
+    cookieName: "hotel-cookie",
+    cookieOptions: {
+      secure: process.env.NODE_ENV === "production" ? true : false,
+    },
+    password: process.env.APPLICATION_SECRET,
+  }
+);
 
 export default editProfile;
