@@ -34,6 +34,7 @@ function createUser(username, firstname, lastname, billaddress, hash, admin){
         admin: admin,
         reservations: []
     }
+    console.log(newUser);
     users.push(newUser);
     saveData();
     return true
@@ -72,9 +73,12 @@ function deleteUserReservation(reservID){
     
 }
 
-function updateUser(username, hash, admin){
+function updateUser(username, firstname, lastname, billaddress, hash, admin){
     let found = users.find(u => u.username === username);
     found.username = username;
+    found.firstname = firstname;
+    found.lastname = lastname;
+    found.billaddress = billaddress;
     found.hash = hash;
     found.admin = admin;
     saveData();

@@ -1,38 +1,8 @@
 [
   {
-    "id": 270356,
-    "username": "jim",
-    "hash": "$2a$10$Dpvfoosxq6t5yf1Vvp29veONWqi7oU8sbQkLqrtSNe7lgu2tRBheS",
-    "admin": {
-      "status": true,
-      "hotels": [
-        "The Magnolia All Suites",
-        "The Lofts at Town Centre"
-      ]
-    },
-    "reservations": [
-      "3643m",
-      "616m",
-      "4514jim",
-      "3421jim",
-      "4691jim",
-      "4762jim",
-      "1704jim",
-      "3970jim",
-      "1443jim",
-      "3086jim",
-      "1525jim",
-      "3475jim",
-      "2274jim",
-      "4133jim"
-    ]
-  },
-  {
-    "id": "238396bo",
-    "username": "bob",
-    "firstname": "bob",
-    "lastname": "boberson",
-    "hash": "$2a$10$pQsXNw5UW89dDyEG4HW6nuE29bpraXz.LDvuZGNvqwpq9Wx56vZCe",
+    "id": "85000bo",
+    "username": "boberson",
+    "hash": "$2a$10$9Jr5Q6bi4TE/jhvKlxayAu4g7y3Kfby9AFhIklHuQmNhsMv0.bRxq",
     "admin": {
       "status": false,
       "hotels": []
@@ -40,9 +10,9 @@
     "reservations": []
   },
   {
-    "id": "436720fr",
-    "username": "frank",
-    "hash": "$2a$10$ZKbju/a5ah6TCB2mvT6K5e09RENw2KzK62t9NDh111YNbesek52qG",
+    "id": "96517jo",
+    "username": "joebob",
+    "hash": "$2a$10$ZQAZRtjCAWMnC15Q4w6lX.eOM5pXuVDnA3R8CHLTO.nzVhCE6fsUe",
     "admin": {
       "status": false,
       "hotels": []
@@ -50,19 +20,9 @@
     "reservations": []
   },
   {
-    "id": "174475du",
-    "username": "dude",
-    "hash": "$2a$10$3dQMnywt3mijE9.sIVfQoe2P5pCN4WitiJa7ib5WRnnEhLHMteLKG",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "42331",
+    "id": "373725",
     "username": "",
-    "hash": "$2a$10$S/leoTdlg2YnHYO02bzu5.T6W9Q2BGA0u.NNd.78AGidsdgH9jY.a",
+    "hash": "$2a$10$k5xwA2E9pIA3Td9GPiaGI.uLdNOe3ftAtTVgDCccU7JIGO3o.1oiO",
     "admin": {
       "status": false,
       "hotels": []
@@ -70,19 +30,9 @@
     "reservations": []
   },
   {
-    "id": "365897ti",
-    "username": "tim",
-    "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",
-    "admin": {
-      "status": true,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "496966jo",
-    "username": "joe",
-    "hash": "$2a$10$ffuEyfpZN1Tej0/ufKQVU.PO0DFd/DCxK9RoMSRqEEiwYLjKYEsQ.",
+    "id": "205985bo",
+    "username": "bobby",
+    "hash": "$2a$10$Ag002N.kPLpTshDBldRdxOFGiGKKlycVydqZRsITL1N5HQrlW.tA6",
     "admin": {
       "status": false,
       "hotels": []
@@ -90,9 +40,9 @@
     "reservations": []
   },
   {
-    "id": "355549us",
-    "username": "user",
-    "hash": "$2a$10$QaYrLs2e45Msvs7oR4vygOhLh55h32ibiATkV8pta/bT7luU0jnAi",
+    "id": "8468er",
+    "username": "erwe",
+    "hash": "$2a$10$JEh40rIZ18Vh.5iqc57fm.jZBpRFX8oeHitxp7aFj9eeJvSXqCLoO",
     "admin": {
       "status": false,
       "hotels": []
@@ -100,9 +50,35 @@
     "reservations": []
   },
   {
-    "id": "319830us",
-    "username": "user2",
-    "hash": "$2a$10$OnBLm.5Po7hv8yfmxWgkie95RM1G12iCYh5jTzlnFkFt67cG9gUJW",
+    "id": "98479as",
+    "username": "asdfsadf",
+    "hash": "$2a$10$vhIas.fgyvWIdiIJrAdPuOhcIHjZPeBTiPvQygvnhTlzJUoihvZLO",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "259536sd",
+    "username": "sdasdf",
+    "firstname": "sdfasdf",
+    "lastname": "asdfasdf",
+    "billaddress": "asdfasdfasdf",
+    "hash": "$2a$10$Bp7dv/t2MTz60.Z4VMYVFeshACxVlcLQK17kFD0BOahW9r.4ZtZRy",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "41752to",
+    "username": "tomtom",
+    "firstname": "tom",
+    "lastname": "tom",
+    "billaddress": "asdfasdfasdf",
+    "hash": "$2a$10$4buSFtt6IkSgbiYBrt/mneAlcS/ToZ93sOEeW3Rbp6G.iIt8GOc5C",
     "admin": {
       "status": false,
       "hotels": []

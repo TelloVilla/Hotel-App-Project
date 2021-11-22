@@ -65,6 +65,12 @@ export default function HeadBar(){
         }
 
     }
+    const onLogout = async(e) => {
+        const response = await fetch("api/logout");
+        if(response.ok){
+          return router.push("/")
+        }
+      }
     function handleSearch(e){
         e.preventDefault();
         let searchType = document.getElementsByName("search-type");
@@ -159,6 +165,7 @@ export default function HeadBar(){
                     onChange={e => setSearch(e.target.value)}
                     />
                     <Button type="submit" variant="outline-light">Search</Button>
+                    {}
                 </Form>
                 
 

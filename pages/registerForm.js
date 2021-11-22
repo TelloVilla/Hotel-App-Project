@@ -24,10 +24,10 @@ export default function regForm() {
   const submitForm = async event => {
     const data = {
       username,
-      password,
       firstName,
       lastName,
       billingAddr,
+      password,
       admin: {
         status: isAdmin,
         hotels: []
