@@ -18,7 +18,7 @@ function printAll(){
     console.log(userDB.getAll)
 }
 
-function createUser(username, hash, admin){
+function createUser(username, firstname, lastname, billaddress, hash, admin){
     let duplicate = users.find(u => u.username === username);
     if(duplicate){
         return false
@@ -27,6 +27,9 @@ function createUser(username, hash, admin){
     let newUser = {
         id: id,
         username: username,
+        firstname: firstname,
+        lastname: lastname,
+        billaddress: billaddress,
         hash: hash,
         admin: admin,
         reservations: []

@@ -1,4 +1,5 @@
 const fs = require('fs')
+let isEqual = require("lodash/isEqual");
 let hotels = require("../data/hotels.json")
 
 export const HotelDB = {
@@ -38,7 +39,8 @@ function findHotelByName(name){
 }
 
 function findHotelByAmenitites(amenities){
-    let found = hotels.find(h => h.amenities === amenities)
+    
+    let found = hotels.filter(h => isEqual(h.amenities,amenities))
     if(!found){
         return false
     }
@@ -47,7 +49,7 @@ function findHotelByAmenitites(amenities){
 
 function findHotelByPrice(price){
     const priceRange = (r) => r <= price;
-    let found = hotels.find(h => h.price.some(priceRange));
+    let found = hotels.filter(h => Object.values(h.price).some(priceRange));
     if(!found){
         return false
     }
@@ -99,11 +101,14 @@ function updateHotel(hotel){
     found.price.king = hotel.price.king
     found.price.queen = hotel.price.queen
     found.surcharge = hotel.surcharge
+    found.smoking = hotel.smoking
+    found.pets_allowed = hotel.pets_allowed
+    found.free_wifi = hotel.free_wifi
+    found.breakfast = hotel.breakfast
     console.log(hotel)
     // found = hotel;
     saveData();
     return true
-
 }
 
 function saveData(){

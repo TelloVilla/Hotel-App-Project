@@ -13,9 +13,10 @@ export default function handler(req, res){
     //     business_office: false
     // }
 
-    let success = HotelDB.updateHotelAmenities(name, newAmen);
+    let success = HotelDB.updateHotelAmenities(name, amenities);
     if(!success){
         res.status(400)
+        return
     }
     res.status(200).json({success: success})
 }

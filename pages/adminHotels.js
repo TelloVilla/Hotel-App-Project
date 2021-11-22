@@ -9,7 +9,7 @@ const adminHotels = ({user}) =>{
     const fetchData = async () =>{
       const res = await fetch("/api/getAdminHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Container><Hotel hotel={h}></Hotel><Button name={h.name} onClick={handleManage}>Manage</Button></Container>))
+      setHotels(data.map((h) => <Container><Hotel hotel={h}></Hotel><Button name={h.name} onClick={handleManage} mode="manage">Manage</Button></Container>))
   }
     useEffect(() => {        
         fetchData();

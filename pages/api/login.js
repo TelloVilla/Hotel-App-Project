@@ -1,5 +1,6 @@
 import { withIronSession } from "next-iron-session";
 import {UserDB} from '../../util/user_db';
+import { ReservDB } from "../../util/reserv_db";
 const bcrypt = require('bcryptjs');
 
 async function handler(req, res){
@@ -10,7 +11,11 @@ async function handler(req, res){
     if(user.username === username && bcrypt.compare(password, user.hash)){
         req.session.set("user", {
             admin: user.admin,
-            username: username
+            username: username,
+            firstname: user.firstname,
+            lastname: user.lastname,
+            billaddress: user.billaddress,
+            reservations: user.reservations.map(ReservDB.getReservationInfo)
         });
         await req.session.save();
         const admin = req.session.get("user");

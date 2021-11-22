@@ -4,13 +4,14 @@ import Head from 'next/head'
 import Header from '../components/header'
 import router, {useRouter} from 'next/router'
 import { useEffect, useState } from "react";
-import { Form, Button, Nav, Row, Col, InputGroup} from 'react-bootstrap'
+import { Form, Button, Nav, Row, Col, InputGroup, Alert} from 'react-bootstrap'
 import Link from 'next/link'
+import { isUndefined } from 'lodash'
 
 const manageHotel = ({user}) => {
   const {query} = useRouter()
 
-  console.log(query.name)
+  // console.log(query.name)
   const fetchData = async () =>{
     const res = await fetch("/api/getHotelbyName", {
       method: 'POST',
@@ -19,7 +20,10 @@ const manageHotel = ({user}) => {
     })
     // console.log(await res.json())
     let data = await res.json()
-    console.log(data)
+    console.log(data.name)
+    if (isUndefined(data.name)) {
+      return router.push("/adminHotels")
+    }
     setHotel(data)
     setHotelName(data.name)
     setHotelRooms(data.rooms)
@@ -31,6 +35,10 @@ const manageHotel = ({user}) => {
     setHotelPriceKing(data.price.king)
     setHotelPriceQueen(data.price.queen)
     setHotelSurcharge(data.surcharge)
+    setHotelSmoking(data.smoking)
+    setHotelPetsAllowed(data.pets_allowed)
+    setHotelFreeWifi(data.pets_allowed)
+    setHotelBreakfast(data.breakfast)
   }
   useEffect(() => {        
     fetchData()
@@ -48,10 +56,15 @@ const manageHotel = ({user}) => {
   const [hotelPriceKing, setHotelPriceKing] = useState(0)
   const [hotelPriceQueen, setHotelPriceQueen] = useState(0)
   const [hotelSurcharge, setHotelSurcharge] = useState(0)
+  const [hotelSmoking, setHotelSmoking] = useState(false)
+  const [hotelPetsAllowed, setHotelPetsAllowed] = useState(false)
+  const [hotelFreeWifi, setHotelFreeWifi] = useState(false)
+  const [hotelBreakfast, setHotelBreakfast] = useState(false)
 
   const submitForm = async event => {
     event.preventDefault()
 
+    console.log(hotelAmenitiesPool)
     hotel.rooms = parseInt(hotelRooms)
     hotel.amenities.pool = hotelAmenitiesPool
     hotel.amenities.spa = hotelAmenitiesSpa
@@ -61,6 +74,10 @@ const manageHotel = ({user}) => {
     hotel.price.king = parseInt(hotelPriceKing)
     hotel.price.queen = parseInt(hotelPriceQueen)
     hotel.surcharge = parseFloat(hotelSurcharge)
+    hotel.smoking = hotelSmoking
+    hotel.pets_allowed = hotelPetsAllowed
+    hotel.free_wifi = hotelFreeWifi
+    hotel.breakfast = hotelBreakfast
     console.log(hotel)
 
     const res = await fetch("/api/updateHotel", {
@@ -69,9 +86,7 @@ const manageHotel = ({user}) => {
       body: JSON.stringify(hotel)
     })
 
-    // if(res.ok) {
-    //   return router.push('/manageHotel?name='+hotelName)
-    // }
+    return router.push('/manageHotel?name='+hotelName+"&success="+res.ok)
   }
 
   return (
@@ -83,11 +98,15 @@ const manageHotel = ({user}) => {
     paddingTop: 20 }}
     id="hotelInfo">
     <Form onSubmit={submitForm} id="form">
-      
+  {query.success == "true" && 
+    <Alert variant="success">Hotel information updated successfully.</Alert>
+  }
+  {query.success == "false" &&
+    <Alert variant="danger">An unexpected error occurred updating the hotel information.</Alert>
+  }
   <Form.Group className="mb-3" id="input">
     <Form.Label>Name</Form.Label>
     <Form.Control type="text" placeholder="Hotel Name" disabled id="inputField" style={{ width: '300px' }} value={hotelName}/>
-    
   </Form.Group>
   <Form.Group className="mb-3" id="input">
   <Form.Label>Rooms</Form.Label>
@@ -98,10 +117,10 @@ const manageHotel = ({user}) => {
   </Form.Group>
   <Form.Group className="mb-3" id="input">
     <Form.Label>Amenities</Form.Label>
-    <Form.Check type="checkbox" label="Pool" onChange={e => setHotelAmenitiesPool(e.target.value)} defaultChecked={hotelAmenitiesPool}/>
-    <Form.Check type="checkbox" label="Spa" onChange={e => setHotelAmenitiesSpa(e.target.value)} defaultChecked={hotelAmenitiesSpa}/>
-    <Form.Check type="checkbox" label="Gym" onChange={e => setHotelAmenitiesGym(e.target.value)} defaultChecked={hotelAmenitiesGym}/>
-    <Form.Check type="checkbox" label="Office" onChange={e => setHotelAmenitiesOffice(e.target.value)} defaultChecked={hotelAmenitiesOffice}/>
+    <Form.Check type="checkbox" label="Pool" onClick={e => setHotelAmenitiesPool(e.target.checked)} defaultChecked={hotelAmenitiesPool}/>
+    <Form.Check type="checkbox" label="Spa" onClick={e => setHotelAmenitiesSpa(e.target.checked)} defaultChecked={hotelAmenitiesSpa}/>
+    <Form.Check type="checkbox" label="Gym" onClick={e => setHotelAmenitiesGym(e.target.checked)} defaultChecked={hotelAmenitiesGym}/>
+    <Form.Check type="checkbox" label="Office" onClick={e => setHotelAmenitiesOffice(e.target.checked)} defaultChecked={hotelAmenitiesOffice}/>
   </Form.Group>
   <Form.Label>Prices</Form.Label>
   <Row className="mb-3">
@@ -135,6 +154,12 @@ const manageHotel = ({user}) => {
       <InputGroup.Text id="basic-addon1">%</InputGroup.Text> */}
       <Form.Control type="text" placeholder="Surcharge"  onChange={e => setHotelSurcharge(e.target.value)} id="inputField" value={hotelSurcharge}/>
     {/* </InputGroup> */}
+  </Form.Group>
+  <Form.Group className="mb-3" id="input">
+    <Form.Check type="checkbox" label="Smoking Allowed" onClick={e => setHotelSmoking(e.target.checked)} defaultChecked={hotelSmoking}/>
+    <Form.Check type="checkbox" label="Pets Allowed" onClick={e => setHotelPetsAllowed(e.target.checked)} defaultChecked={hotelPetsAllowed}/>
+    <Form.Check type="checkbox" label="Free Wifi" onClick={e => setHotelFreeWifi(e.target.checked)} defaultChecked={hotelFreeWifi}/>
+    <Form.Check type="checkbox" label="Breakfast" onClick={e => setHotelBreakfast(e.target.checked)} defaultChecked={hotelBreakfast}/>
   </Form.Group>
   <Form.Group className="mb-3" id="input">
   <Button variant="primary" type="submit" id="submitButton" >

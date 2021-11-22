@@ -13,7 +13,18 @@
     "reservations": [
       "3643m",
       "616m",
-      "4514jim"
+      "4514jim",
+      "3421jim",
+      "4691jim",
+      "4762jim",
+      "1704jim",
+      "3970jim",
+      "1443jim",
+      "3086jim",
+      "1525jim",
+      "3475jim",
+      "2274jim",
+      "4133jim"
     ]
   },
   {
@@ -64,6 +75,36 @@
     "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",
     "admin": {
       "status": true,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "496966jo",
+    "username": "joe",
+    "hash": "$2a$10$ffuEyfpZN1Tej0/ufKQVU.PO0DFd/DCxK9RoMSRqEEiwYLjKYEsQ.",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "355549us",
+    "username": "user",
+    "hash": "$2a$10$QaYrLs2e45Msvs7oR4vygOhLh55h32ibiATkV8pta/bT7luU0jnAi",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "319830us",
+    "username": "user2",
+    "hash": "$2a$10$OnBLm.5Po7hv8yfmxWgkie95RM1G12iCYh5jTzlnFkFt67cG9gUJW",
+    "admin": {
+      "status": false,
       "hotels": []
     },
     "reservations": []
