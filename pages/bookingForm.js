@@ -5,10 +5,10 @@ import { Form, Button, Nav, Row, Col, Container } from "react-bootstrap";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import { withIronSession } from "next-iron-session";
 //import styles from "../styles/registerpage.module.css"
 
-const  bookForm = ({user}) => {
-  const user = user.username;
+const BookForm = (user)=>{
   const [hotel, setHotel] = useState("");
   const [roomType, setRoomType] = useState("");
   const [start, setStart] = useState("");
@@ -19,7 +19,7 @@ const  bookForm = ({user}) => {
   const submitForm = async (event) => {
     event.preventDefault();
     const reserv = {
-      username,
+      guest,
       roomType,
       start,
       end,
@@ -28,7 +28,7 @@ const  bookForm = ({user}) => {
     const res = await fetch("/api/addReservToUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify(reserv),
     });
 
     if (res.ok) {
@@ -36,46 +36,12 @@ const  bookForm = ({user}) => {
     }
 
     if (res.status === 400) {
-      toast.error("Could Not Register", {
+      toast.error("Could Not Book", {
         theme: "colored",
         position: toast.POSITION.TOP_CENTER,
       });
     }
-
-    if (!username) {
-      toast.warn("Username field is empty!", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-
-    if (!password) {
-      toast.warn("Password field is empty!", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-
-    if (!firstName) {
-      toast.warn("First Name field is empty!", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-
-    if (!lastName) {
-      toast.warn("Last Name field is empty!", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-
-    if (!billingAddr && !isAdmin) {
-      toast.warn("Billing Address field is empty!", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
+    
   };
 
   return (
@@ -103,16 +69,12 @@ const  bookForm = ({user}) => {
           <div>
             <Form.Group className="mb-3" id="input">
               <Form.label>Hotel</Form.label>
-              <Form.Control type="text" value={props.hotel}></Form.Control>
-            </Form.Group>
+              <Form.Control type="text"></Form.Control>
             
-            <Form.Group className="mb-3" id="input">
+            </Form.Group>
             <Form.Group className="mb-3" id="input">
               <Form.label>Start</Form.label>
               <Form.Control type="date"></Form.Control>
-            </Form.Group>
-
-             
             </Form.Group>
 
             <Form.Group className="mb-3" id="input">
@@ -129,3 +91,27 @@ const  bookForm = ({user}) => {
     </Container>
   );
 }
+export const getServerSideProps = withIronSession(
+    async ({req, res}) => {
+      const user = req.session.get("user");
+      
+      if(!user){
+        return {
+          redirect:{
+            destination: '/loginForm',
+            permanent: false
+          },
+        }
+  
+      }
+      return{props: user}
+    },
+    {
+      cookieName: "hotel-cookie",
+      cookieOptions: {
+        secure: process.env.NODE_ENV === "production" ? true : false
+      },
+      password: process.env.APPLICATION_SECRET
+    }
+  )
+  export default BookForm;
