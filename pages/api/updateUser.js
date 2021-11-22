@@ -2,9 +2,9 @@ import {UserDB} from '../../util/user_db'
 import { withIronSession } from 'next-iron-session'
 
 export default function handler(req, res) {
-    let {username, newUsername, password, firstname, lastname, address} = req.body
+    let {username, newUsername, firstname, lastname, billaddress, password } = req.body
 
-    let success = UserDB.updateUser(username, newUsername, password, firstname, lastname, address)
+    let success = UserDB.updateUser(username, newUsername, firstname, lastname, billaddress, password)
     if(!success) {
         res.status(400).json({error: "User not found"})
     }

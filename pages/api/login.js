@@ -13,6 +13,7 @@ async function handler(req, res) {
       username: username,
       firstname: user.firstname,
       lastname: user.lastname,
+      billaddress: user.billaddress,
       reservations: user.reservations.map(ReservDB.getReservationInfo),
     });
     await req.session.save();

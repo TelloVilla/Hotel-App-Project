@@ -3,23 +3,23 @@ import { Container, Row, Form, Button, Col } from "react-bootstrap";
 import HeadBar from "../components/headbar";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { withIronSession } from 'next-iron-session'
+import { withIronSession } from "next-iron-session";
 
-function editProfile( {user} ) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+function editProfile({ user }) {
   const username = user.username;
   const [newUsername, setUsername] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [billaddress, setAddress] = useState("");
   const [password, setPassword] = useState("");
-  const [address, setAddress] = useState("");
   const router = useRouter();
   const data = {
     username,
     newUsername,
+    firstname,
+    lastname,
+    billaddress,
     password,
-    firstName,
-    lastName,
-    address,
   };
 
   const submitForm = async (event) => {
@@ -31,8 +31,15 @@ function editProfile( {user} ) {
       body: JSON.stringify(data),
     });
 
+    //if sucessfully updated, logout user and make them log in with new credentials
     if (res.ok) {
-      return router.push("/userPage");
+      //const onLogout = async (e) => {
+      const response = await fetch("api/logout");
+      if (response.ok) {
+        return router.push("/");
+      }
+      //};
+      //return router.push("/userPage");
     } else {
       return router.push("/something");
     }
@@ -80,9 +87,9 @@ function editProfile( {user} ) {
             <Form.Group as={Col} controlId="formGridPassword">
               <Form.Label>Password</Form.Label>
               <Form.Control
-              type="password"
-              placeholder="Enter your new password"
-              onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                placeholder="Enter your new password"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
           </Row>

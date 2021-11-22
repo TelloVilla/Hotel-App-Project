@@ -1,6 +1,6 @@
 const fs = require("fs");
 let users = require("../data/users.json");
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcryptjs')
 
 export const UserDB = {
   getAll: () => users,
@@ -71,18 +71,13 @@ function deleteUserReservation(reservID) {
   return true;
 }
 
-function updateUser(username, newUsername, hash, firstname, lastname, address) {
+function updateUser(username, newUsername, firstname, lastname, billaddress, password) {
   let found = users.find((u) => u.username === username);
-
-  if (!found) {
-    return false;
-  }
-
   found.username = newUsername;
-  found.hash = bcrypt.hashSync(hash);
   found.firstname = firstname;
   found.lastname = lastname;
-  found.address = address;
+  found.billaddress = billaddress;
+  found.hash = bcrypt.hashSync(password);
   saveData();
   return true;
 }

@@ -3,24 +3,17 @@ import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import { Button, Container, Spinner } from "react-bootstrap";
 
-const HotelsPage = ({ user }) => {
+const hotelsPage = (user) => {
+  const [admin, setAdmin] = useState(false);
   const [hotels, setHotels] = useState(null);
   const fetchData = async () => {
     const res = await fetch("/api/getAllHotels");
     const data = await res.json();
-    setHotels(
-      data.map((h, i) => (
-        <Container key={i}>
-          <Hotel key={i} hotel={h}></Hotel>
-          <Button key={i} name={h.name} onClick={handleReservation}>
-            Reserve
-          </Button>
-        </Container>
-      ))
-    );
+    setHotels(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>));
   };
   useEffect(() => {
     fetchData();
+    setAdmin(user.admin);
   }, []);
 
   function handleReservation(e) {
@@ -56,9 +49,9 @@ export const getServerSideProps = withIronSession(
   {
     cookieName: "hotel-cookie",
     cookieOptions: {
-      secure: false,
+      secure: process.env.NODE_ENV === "production" ? true : false,
     },
     password: process.env.APPLICATION_SECRET,
   }
 );
-export default HotelsPage;
+export default hotelsPage;
