@@ -30,6 +30,7 @@
     "reservations": []
   },
   {
+<<<<<<< HEAD
     "id": "205985bo",
     "username": "bobby",
     "hash": "$2a$10$Ag002N.kPLpTshDBldRdxOFGiGKKlycVydqZRsITL1N5HQrlW.tA6",
@@ -43,6 +44,11 @@
     "id": "8468er",
     "username": "erwe",
     "hash": "$2a$10$JEh40rIZ18Vh.5iqc57fm.jZBpRFX8oeHitxp7aFj9eeJvSXqCLoO",
+=======
+    "id": "365897ti",
+    "username": "tim",
+    "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",
+>>>>>>> b80aee5f0ef010ea3d3c09172b2e0da3b610692a
     "admin": {
       "status": false,
       "hotels": []
