@@ -48,11 +48,13 @@ function findHotelByAmenitites(amenities){
 }
 
 function findHotelByPrice(price){
-    const priceRange = (r) => r <= price;
+    console.log(price);
+    const priceRange = (r) => r < price && r != false;
     let found = hotels.filter(h => Object.values(h.price).some(priceRange));
     if(!found){
         return false
     }
+    console.log(found)
     return found
 
 }

@@ -139,9 +139,6 @@ export default function HeadBar(props){
                         <li className="nav-item">
                             <Link href="/reservations"><a className="nav-link active" aria-current="page" >Reservations</a></Link>
                         </li>
-                        <li className="nav-item">
-                            <Link href="/adminHotels"><a className="nav-link active" aria-current="page" >Admin Hotels</a></Link>
-                        </li>
 
                     </ul>
                     <NavDropdown variant="light" className="m-1" id="search-options" title="Search Options" menuVariant="dark">

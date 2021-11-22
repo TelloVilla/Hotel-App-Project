@@ -11,5 +11,18 @@
       "hotels": []
     },
     "reservations": []
+  },
+  {
+    "id": "437982jo",
+    "username": "joe",
+    "firstname": "joe",
+    "lastname": "bob",
+    "billaddress": "456 way",
+    "hash": "$2a$10$SYx498VPkcwCwLwEpcePKef18KWblXIChITVNLn37FtFq9NTvyKxm",
+    "admin": {
+      "status": true,
+      "hotels": ["The Magnolia All Suites"]
+    },
+    "reservations": []
   }
 ]
