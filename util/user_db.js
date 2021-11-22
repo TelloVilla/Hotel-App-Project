@@ -85,7 +85,7 @@ function updateUser(username, firstname, lastname, billaddress, hash, admin){
 }
 
 function getAdminHotels(username){
-    let found = users.find(u => u.username === username);
+    let found = users.filter(u => u.username === username);
     if(!found){
         return false;
     }

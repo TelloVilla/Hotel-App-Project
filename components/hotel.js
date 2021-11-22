@@ -4,7 +4,7 @@ export default function Hotel(props){
         <Card border="dark">
             <Card.Img variant="top" src="/hotel.svg" alt="Hotel Here" />
             <Card.Body>
-                <Card.Header>{props.hotel.name}</Card.Header>
+                <Card.Header text="dark">{props.hotel.name}</Card.Header>
             </Card.Body>
             <ListGroup className="list-group-flush">
                 <ListGroupItem>Total Rooms: {props.hotel.rooms}</ListGroupItem>
