@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Form, Button, Nav } from 'react-bootstrap'
 import Link from 'next/link'
 
-export default function LoginForm() {
+export default function loginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -57,7 +57,7 @@ export default function LoginForm() {
   <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
   </Form.Group>
-  <Button variant="primary" type="submit" id="submitButton" >
+  <Button variant="primary" type="submit" id="submitButton" onClick={submitForm}>
     Log in
   </Button>
   <Form.Group>

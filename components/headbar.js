@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import router from 'next/router';
 import { useState } from 'react';
 import { Form, FormControl, Button, NavDropdown, FormCheck, InputGroup, Offcanvas} from 'react-bootstrap'
 import Hotel from './hotel';
 
-export default function HeadBar(){
+export default function HeadBar(props){
     const [search, setSearch] = useState("");
     const [results, setResults] = useState(false);
     const [show, setShow] = useState(false);
@@ -65,6 +66,12 @@ export default function HeadBar(){
         }
 
     }
+    const onLogout = async(e) => {
+        const response = await fetch("api/logout");
+        if(response.ok){
+          return router.push("/")
+        }
+      }
     function handleSearch(e){
         e.preventDefault();
         let searchType = document.getElementsByName("search-type");
@@ -159,6 +166,7 @@ export default function HeadBar(){
                     onChange={e => setSearch(e.target.value)}
                     />
                     <Button type="submit" variant="outline-light">Search</Button>
+                    {props.loggedIn && <Button onClick={onLogout} variant="outline-light">Logout</Button>}
                 </Form>
                 
 

@@ -1,66 +1,72 @@
-import router, { Router } from 'next/router';
-import HeadBar from '../components/headbar';
-import { withIronSession } from 'next-iron-session';
-const bcrypt = require("bcryptjs");
+import Hotel from "../components/hotel"
+import { withIronSession } from "next-iron-session";
+import { useEffect, useState } from "react";
+import {Button, Container, Row, Col, Spinner} from "react-bootstrap"
+import HeadBar from "../components/headbar";
 
-const Home = ({user}) => {
-  const onLogin = async (e) => {
-    e.preventDefault();
-
-    const username = "jim";
-    const password = "password";
-
-    const response = await fetch("api/login", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({username, password})
-    });
-
-    if (response.ok){
-      return router.push("/testPage")
-    }
-
+const hotelsPage = (user) =>{
+    const [admin, setAdmin] = useState(false);
+    const [hotels, setHotels] = useState(null);
+    const fetchData = async () =>{
+      const res = await fetch("/api/getAllHotels");
+      const data = await res.json()
+      setHotels(data.map((h, i) => <Col><Hotel hotel={h} mode="book"></Hotel></Col>))
   }
+    useEffect(() => {        
+        fetchData();
+        setAdmin(user.admin);
+    },[])
 
-  const onLogout = async(e) => {
-    const response = await fetch("api/logout");
+    function handleReservation(e){
+      e.preventDefault;
+      console.log(e.target.name);
 
-    if(response.ok){
-      return router.push("/")
     }
-  }
-  return (
-    <div className="container">
-      <HeadBar/>
-      <button onClick={onLogin}>Click to sign in</button>
-      <button onClick={onLogout}>Click to log out</button>
-      
-    </div>
-  )
-}
-export const getServerSideProps = withIronSession(
-  async ({req, res}) => {
-    const user = req.session.get("user");
     
-    if(!user){
-      return {
-        redirect:{
-          destination: '/loginForm',
-          permanent: false
-        },
-      }
+    
+    
 
+    if(!hotels){
+        return(
+            <Container>
+                <HeadBar loggedIn={user}></HeadBar>
+                <Spinner animation="border"></Spinner> Loading...
+            </Container>
+        )
     }
-    return {
-      props: {user}
-    };
-  },
-  {
-    cookieName: "hotel-cookie",
-    cookieOptions: {
-      secure: false
+    
+    return(
+        <Container>
+            <HeadBar loggedIn={user}></HeadBar>
+            <Row>
+              {hotels}
+            </Row>
+        </Container>
+    )
+
+}
+
+export const getServerSideProps = withIronSession(
+    async ({req, res}) => {
+      const user = req.session.get("user");
+      
+      if(!user){
+        return {
+          redirect:{
+            destination: '/loginForm',
+            permanent: false
+          },
+        }
+  
+      }
+      return{props: user}
     },
-    password: process.env.APPLICATION_SECRET
-  }
-)
-export default Home;
+    {
+      cookieName: "hotel-cookie",
+      cookieOptions: {
+        secure: process.env.NODE_ENV === "production" ? true : false
+      },
+      password: process.env.APPLICATION_SECRET
+    }
+  )
+  export default hotelsPage;
