@@ -17,7 +17,7 @@ export default function HeadBar(props){
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -32,7 +32,7 @@ export default function HeadBar(props){
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -40,14 +40,14 @@ export default function HeadBar(props){
         setShow(true);
     }
     const fetchByName = async (search) =>{
-        const res = await fetch("/api/getHotelByName", {
+        const res = await fetch("/api/getHotelsByName", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(search)
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h}></Hotel>))
+            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -61,8 +61,11 @@ export default function HeadBar(props){
         if(e.target.id == "amen-toggle"){
             panel.style.display = "block";
             searchBar.value = "Searching by Amenities"
+            searchBar.setAttribute("disabled", true);
         }else{
             panel.style.display = "none";
+            searchBar.removeAttribute("disabled")
+            searchBar.value = "";
         }
 
     }
@@ -145,7 +148,7 @@ export default function HeadBar(props){
                     <Form>
                         <InputGroup className="p-3" onClick={handleToggle}>
                             <FormCheck inline label="Name" value="name" name="search-type" type="radio"></FormCheck>
-                            <FormCheck inline label="Room Price" value="price" name="search-type" type="radio"></FormCheck>
+                            <FormCheck inline label="Room Price (Less Than)" value="price" name="search-type" type="radio"></FormCheck>
                             <FormCheck inline id="amen-toggle" value="amen" label="Amenities" name="search-type" type="radio"></FormCheck>
                         </InputGroup>
                         <InputGroup className="p-3" id="amen-panel">

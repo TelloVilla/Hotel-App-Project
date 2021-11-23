@@ -8,6 +8,7 @@ export const HotelDB = {
     findHotelByName,
     findHotelByAmenitites,
     findHotelByPrice,
+    searchHotelByName,
     updateHotel,
     updateVacancy,
     addHotel,
@@ -32,6 +33,14 @@ function updateVacancy(name, action){
 
 function findHotelByName(name){
     let found = hotels.find(h => h.name === name)
+    if(!found){
+        return false
+    }
+    return found
+}
+
+function searchHotelByName(name){
+    let found = hotels.filter(h => h.name.toLowerCase().includes(name.toLowerCase()))
     if(!found){
         return false
     }
