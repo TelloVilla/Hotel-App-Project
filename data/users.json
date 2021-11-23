@@ -1,74 +1,11 @@
 [
   {
-    "id": "85000bo",
-    "username": "boberson",
-    "hash": "$2a$10$9Jr5Q6bi4TE/jhvKlxayAu4g7y3Kfby9AFhIklHuQmNhsMv0.bRxq",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "96517jo",
-    "username": "joebob",
-    "hash": "$2a$10$ZQAZRtjCAWMnC15Q4w6lX.eOM5pXuVDnA3R8CHLTO.nzVhCE6fsUe",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "373725",
-    "username": "",
-    "hash": "$2a$10$k5xwA2E9pIA3Td9GPiaGI.uLdNOe3ftAtTVgDCccU7JIGO3o.1oiO",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "365897ti",
-    "username": "tim",
-    "hash": "$2a$10$/oOe6dSqX/tKwFZWTxmUt.2/C8Dm6u19fQIP.g.yIfaDyzVo9vYC2",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "98479as",
-    "username": "asdfsadf",
-    "hash": "$2a$10$vhIas.fgyvWIdiIJrAdPuOhcIHjZPeBTiPvQygvnhTlzJUoihvZLO",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "259536sd",
-    "username": "sdasdf",
-    "firstname": "sdfasdf",
-    "lastname": "asdfasdf",
-    "billaddress": "asdfasdfasdf",
-    "hash": "$2a$10$Bp7dv/t2MTz60.Z4VMYVFeshACxVlcLQK17kFD0BOahW9r.4ZtZRy",
-    "admin": {
-      "status": false,
-      "hotels": []
-    },
-    "reservations": []
-  },
-  {
-    "id": "41752to",
-    "username": "tomtom",
-    "firstname": "tom",
-    "lastname": "tom",
-    "billaddress": "asdfasdfasdf",
-    "hash": "$2a$10$4buSFtt6IkSgbiYBrt/mneAlcS/ToZ93sOEeW3Rbp6G.iIt8GOc5C",
+    "id": "41224us",
+    "username": "user",
+    "firstname": "jim",
+    "lastname": "frank",
+    "billaddress": "234 homeway",
+    "hash": "$2a$10$VEfCrpkJpONPsGp9kDsdJuxI9B9ylFMa9Ep/bWAgv4QibBDJ60nPS",
     "admin": {
       "status": false,
       "hotels": []

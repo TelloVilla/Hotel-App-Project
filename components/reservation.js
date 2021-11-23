@@ -1,7 +1,7 @@
 import { Card, ListGroup, ListGroupItem, Button } from "react-bootstrap"
 export default function Reservation(props){
     return(
-        <Card bg="dark" text="white">
+        <Card bg="dark" text="white" style={{ width: "350px" }}>
             <Card.Img variant="top" alt="Reserv Here" />
             <Card.Body>
                 <Card.Header>Reservation ID: {props.reserv.id}</Card.Header>

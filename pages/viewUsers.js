@@ -30,7 +30,7 @@ const ViewUsers = ({ user }) => {
       <HeadBar></HeadBar>
       <br></br>
       <Container>
-        <h2>Currently Registered Users</h2>
+        <h2 className="manage-users-title">Currently Registered Users</h2>
         <br></br>
         {users}
       </Container>

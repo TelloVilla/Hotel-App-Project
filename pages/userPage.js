@@ -10,7 +10,7 @@ const user = ({ user }) => {
     return (
       <>
         <head>
-          <title>{user.username}'s Account</title>
+          <title className="user-welcome">{user.username}'s Account</title>
         </head>
         <HeadBar></HeadBar>
         <br></br>
@@ -22,7 +22,7 @@ const user = ({ user }) => {
   return (
     <>
       <head>
-        <title>{user.username}'s Account</title>
+        <title className="user-welcome">{user.username}'s Account</title>
       </head>
       <HeadBar></HeadBar>
       <br></br>

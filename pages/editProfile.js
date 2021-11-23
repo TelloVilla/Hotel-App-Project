@@ -49,7 +49,7 @@ function editProfile({ user }) {
     <>
       <HeadBar></HeadBar>
       <br></br>
-      <Container>
+      <Container className="edit-profile">
         <h2>Edit Profile</h2>
         <br></br>
         <Form id="editProfileForm" onSubmit={submitForm}>

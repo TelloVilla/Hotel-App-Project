@@ -30,7 +30,7 @@ export default function User(props) {
             <Card className="text-center" style={{ width: '350px' }}>
               <Card.Body>
                 <Card.Title>View Hotels</Card.Title>
-                <Card.Text>View available hotels in the area.</Card.Text>
+                <Card.Text>View available hotels.</Card.Text>
                 <Button variant="dark" href="/hotelsPage">
                   View Hotels
                 </Button>
