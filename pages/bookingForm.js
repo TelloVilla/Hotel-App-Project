@@ -92,11 +92,11 @@ const BookForm = (user)=>{
   <Row className="mb-3">
     <Form.Group as={Col} id="input">
       <Form.Label>Start Date</Form.Label>
-      <DatePicker selected={start} onChange={(e) => setStart(e)} class="ignore-css"/>
+      <DatePicker selected={start} onChange={(e) => setStart(e)}/>
     </Form.Group>
     <Form.Group as={Col} id="input">
       <Form.Label>End Date</Form.Label>
-      <DatePicker selected={end} onChange={(e) => setEnd(e)} class="ignore-css"/>
+      <DatePicker selected={end} onChange={(e) => setEnd(e)}/>
     </Form.Group>
   </Row>
   <Form.Group className="mb-3" id="input">
@@ -106,7 +106,7 @@ const BookForm = (user)=>{
     <Form.Check type="radio" label="King" name="radios" onClick={function (e) {setRoomType("king"); setPrice(hotel.price.king)}}/>
   </Form.Group>
   <Form.Group className="mb-3" id="input">
-      <Form.Label>Price</Form.Label>
+      <Form.Label>Price Per Day</Form.Label>
       <InputGroup className="mb-3" style={{ width: '100px' }}>
         <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
         <Form.Control type="text" placeholder="Price" disabled id="inputField" value={price}/>
