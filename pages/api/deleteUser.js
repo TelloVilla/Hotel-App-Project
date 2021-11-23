@@ -1,10 +1,7 @@
-import {UserDB} from '../../util/user_db'
+import { UserDB } from "../../util/user_db";
 
-export default function handler(req, res){
+export default function handler(req, res) {
+  //let {username} = req.body;
 
-    //let {username} = req.body;
-
-    res.status(200).json({success: UserDB.deleteUser("john doe")})
-
-
+  res.status(200).json({ success: UserDB.deleteUser("john doe") });
 }

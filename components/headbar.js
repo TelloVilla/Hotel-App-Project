@@ -17,7 +17,7 @@ export default function HeadBar(props){
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
+            setResults(data.map((h, i) => <Hotel key={i} hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -32,7 +32,7 @@ export default function HeadBar(props){
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
+            setResults(data.map((h, i) => <Hotel key={i} hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -47,7 +47,7 @@ export default function HeadBar(props){
         });
         if(res.ok){
             const data = await res.json()
-            setResults(data.map((h) => <Hotel hotel={h} mode="book"></Hotel>))
+            setResults(data.map((h, i) => <Hotel key={i} hotel={h} mode="book"></Hotel>))
         }else{
             setResults(<h3>No Results</h3>)
         }
@@ -137,7 +137,7 @@ export default function HeadBar(props){
 
                         </li>
                         <li className="nav-item">
-                            <Link href="/testPage"><a className="nav-link active" aria-current="page" >testPage</a></Link>
+                            <Link href="/userPage"><a className="nav-link active" aria-current="page" >Profile</a></Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/reservations"><a className="nav-link active" aria-current="page" >Reservations</a></Link>

@@ -21,8 +21,74 @@
     "hash": "$2a$10$SYx498VPkcwCwLwEpcePKef18KWblXIChITVNLn37FtFq9NTvyKxm",
     "admin": {
       "status": true,
+      "hotels": [
+        "The Magnolia All Suites"
+      ]
+    },
+    "reservations": []
+  },
+  {
+    "id": "308169jo",
+    "username": "jose-admin",
+    "hash": "$2a$10$IN6R/89sFeBOJrBC8OjtK.2BxkCT.v06Y7HrkgwaLLy/OOahQPwQ.",
+    "admin": {
+      "status": true,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "460455js",
+    "username": "jsmitherson69",
+    "hash": "$2a$10$F3cELY1WF.LI9aEAWiEVxu.6qRxBwz14nyTX05J0kQOfSZKKNyZEq",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": []
+  },
+  {
+    "id": "495112jr",
+    "username": "josegarcia24",
+    "firstname": "Jose",
+    "lastname": "Garcia",
+    "billaddress": "456 Street Lane",
+    "hash": "$2a$10$eLWADbEXKIcOC2w9QwlPeuUdss5LVNfrxOIOvPt2Nmny9soQtsAdW",
+    "admin": {
+      "status": false,
+      "hotels": []
+    },
+    "reservations": [
+      "001",
+      "002",
+      "003"
+    ]
+  },
+  {
+    "id": "491503Th",
+    "username": "TheAdmin",
+    "firstname": "John",
+    "lastname": "Admin",
+    "billaddress": "123 Admin Way",
+    "hash": "$2a$10$bhCENL9vwZGMZiloU7PNrOYlwdH55u36Lmzv.RidnGEgojcO7N/r.",
+    "admin": {
+      "status": true,
       "hotels": ["The Magnolia All Suites"]
     },
     "reservations": []
+  },
+  {
+    "id": "181253Th",
+    "username": "TheUser",
+    "firstname": "tom",
+    "lastname": "user",
+    "billaddress": "478 user way",
+    "hash": "$2a$10$LCBiL.Sn1EdBC5LlXWxYhuWkNps.rn4rTNU1M5XY/EhLt4ofW6Vcu",
+    "admin": {
+      "hotels": []
+    },
+    "reservations": [
+      "30469The"
+    ]
   }
 ]
