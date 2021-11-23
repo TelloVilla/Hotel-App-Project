@@ -1,94 +1,138 @@
-import { useState, useCallback } from "react";
-import React from "react";
-import { useRouter } from "next/router";
-import { Form, Button, Nav, Row, Col, Container } from "react-bootstrap";
+import { useEffect, useState, useCallback, React } from "react";
+import router, { useRouter } from "next/router";
+import { Form, Button, Nav, Row, Col, Container, InputGroup, Alert } from "react-bootstrap";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import Image from "next/image";
 import { withIronSession } from "next-iron-session";
+import { isUndefined } from 'lodash'
 //import styles from "../styles/registerpage.module.css"
+import Header from '../components/header'
+import DatePicker from "react-datepicker";
 
 const BookForm = (user)=>{
+  const {query} = useRouter()
+
+  // console.log(query.name)
+  const fetchData = async () =>{
+    const res = await fetch("/api/getHotelbyName", {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(query.name)
+    })
+    // console.log(await res.json())
+    let data = await res.json()
+    console.log(data.name)
+    if (isUndefined(data.name)) {
+      return router.push("/")
+    }
+    
+    setHotel(data)
+    setHotelName(data.name)
+    setName(data.name)
+    setUserName(user.username)
+  }
+  useEffect(() => {        
+    fetchData()
+  },[])
+
+  // let today = Date.toDateString(Date.now());
+  // let tomorrow = new Date(Date.now()+(1000 * 60 * 60 * 24));
+
   const [hotel, setHotel] = useState("");
+  const [hotelName, setHotelName] = useState("");
+  const [name, setName] = useState("");
+  const [userName, setUserName] = useState("");
   const [roomType, setRoomType] = useState("");
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+  const [price, setPrice] = useState("");
+  const [start, setStart] = useState(new Date());
+  const [end, setEnd] = useState(new Date());
   const router = useRouter();
 
 
   const submitForm = async (event) => {
     event.preventDefault();
+    console.log(user)
     const reserv = {
-      guest,
+      hotelName,
+      userName,
       roomType,
       start,
-      end,
+      end
     };
 
     const res = await fetch("/api/addReservToUser", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(reserv),
-    });
+    })
 
-    if (res.ok) {
-      return router.push("/");
-    }
-
-    if (res.status === 400) {
-      toast.error("Could Not Book", {
-        theme: "colored",
-        position: toast.POSITION.TOP_CENTER,
-      });
-    }
-    
-  };
+    router.push("/bookingForm?name=" +hotelName+"&success="+res.ok);
+  }
 
   return (
-    <Container>
     <div>
-      <Image
-        src="/form_background.jpeg"
-        alt="hotel background"
-        layout="fill"
-        fluid="true"
-      ></Image>
-      <div
-        className="card"
-        style={{
-          display: "block",
-          width: 600,
-          padding: 100,
-          marginTop: 100,
-          backgroundColor: "white",
-          opacity: 0.9,
-        }}
-        id="register"
-      >
-        <Form onSubmit={submitForm} id="form">
-          <div>
-            <Form.Group className="mb-3" id="input">
-              <Form.label>Hotel</Form.label>
-              <Form.Control type="text"></Form.Control>
-            
-            </Form.Group>
-            <Form.Group className="mb-3" id="input">
-              <Form.label>Start</Form.label>
-              <Form.Control type="date"></Form.Control>
-            </Form.Group>
-
-            <Form.Group className="mb-3" id="input">
-              
-            </Form.Group>
-
-            <Form.Group className="mb-3" id="input">
-              
-            </Form.Group>
-          </div>
-        </Form>
-      </div>
-    </div>
-    </Container>
+    <Header/>
+    <div style={{ display: 'block', 
+    width: 700, 
+    paddingLeft: 100,
+    paddingTop: 20 }}
+    id="hotelInfo">
+    <Form onSubmit={submitForm} id="form">
+  {query.success == "true" && 
+    <Alert variant="success">Reservation created successfully.</Alert>
+  }
+  {query.success == "false" &&
+    <Alert variant="danger">An unexpected error occurred creating the reservation.</Alert>
+  }
+  <Form.Group className="mb-3" id="input">
+    <Form.Label>Name</Form.Label>
+    <Form.Control type="text" placeholder="Hotel Name" disabled id="inputField" style={{ width: '300px' }} value={name}/>
+  </Form.Group>
+  <Row className="mb-3">
+    <Form.Group as={Col} id="input">
+      <Form.Label>Start Date</Form.Label>
+      <DatePicker selected={start} onChange={(e) => setStart(e)} class="ignore-css"/>
+    </Form.Group>
+    <Form.Group as={Col} id="input">
+      <Form.Label>End Date</Form.Label>
+      <DatePicker selected={end} onChange={(e) => setEnd(e)} class="ignore-css"/>
+    </Form.Group>
+  </Row>
+  <Form.Group className="mb-3" id="input">
+    <Form.Label>Room Type</Form.Label>
+    <Form.Check type="radio" label="Standard" name="radios" onClick={function (e) {setRoomType("standard"); setPrice(hotel.price.standard)}}/>
+    <Form.Check type="radio" label="Queen" name="radios" onClick={function (e) {setRoomType("queen"); setPrice(hotel.price.queen)}}/>
+    <Form.Check type="radio" label="King" name="radios" onClick={function (e) {setRoomType("king"); setPrice(hotel.price.king)}}/>
+  </Form.Group>
+  <Form.Group className="mb-3" id="input">
+      <Form.Label>Price</Form.Label>
+      <InputGroup className="mb-3" style={{ width: '100px' }}>
+        <InputGroup.Text id="basic-addon1">$</InputGroup.Text>
+        <Form.Control type="text" placeholder="Price" disabled id="inputField" value={price}/>
+      </InputGroup>
+    </Form.Group>
+  {/* <Form.Group className="mb-3" id="input">
+  <Form.Label>Surcharge Rate</Form.Label>
+    <InputGroup className="mb-3">
+      <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
+      <Form.Control type="text" placeholder="Surcharge"  onChange={e => setHotelSurcharge(e.target.value)} id="inputField" value={hotelSurcharge}/>
+    </InputGroup>
+  </Form.Group>
+  <Form.Group className="mb-3" id="input">
+    <Form.Check type="checkbox" label="Smoking Allowed" onClick={e => setHotelSmoking(e.target.checked)} defaultChecked={hotelSmoking}/>
+    <Form.Check type="checkbox" label="Pets Allowed" onClick={e => setHotelPetsAllowed(e.target.checked)} defaultChecked={hotelPetsAllowed}/>
+    <Form.Check type="checkbox" label="Free Wifi" onClick={e => setHotelFreeWifi(e.target.checked)} defaultChecked={hotelFreeWifi}/>
+    <Form.Check type="checkbox" label="Breakfast" onClick={e => setHotelBreakfast(e.target.checked)} defaultChecked={hotelBreakfast}/>
+  </Form.Group> */}
+  <Form.Group className="mb-3" id="input">
+  <Button variant="primary" type="submit" id="submitButton" >
+    Create Reservation
+  </Button>
+  </Form.Group>
+</Form>
+</div>
+</div>
   );
 }
 export const getServerSideProps = withIronSession(

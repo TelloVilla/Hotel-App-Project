@@ -9,7 +9,7 @@ const adminHotels = ({user}) =>{
     const fetchData = async () =>{
       const res = await fetch("/api/getAdminHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Container><Hotel hotel={h}></Hotel><Button name={h.name} onClick={handleManage} mode="manage">Manage</Button></Container>))
+      setHotels(data.map((h) => <Hotel hotel={h} mode="manage"></Hotel>))
   }
     useEffect(() => {        
         fetchData();
@@ -60,6 +60,15 @@ export const getServerSideProps = withIronSession(
           },
         }
   
+      }
+      if(!user.admin.status){
+        return {
+          redirect:{
+            destination: '/loginForm',
+            permanent: false
+          }
+        }
+
       }
       return{props: user}
     },
