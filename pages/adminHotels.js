@@ -16,17 +16,7 @@ const adminHotels = ({user}) =>{
     },[])
 
     async function handleManage(e){
-      // let hotel = {name: e.target.name}
-      // const res = await fetch("/api/getHotel", {
-      //   method: 'POST',
-      //   headers: {'Content-Type': 'application/json'},
-      //   body: JSON.stringify(hotel)
-      // })
-      // console.log(res)
-      // const hotelName = e.target.name;
-      // const [currentHotel, setCurrentHotel] = useLocalStorage("currentHotel", res.json());
       return router.push("/manageHotel?name="+e.target.name)
-
     }
     
     

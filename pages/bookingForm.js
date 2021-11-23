@@ -6,23 +6,19 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { withIronSession } from "next-iron-session";
 import { isUndefined } from 'lodash'
-//import styles from "../styles/registerpage.module.css"
 import Header from '../components/header'
 import DatePicker from "react-datepicker";
 
 const BookForm = (user)=>{
   const {query} = useRouter()
 
-  // console.log(query.name)
   const fetchData = async () =>{
     const res = await fetch("/api/getHotelbyName", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(query.name)
     })
-    // console.log(await res.json())
     let data = await res.json()
-    console.log(data.name)
     if (isUndefined(data.name)) {
       return router.push("/")
     }
@@ -35,9 +31,6 @@ const BookForm = (user)=>{
   useEffect(() => {        
     fetchData()
   },[])
-
-  // let today = Date.toDateString(Date.now());
-  // let tomorrow = new Date(Date.now()+(1000 * 60 * 60 * 24));
 
   const [hotel, setHotel] = useState("");
   const [hotelName, setHotelName] = useState("");
@@ -52,7 +45,6 @@ const BookForm = (user)=>{
 
   const submitForm = async (event) => {
     event.preventDefault();
-    console.log(user)
     const reserv = {
       hotelName,
       userName,
@@ -112,19 +104,6 @@ const BookForm = (user)=>{
         <Form.Control type="text" placeholder="Price" disabled id="inputField" value={price}/>
       </InputGroup>
     </Form.Group>
-  {/* <Form.Group className="mb-3" id="input">
-  <Form.Label>Surcharge Rate</Form.Label>
-    <InputGroup className="mb-3">
-      <InputGroup.Text id="basic-addon1">%</InputGroup.Text>
-      <Form.Control type="text" placeholder="Surcharge"  onChange={e => setHotelSurcharge(e.target.value)} id="inputField" value={hotelSurcharge}/>
-    </InputGroup>
-  </Form.Group>
-  <Form.Group className="mb-3" id="input">
-    <Form.Check type="checkbox" label="Smoking Allowed" onClick={e => setHotelSmoking(e.target.checked)} defaultChecked={hotelSmoking}/>
-    <Form.Check type="checkbox" label="Pets Allowed" onClick={e => setHotelPetsAllowed(e.target.checked)} defaultChecked={hotelPetsAllowed}/>
-    <Form.Check type="checkbox" label="Free Wifi" onClick={e => setHotelFreeWifi(e.target.checked)} defaultChecked={hotelFreeWifi}/>
-    <Form.Check type="checkbox" label="Breakfast" onClick={e => setHotelBreakfast(e.target.checked)} defaultChecked={hotelBreakfast}/>
-  </Form.Group> */}
   <Form.Group className="mb-3" id="input">
   <Button variant="primary" type="submit" id="submitButton" >
     Create Reservation

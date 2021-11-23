@@ -3,7 +3,7 @@ import Hotel from "../components/hotel"
 import Head from 'next/head'
 import Header from '../components/header'
 import router, {useRouter} from 'next/router'
-import { useEffect, useState } from "react";
+import { useEffect, useState, React } from "react";
 import { Form, Button, Nav, Row, Col, InputGroup, Alert} from 'react-bootstrap'
 import Link from 'next/link'
 import { isUndefined } from 'lodash'
@@ -11,16 +11,13 @@ import { isUndefined } from 'lodash'
 const manageHotel = ({user}) => {
   const {query} = useRouter()
 
-  // console.log(query.name)
   const fetchData = async () =>{
     const res = await fetch("/api/getHotelbyName", {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(query.name)
     })
-    // console.log(await res.json())
     let data = await res.json()
-    console.log(data.name)
     if (isUndefined(data.name)) {
       return router.push("/adminHotels")
     }
@@ -64,7 +61,6 @@ const manageHotel = ({user}) => {
   const submitForm = async event => {
     event.preventDefault()
 
-    console.log(hotelAmenitiesPool)
     hotel.rooms = parseInt(hotelRooms)
     hotel.amenities.pool = hotelAmenitiesPool
     hotel.amenities.spa = hotelAmenitiesSpa
@@ -78,7 +74,6 @@ const manageHotel = ({user}) => {
     hotel.pets_allowed = hotelPetsAllowed
     hotel.free_wifi = hotelFreeWifi
     hotel.breakfast = hotelBreakfast
-    console.log(hotel)
 
     const res = await fetch("/api/updateHotel", {
       method: 'POST',
@@ -150,10 +145,7 @@ const manageHotel = ({user}) => {
   </Row>
   <Form.Group className="mb-3" id="input">
   <Form.Label>Surcharge Rate</Form.Label>
-    {/* <InputGroup className="mb-3">
-      <InputGroup.Text id="basic-addon1">%</InputGroup.Text> */}
-      <Form.Control type="text" placeholder="Surcharge"  onChange={e => setHotelSurcharge(e.target.value)} id="inputField" value={hotelSurcharge}/>
-    {/* </InputGroup> */}
+    <Form.Control type="text" placeholder="Surcharge"  onChange={e => setHotelSurcharge(e.target.value)} id="inputField" value={hotelSurcharge}/>
   </Form.Group>
   <Form.Group className="mb-3" id="input">
     <Form.Check type="checkbox" label="Smoking Allowed" onClick={e => setHotelSmoking(e.target.checked)} defaultChecked={hotelSmoking}/>
@@ -188,17 +180,7 @@ export const getServerSideProps = withIronSession(
       }
 
     }
-
     
-    // if(!currentHotel){
-    //   return {
-    //     redirect:{
-    //       destination: '/',
-    //       permanent: false
-    //     },
-    //   }
-    // }
-
     return{props: user}
   },
   {
