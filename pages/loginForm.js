@@ -3,7 +3,11 @@ import { useRouter } from "next/router";
 import { Form, Button, Nav } from "react-bootstrap";
 import Link from "next/link";
 
+<<<<<<< HEAD
 export default function LoginForm() {
+=======
+export default function loginForm() {
+>>>>>>> origin/jose-branch
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')

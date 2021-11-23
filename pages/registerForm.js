@@ -35,6 +35,10 @@ export default function RegForm() {
         hotels: [],
       },
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/jose-branch
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -90,106 +94,103 @@ export default function RegForm() {
 
   return (
     <Container>
-    <div>
-      <Image
-        src="/form_background.jpeg"
-        alt="hotel background"
-        layout="fill"
-        fluid="true"
-      ></Image>
-      <div
-        className="card"
-        style={{
-          display: "block",
-          width: 600,
-          padding: 100,
-          marginTop: 100,
-          backgroundColor: "white",
-          opacity: 0.9,
-        }}
-        id="register"
-      >
-        <Form onSubmit={submitForm} id="form">
-          <div>
-            <Form.Group className="mb-3" id="input">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="username"
-                placeholder="Enter username"
-                onChange={(e) => setUsername(e.target.value)}
-                id="usernameField"
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" id="input">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                id="passwordField"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" id="input">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Your First Name"
-                onChange={(e) => setFirstName(e.target.value)}
-                id="firstNameField"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" id="input">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Your Last Name"
-                onChange={(e) => setLastName(e.target.value)}
-                id="lastNameField"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-3" id="input">
-              <Form.Label>Billing Address</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Billing Address"
-                onChange={(e) => setBillingAddr(e.target.value)}
-                id="billingField"
-              />
-            </Form.Group>
-
-            <Button variant="primary" type="submit" id="submitButton">
-              Register
-            </Button>
-            <Form.Group className="col-6">
-              <Form.Label id="Already">Already registered?</Form.Label>
-              
-              <Form.Group>
-            <Form.Group className="col-6">
-            <Link href="/loginForm" passHref>
-                
-                <Nav.Link>Log in</Nav.Link>
-                
-              </Link>
-            </Form.Group>
-
-                  
-                <div>
-                  <input
-                    type="checkbox"
-                    value="Admin"
-                    onChange={handleChange}
-                  ></input>{" "}
-                  Admin
-                </div>
+      <div>
+        <Image
+          src="/form_background.jpeg"
+          alt="hotel background"
+          layout="fill"
+          fluid="true"
+        ></Image>
+        <div
+          className="card"
+          style={{
+            display: "block",
+            width: 600,
+            padding: 100,
+            marginTop: 100,
+            backgroundColor: "white",
+            opacity: 0.9,
+          }}
+          id="register"
+        >
+          <Form onSubmit={submitForm} id="form">
+            <div>
+              <Form.Group className="mb-3" id="input">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                  type="username"
+                  placeholder="Enter username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  id="usernameField"
+                />
               </Form.Group>
-            </Form.Group>
-          </div>
-        </Form>
+              <Form.Group className="mb-3" id="input">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="passwordField"
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" id="input">
+                <Form.Label>First Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Your First Name"
+                  onChange={(e) => setFirstName(e.target.value)}
+                  id="firstNameField"
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" id="input">
+                <Form.Label>Last Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Your Last Name"
+                  onChange={(e) => setLastName(e.target.value)}
+                  id="lastNameField"
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" id="input">
+                <Form.Label>Billing Address</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Billing Address"
+                  onChange={(e) => setBillingAddr(e.target.value)}
+                  id="billingField"
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit" id="submitButton">
+                Register
+              </Button>
+              <Form.Group className="col-6">
+                <Form.Label id="Already">Already registered?</Form.Label>
+
+                <Form.Group>
+                  <Form.Group className="col-6">
+                    <Link href="/loginForm" passHref>
+                      <Nav.Link>Log in</Nav.Link>
+                    </Link>
+                  </Form.Group>
+
+                  <div>
+                    <input
+                      type="checkbox"
+                      value="Admin"
+                      onChange={handleChange}
+                    ></input>{" "}
+                    Admin
+                  </div>
+                </Form.Group>
+              </Form.Group>
+            </div>
+          </Form>
+        </div>
       </div>
-    </div>
     </Container>
   );
 }

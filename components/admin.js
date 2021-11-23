@@ -30,7 +30,7 @@ export default function Admin(props) {
             <Card className="text-center" style={{ width: "350px" }}>
               <Card.Body>
                 <Card.Title>Manage Users</Card.Title>
-                <Card.Text>Create, View, Update, and Delete users.</Card.Text>
+                <Card.Text>Create, View users.</Card.Text>
                 <Button variant="dark" href="/manageUsers">
                   Manage Users
                 </Button>

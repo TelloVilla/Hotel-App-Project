@@ -33,28 +33,6 @@ export default function ManageUsers() {
               </Card.Body>
             </Card>
           </Col>
-          <Col sm>
-            <Card className="text-center" style={{ width: "350px" }}>
-              <Card.Body>
-                <Card.Title>Update User</Card.Title>
-                <Card.Text>Update a registered user&apos;s information</Card.Text>
-                <Button variant="dark" href="/">
-                  Update User
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col sm>
-            <Card className="text-center" style={{ width: "350px" }}>
-              <Card.Body>
-                <Card.Title>Delete User</Card.Title>
-                <Card.Text>Delete a registered user&apos;s account.</Card.Text>
-                <Button variant="dark" href="/">
-                  Delete User
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
         </Row>
       </Container>
     </>

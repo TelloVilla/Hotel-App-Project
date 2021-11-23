@@ -45,11 +45,11 @@ export default function CreateUser() {
   return (
     <>
       <head>
-        <title>Create User</title>
+        <title className="manage-user-title">Create User</title>
       </head>
       <HeadBar></HeadBar>
       <br></br>
-      <Container>
+      <Container style={{ color: "white" }}>
         <h2>Create User</h2>
         <br></br>
         <Form id="createUserForm" onSubmit={submitForm}>
