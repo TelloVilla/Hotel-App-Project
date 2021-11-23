@@ -35,10 +35,6 @@ export default function RegForm() {
         hotels: [],
       },
     };
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/jose-branch
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

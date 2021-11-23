@@ -6,7 +6,7 @@ export default function Hotel(props){
 
     }
     function handleBook(){
-        router.push("/bookForm?name=" + props.hotel.name);
+        router.push("/bookingForm?name=" + props.hotel.name);
     }
     return(
         <Card border="dark">

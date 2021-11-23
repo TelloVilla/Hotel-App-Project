@@ -73,9 +73,24 @@
     "hash": "$2a$10$bhCENL9vwZGMZiloU7PNrOYlwdH55u36Lmzv.RidnGEgojcO7N/r.",
     "admin": {
       "status": true,
-      "hotels": ["The Magnolia All Suites"]
+      "hotels": [
+        "The Magnolia All Suites"
+      ]
     },
-    "reservations": []
+    "reservations": [
+      "31574The",
+      "46515The",
+      "23852The",
+      "28094The",
+      "39052The",
+      "1116The",
+      "12010The",
+      "30587The",
+      "24812The",
+      "22670The",
+      "32646The",
+      "28695The"
+    ]
   },
   {
     "id": "181253Th",

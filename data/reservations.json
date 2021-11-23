@@ -48,5 +48,15 @@
     "end": "11-23-21",
     "surcharge": true,
     "price": 1100
+  },
+  {
+    "id": "28695The",
+    "guest": "TheAdmin",
+    "hotel": "Park North Hotel",
+    "roomType": "king",
+    "start": "2021-11-24",
+    "end": "2021-11-25",
+    "surcharge": false,
+    "price": 90
   }
 ]

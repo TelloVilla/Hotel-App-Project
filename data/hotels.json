@@ -2,7 +2,7 @@
   {
     "name": "The Magnolia All Suites",
     "rooms": 20,
-    "vacancy": 18,
+    "vacancy": 16,
     "amenities": {
       "pool": true,
       "spa": true,
@@ -23,7 +23,7 @@
   {
     "name": "The Lofts at Town Centre",
     "rooms": 60,
-    "vacancy": 60,
+    "vacancy": 59,
     "amenities": {
       "pool": true,
       "spa": false,
@@ -44,7 +44,7 @@
   {
     "name": "Park North Hotel",
     "rooms": 100,
-    "vacancy": 100,
+    "vacancy": 90,
     "amenities": {
       "pool": true,
       "spa": false,

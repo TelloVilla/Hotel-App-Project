@@ -4,14 +4,15 @@ import { HotelDB } from "../../util/hotel_db";
 const bcrypt = require("bcryptjs");
 
 export default function handler(req, res) {
-    let {hotel, guest, roomType, start, end, price} = req.body;
-
+    console.log(req.body)
+    let {hotelName, userName, roomType, start, end} = req.body;
     //test data
     // let hotel = "The Magnolia All Suites"
     // let guest = "TheUser"
     // let roomType = "standard"
     // let start = "11-13-21"
     // let end = "11-23-21"
+    console.log(start);
 
   let startCheck = new Date(start);
   let endCheck = new Date(end);
@@ -31,27 +32,30 @@ export default function handler(req, res) {
   if (surchargeDays > 0) {
     surcharge = true;
   }
+  console.log(chargeDays, surchargeDays);
 
-  let foundUser = UserDB.find((u) => u.username === guest);
+  let foundUser = UserDB.find((u) => u.username === userName);
 
   if (foundUser) {
-    let updateHotel = HotelDB.updateVacancy(hotel, "-");
-    let hotelCharge = HotelDB.findHotelByName(hotel);
+    let updateHotel = HotelDB.updateVacancy(hotelName, "-");
+    let hotelCharge = HotelDB.findHotelByName(hotelName);
     if (updateHotel) {
       let roomPrice = hotelCharge.price[roomType];
+      console.log(roomPrice)
       let surchargeRate = hotelCharge.surcharge;
+      console.log(surchargeRate)
       let price =
         roomPrice * chargeDays + roomPrice * surchargeDays * surchargeRate;
       let id = ReservDB.createReservation(
-        hotel,
-        guest,
+        hotelName,
+        userName,
         roomType,
         start,
         end,
         surcharge,
         price
       );
-      let success = UserDB.addReservationToUser(guest, id);
+      let success = UserDB.addReservationToUser(userName, id);
       res.status(200).json({ success: success });
       return;
     }
