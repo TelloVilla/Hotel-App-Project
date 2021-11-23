@@ -42,7 +42,6 @@ export default function handler(req, res) {
   if (foundUser) {
     let updateHotel;
     let oldHotel;
-    console.log(success.hotel + " " + hotel);
     if (success.hotel != hotel) {
       oldHotel = HotelDB.updateVacancy(success.hotel, "+");
       updateHotel = HotelDB.updateVacancy(hotel, "-");
@@ -52,7 +51,6 @@ export default function handler(req, res) {
     }
 
     let hotelCharge = HotelDB.findHotelByName(hotel);
-    console.log(updateHotel + " " + oldHotel);
     if (updateHotel && oldHotel) {
       let roomPrice = hotelCharge.price[roomType];
       let surchargeRate = hotelCharge.surcharge;

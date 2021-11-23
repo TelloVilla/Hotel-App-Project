@@ -21,7 +21,6 @@ const BookForm = (user)=>{
     })
     // console.log(await res.json())
     let data = await res.json()
-    console.log(data.name)
     if (isUndefined(data.name)) {
       return router.push("/")
     }

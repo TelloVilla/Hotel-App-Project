@@ -35,7 +35,6 @@ function createUser(username, firstname, lastname, billaddress, hash, admin) {
     admin: admin,
     reservations: [],
   };
-  console.log(newUser);
   users.push(newUser);
   saveData();
   return true;

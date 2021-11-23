@@ -29,17 +29,6 @@ export default function User(props) {
           <Col sm>
             <Card className="text-center" style={{ width: '350px' }}>
               <Card.Body>
-                <Card.Title>View Hotels</Card.Title>
-                <Card.Text>View available hotels.</Card.Text>
-                <Button variant="dark" href="/hotelsPage">
-                  View Hotels
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Col sm>
-            <Card className="text-center" style={{ width: '350px' }}>
-              <Card.Body>
                 <Card.Title>Manage Reservations</Card.Title>
                 <Card.Text>Manage your current reservations.</Card.Text>
                 <Button variant="dark" href="/reservations">

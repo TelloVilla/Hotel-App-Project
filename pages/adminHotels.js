@@ -30,7 +30,6 @@ const AdminHotels = ({user}) =>{
 
   function handleReservation(e) {
     e.preventDefault;
-    console.log(e.target.name);
   }
 
   if (!hotels) {

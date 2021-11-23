@@ -4,7 +4,6 @@ import { HotelDB } from "../../util/hotel_db";
 const bcrypt = require("bcryptjs");
 
 export default function handler(req, res) {
-    console.log(req.body)
     let {hotelName, userName, roomType, start, end} = req.body;
     //test data
     // let hotel = "The Magnolia All Suites"
@@ -12,7 +11,6 @@ export default function handler(req, res) {
     // let roomType = "standard"
     // let start = "11-13-21"
     // let end = "11-23-21"
-    console.log(start);
 
   let startCheck = new Date(start);
   let endCheck = new Date(end);

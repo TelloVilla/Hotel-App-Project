@@ -9,7 +9,6 @@ const ViewUsers = ({ user }) => {
   const fetchData = async () => {
     const res = await fetch("/api/getAllUser");
     const data = await res.json();
-    console.log(data)
     setUsers(
       data.map((u, i) => <DisplayUsers key={i} user={u}></DisplayUsers>)
     );

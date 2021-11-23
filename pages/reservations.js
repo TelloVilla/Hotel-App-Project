@@ -24,7 +24,6 @@ const Reservations = ({ user }) => {
   };
   useEffect(() => {
     fetchData();
-    console.log("hello");
   }, []);
 
   if (!reservs) {

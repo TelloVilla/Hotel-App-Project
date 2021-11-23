@@ -57,13 +57,11 @@ function findHotelByAmenitites(amenities) {
 
 
 function findHotelByPrice(price){
-    console.log(price);
     const priceRange = (r) => r < price && r != false;
     let found = hotels.filter(h => Object.values(h.price).some(priceRange));
     if(!found){
         return false
     }
-    console.log(found)
     return found
   }
 
@@ -97,7 +95,6 @@ function deleteHotel(name) {
 
 
 function updateHotel(hotel){
-    console.log(hotel)
     let found = hotels.find(h => h.name === hotel.name);
     if(!found){
         return false
@@ -115,14 +112,12 @@ function updateHotel(hotel){
     found.pets_allowed = hotel.pets_allowed
     found.free_wifi = hotel.free_wifi
     found.breakfast = hotel.breakfast
-    console.log(hotel)
     // found = hotel;
     saveData();
     return true
 }
 
 function saveData(){
-    console.log("hi")
     fs.writeFileSync('data/hotels.json', JSON.stringify(hotels, null, 2))
 
 }

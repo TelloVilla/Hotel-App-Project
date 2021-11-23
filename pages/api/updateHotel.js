@@ -2,7 +2,6 @@ import { HotelDB } from "../../util/hotel_db";
 
 export default function handler(req, res){
     
-    console.log(req.body)
     let hotel = req.body;
 
     //test data
