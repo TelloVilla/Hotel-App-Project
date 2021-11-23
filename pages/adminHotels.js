@@ -1,15 +1,15 @@
-import Hotel from "../components/hotel"
+import Hotel from "../components/hotel";
 import { withIronSession } from "next-iron-session";
 import { useEffect, useState } from "react";
 import {Button, Container, Spinner} from "react-bootstrap"
 import router, { Router } from 'next/router'
 
-const adminHotels = ({user}) =>{
+const AdminHotels = ({user}) =>{
     const [hotels, setHotels] = useState(null);
     const fetchData = async () =>{
       const res = await fetch("/api/getAdminHotels");
       const data = await res.json()
-      setHotels(data.map((h) => <Hotel hotel={h} mode="manage"></Hotel>))
+      setHotels(data.map((h, i) => <Hotel key={i} hotel={h} mode="manage"></Hotel>))
   }
     useEffect(() => {        
         fetchData();
@@ -26,27 +26,23 @@ const adminHotels = ({user}) =>{
       // const hotelName = e.target.name;
       // const [currentHotel, setCurrentHotel] = useLocalStorage("currentHotel", res.json());
       return router.push("/manageHotel?name="+e.target.name)
-
     }
-    
-    
-    
 
-    if(!hotels){
-        return(
-            <div>
-                <Spinner animation="border"></Spinner> Loading...
-            </div>
-        )
-    }
-    
-    return(
-        <div>
-            {hotels}
-        </div>
-    )
+  function handleReservation(e) {
+    e.preventDefault;
+    console.log(e.target.name);
+  }
 
-}
+  if (!hotels) {
+    return (
+      <div>
+        <Spinner animation="border"></Spinner> Loading...
+      </div>
+    );
+  }
+
+  return <div>{hotels}</div>;
+};
 
 export const getServerSideProps = withIronSession(
     async ({req, res}) => {
@@ -80,4 +76,4 @@ export const getServerSideProps = withIronSession(
       password: process.env.APPLICATION_SECRET
     }
   )
-  export default adminHotels;
+  export default AdminHotels;

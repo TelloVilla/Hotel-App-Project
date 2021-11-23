@@ -1,51 +1,49 @@
-const fs = require('fs')
+const fs = require("fs");
 let isEqual = require("lodash/isEqual");
-let hotels = require("../data/hotels.json")
+let hotels = require("../data/hotels.json");
 
 export const HotelDB = {
-    getAll: () => hotels,
-    find: x => hotels.find(x),
-    findHotelByName,
-    findHotelByAmenitites,
-    findHotelByPrice,
-    updateHotel,
-    updateVacancy,
-    addHotel,
-    deleteHotel,
-    saveData
+  getAll: () => hotels,
+  find: (x) => hotels.find(x),
+  findHotelByName,
+  findHotelByAmenitites,
+  findHotelByPrice,
+  updateVacancy,
+  addHotel,
+  deleteHotel,
+  saveData,
+};
+
+function updateVacancy(name, action) {
+  let found = hotels.find((h) => h.name === name);
+  if (!found) {
+    return false;
+  }
+  if (action === "+") {
+    found.vacancy++;
+  } else if (action === "-") {
+    found.vacancy--;
+  }
+  saveData();
+  return true;
 }
 
-function updateVacancy(name, action){
-    let found = hotels.find(h => h.name === name);
-    if(!found){
-        return false
-    }
-    if(action === "+"){
-        found.vacancy++;
-    }else if(action === "-"){
-        found.vacancy--;
-    }
-    saveData();
-    return true
+function findHotelByName(name) {
+  let found = hotels.find((h) => h.name === name);
+  if (!found) {
+    return false;
+  }
+  return found;
 }
 
-
-function findHotelByName(name){
-    let found = hotels.find(h => h.name === name)
-    if(!found){
-        return false
-    }
-    return found
+function findHotelByAmenitites(amenities) {
+  let found = hotels.filter((h) => isEqual(h.amenities, amenities));
+  if (!found) {
+    return false;
+  }
+  return found;
 }
 
-function findHotelByAmenitites(amenities){
-    
-    let found = hotels.filter(h => isEqual(h.amenities,amenities))
-    if(!found){
-        return false
-    }
-    return found
-}
 
 function findHotelByPrice(price){
     console.log(price);
@@ -56,37 +54,36 @@ function findHotelByPrice(price){
     }
     console.log(found)
     return found
+  }
 
+function addHotel(name, rooms, amenities, price, surcharge) {
+  let dup = hotels.find((h) => h.name === name);
+  if (dup) {
+    return false;
+  }
+  let newHotel = {
+    name: name,
+    rooms: rooms,
+    amenities: amenities,
+    price: price,
+    surcharge: surcharge,
+  };
+
+  hotels.push(newHotel);
+  return true;
 }
 
-function addHotel(name, rooms, amenities, price, surcharge){
-    let dup = hotels.find(h => h.name === name)
-    if(dup){
-        return false
-    }
-    let newHotel = {
-        name: name,
-        rooms: rooms,
-        amenities: amenities,
-        price: price,
-        surcharge: surcharge
-    }
-
-    hotels.push(newHotel)
-    return true
+function deleteHotel(name) {
+  let found = hotels.find((h) => h.name === name);
+  if (!found) {
+    return false;
+  }
+  let index = hotels.indexOf(found);
+  users.splice(index, 1);
+  saveData();
+  return true;
 }
 
-function deleteHotel(name){
-    let found = hotels.find(h => h.name === name)
-    if(!found){
-        return false
-    }
-    let index = hotels.indexOf(found);
-    users.splice(index, 1);
-    saveData();
-    return true
-
-}
 
 function updateHotel(hotel){
     console.log(hotel)

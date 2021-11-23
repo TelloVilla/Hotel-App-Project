@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import {Button, Container, Row, Col, Spinner} from "react-bootstrap"
 import HeadBar from "../components/headbar";
 
-const hotelsPage = (user) =>{
+const HotelsPage = (user) =>{
     const [admin, setAdmin] = useState(false);
     const [hotels, setHotels] = useState(null);
     const fetchData = async () =>{
       const res = await fetch("/api/getAllHotels");
       const data = await res.json()
-      setHotels(data.map((h, i) => <Col><Hotel hotel={h} mode="book"></Hotel></Col>))
+      setHotels(data.map((h, i) => <Col key={i} ><Hotel key={i} hotel={h} mode="book"></Hotel></Col>))
   }
     useEffect(() => {        
         fetchData();
@@ -69,4 +69,4 @@ export const getServerSideProps = withIronSession(
       password: process.env.APPLICATION_SECRET
     }
   )
-  export default hotelsPage;
+  export default HotelsPage;

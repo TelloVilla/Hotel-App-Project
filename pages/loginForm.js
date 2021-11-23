@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import { Form, Button, Nav } from 'react-bootstrap'
-import Link from 'next/link'
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { Form, Button, Nav } from "react-bootstrap";
+import Link from "next/link";
 
-export default function loginForm() {
+export default function LoginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    const data = {
-      username,
-      password
-    }
-    const submitForm = async event => {
-      event.preventDefault()
+  const data = {
+    username,
+    password,
+  };
+  const submitForm = async (event) => {
+    event.preventDefault();
 
-      const res = await fetch("/api/login", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
-    })
+    const res = await fetch("/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-    if(res.ok) {
-      return router.push('/')
+    if (res.ok) {
+      return router.push("/");
+    } else {
+      return router.push("/something");
     }
-    else {
-      return router.push('/something')
-    }
-    
-
-    }
+  };
 
   return (
     // <form onSubmit={submitForm}>
@@ -72,4 +69,3 @@ export default function loginForm() {
 </div>
   );
 }
-

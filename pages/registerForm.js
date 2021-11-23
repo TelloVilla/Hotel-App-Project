@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 //import styles from "../styles/registerpage.module.css"
 
-export default function regForm() {
+export default function RegForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -35,7 +35,6 @@ export default function regForm() {
         hotels: [],
       },
     };
-
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
