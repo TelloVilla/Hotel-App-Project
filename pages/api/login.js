@@ -5,16 +5,22 @@ const bcrypt = require("bcryptjs");
 
 async function handler(req, res) {
   let { username, password } = req.body;
+  let auth = false;
 
   
 
-  if(username === "" || password ===""){
+  if(username === "" || password === ""){
     res.status(400).json({error: "Missing parameters"})
     return
   }
 
   let user = UserDB.find((u) => u.username === username);
-  if (user.username === username && bcrypt.compare(password, user.hash)) {
+  if(!user){
+    res.status(400).json({error: "User not found"})
+    return
+  }
+    
+  if (user.username === username && await bcrypt.compare(password, user.hash)) {
     req.session.set("user", {
       admin: user.admin,
       username: username,
@@ -28,7 +34,7 @@ async function handler(req, res) {
     res.status(200).send("Logged In");
     return;
   } else {
-    res.status(401).send("");
+    res.status(400).send("");
     return;
   }
 }
