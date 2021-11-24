@@ -1,32 +1,39 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { Form, Button, Nav } from "react-bootstrap";
-import Link from "next/link";
-
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { Form, Button, Nav } from 'react-bootstrap'
+import Link from 'next/link'
+import { toast } from 'react-toastify'
+import Image from 'next/image'
 export default function LoginForm() {
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-  const data = {
-    username,
-    password,
-  };
-  const submitForm = async (event) => {
-    event.preventDefault();
-
-    const res = await fetch("/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    if (res.ok) {
-      return router.push("/");
-    } else {
-      return router.push("/something");
+    const data = {
+      username,
+      password
     }
-  };
+    const submitForm = async event => {
+      event.preventDefault()
+     
+      const res = await fetch("/api/login", {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    })
+
+    if(res.ok) {
+      return router.push('/')
+    }
+    if(res.status === 400 || res.status === 500) {
+      toast.error("Invalid Login", {
+        theme: "colored",
+        position: toast.POSITION.TOP_CENTER
+      })
+    }
+    
+
+    }
 
   return (
     // <form onSubmit={submitForm}>
@@ -38,12 +45,16 @@ export default function LoginForm() {
     //   <br />
     //   <button type="submit" >Login</button>
     // </form>
+<div>
+<Image src="/form_background.jpeg" alt="hotel background" layout="fill">
 
-    <div style={{ display: 'block', 
-    width: 700, 
-    padding: 100 }}
-    id="register">
-    <Form onSubmit={submitForm} id="form">
+</Image>
+    <div className="card" style={{ display: 'block', 
+    width: 600, 
+    padding: 100,
+    marginTop: 200,
+    backgroundColor: "white"}}>
+    <Form onSubmit={submitForm} id="login">
       
   <Form.Group className="mb-3" id="input">
     <Form.Label>Username</Form.Label>
@@ -54,7 +65,7 @@ export default function LoginForm() {
   <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password"  onChange={e => setPassword(e.target.value)} id="inputField"/>
   </Form.Group>
-  <Button variant="primary" type="submit" id="submitButton" onClick={submitForm}>
+  <Button variant="primary" type="submit" id="submitButton" >
     Log in
   </Button>
   <Form.Group>
@@ -66,6 +77,7 @@ export default function LoginForm() {
   </Link>
   </Form.Group>
 </Form>
+</div>
 </div>
   );
 }

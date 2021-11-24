@@ -44,8 +44,7 @@ export default function RegForm() {
     if (res.ok) {
       return router.push("/");
     }
-
-    if (res.status === 400) {
+    if (res.status == 400) {
       toast.error("Could Not Register", {
         theme: "colored",
         position: toast.POSITION.TOP_CENTER,

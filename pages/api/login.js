@@ -6,6 +6,13 @@ const bcrypt = require("bcryptjs");
 async function handler(req, res) {
   let { username, password } = req.body;
 
+  
+
+  if(username === "" || password ===""){
+    res.status(400).json({error: "Missing parameters"})
+    return
+  }
+
   let user = UserDB.find((u) => u.username === username);
   if (user.username === username && bcrypt.compare(password, user.hash)) {
     req.session.set("user", {
