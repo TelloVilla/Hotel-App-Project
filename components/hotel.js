@@ -18,7 +18,6 @@ export default function Hotel(props){
                 <ListGroupItem>Total Rooms: {props.hotel.rooms}</ListGroupItem>
                 <ListGroupItem>Vacancy {props.hotel.vacancy}</ListGroupItem>
                 <ListGroupItem>Surcharge Rate: {Math.ceil(((props.hotel.surcharge - 1) * 100)) + "%"}</ListGroupItem>
-                <ListGroupItem>Policies: {props.hotel.smoking ? "Smoking Avaiable": "Non-Smoking Only"}</ListGroupItem>
             </ListGroup>
             <Accordion>
             <Accordion.Item eventKey="0">

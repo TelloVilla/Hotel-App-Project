@@ -42,7 +42,7 @@ export default function Admin(props) {
               <Card.Body>
                 <Card.Title>Manage Hotels</Card.Title>
                 <Card.Text>View list of assigned hotels.</Card.Text>
-                <Button variant="dark" href="/manageHotel">
+                <Button variant="dark" href="/adminHotels">
                   Manage Hotels
                 </Button>
               </Card.Body>

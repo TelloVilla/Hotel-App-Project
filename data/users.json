@@ -29,5 +29,18 @@
     "reservations": [
       "30469The"
     ]
+  },
+  {
+    "id": "73563Th",
+    "username": "TheAdmin2",
+    "firstname": "Jazz",
+    "lastname": "Admin",
+    "billaddress": "",
+    "hash": "$2a$10$1nooycLqWasXY6JwDhqfPeScuy/8MFIqv2MwDCM8KJC7ByxUPM14y",
+    "admin": {
+      "status": true,
+      "hotels": []
+    },
+    "reservations": ["Sun Palace Inn", "HomeAway Inn"]
   }
 ]

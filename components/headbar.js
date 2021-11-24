@@ -169,7 +169,7 @@ export default function HeadBar(props){
                     onChange={e => setSearch(e.target.value)}
                     />
                     <Button type="submit" variant="outline-light">Search</Button>
-                    {props.loggedIn && <Button onClick={onLogout} variant="outline-light">Logout</Button>}
+                    {props.loggedIn && <Button onClick={onLogout} className="logout" variant="danger">Logout</Button>}
                 </Form>
                 
 

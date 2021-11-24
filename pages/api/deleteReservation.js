@@ -1,32 +1,35 @@
-import { ReservDB } from "../../util/reserv_db";
+import { ReservDB } from "../../util/reserv_db"
 import { UserDB } from "../../util/user_db";
 import { HotelDB } from "../../util/hotel_db";
-export default function handler(req, res) {
-  //let {reservID} = req.body;
+export default function handler(req, res){
 
-  let reservID = "2296jim";
+    let {reservID} = req.body;
 
-  let found = ReservDB.find((x) => x.id === reservID);
+    // let reservID = "2296jim";
 
-  if (!found) {
-    res.status(400).json({ error: "Reservation not found" });
-    return;
-  }
-  let updateHotel = HotelDB.updateVacancy(found.hotel, "+");
+    let found = ReservDB.find(x => x.id === reservID)
 
-  let success = ReservDB.deleteReservation(reservID);
+    if(!found){
+        res.status(400).json({error: "Reservation not found"})
+        return;
+    }
+    let updateHotel = HotelDB.updateVacancy(found.hotel, "+");
 
-  if (!success) {
-    res.status(400).json({ error: "Reservation not found" });
-    return;
-  }
+    let success = ReservDB.deleteReservation(reservID)
 
-  success = UserDB.deleteUserReservation(reservID);
+    if(!success){
+        res.status(400).json({error: "Reservation not found"})
+        return;
+    }
 
-  if (!success) {
-    res.status(400).json({ error: "User not found" });
-    return;
-  }
+    success = UserDB.deleteUserReservation(reservID)
 
-  res.status(200).json({ success: success });
+    if(!success){
+        res.status(400).json({error: "User not found"})
+        return;
+    }
+
+    res.status(200).json({success: success})
+
+
 }
